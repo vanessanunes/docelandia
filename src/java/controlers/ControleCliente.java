@@ -5,6 +5,7 @@
  */
 package controlers;
 
+import beans.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,10 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author internet
- */
 public class ControleCliente extends HttpServlet {
 
     /**
@@ -30,17 +27,43 @@ public class ControleCliente extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        
+        // Variável que receberá o valor da flag enviado pelo formulário
+        String flag = request.getParameter("flag");
+        
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControleCliente</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControleCliente at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+//            if (flag == null) {
+//                request.getRequestDispatcher("index.html").
+//                        forward(request, response);
+//            }
+            
+            switch (flag) {
+                case "login":
+                    String usuario = request.getParameter("login");
+                    String senha = request.getParameter("senha");
+                    System.out.print(("entramos no controller, flag " + flag));
+                    System.out.print(("Usuario: " + usuario));
+                    System.out.print(("Senha: " + senha));
+                    
+                    Login login = new Login();
+                    login.setLogin(usuario);
+                    login.setSenha(senha);
+//                    fazer verificação de erro
+//                    vai ter que passar pelo DAO
+                     // Coloca os dados do cliente VÁLIDO numa session
+                    request.setAttribute("user", login);
+                    String lg;
+                    lg = request.getAttribute("user").toString();
+                    System.out.print("login: " + login);
+                    System.out.print("lg: " + lg);
+                    // Redireciona para a View
+                    
+                    request.getRequestDispatcher("index.jsp").
+                            forward(request, response);
+                    
+                    
+                    
+            }
         }
     }
 
