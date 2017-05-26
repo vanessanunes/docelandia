@@ -9,7 +9,7 @@
         <h1>login</h1>
         <form action="ControleCliente" method="post">
             Login:<br>
-            <input type="email" id="login" name="login">
+            <input type="email" id="email" name="email">
             <br> <br>
             Senha:<br>
             <input type="password" id="senha" name="senha">
@@ -17,6 +17,5 @@
             <input type="hidden" name="flag" value="login"> 
             <input type="submit" value="Entrar">
         </form>
-        
     </body>
 </html>

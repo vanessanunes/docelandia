@@ -1,18 +1,27 @@
 package beans;
 
 public class Login {
-    private String login;
+    private int id;
+    private String email;
     private String senha;
 
     public Login() {
     }
 
-    public String getLogin() {
-        return login;
+    public int getId() {
+        return id;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {

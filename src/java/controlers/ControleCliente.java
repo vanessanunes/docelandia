@@ -8,10 +8,12 @@ package controlers;
 import beans.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.ClienteDAO;
 
 public class ControleCliente extends HttpServlet {
 
@@ -39,24 +41,15 @@ public class ControleCliente extends HttpServlet {
             
             switch (flag) {
                 case "login":
-                    String usuario = request.getParameter("login");
+                    String email = request.getParameter("email");
                     String senha = request.getParameter("senha");
-                    System.out.print(("entramos no controller, flag " + flag));
-                    System.out.print(("Usuario: " + usuario));
-                    System.out.print(("Senha: " + senha));
+                    try {
+                        ClienteDAO clienteDAO = new ClienteDAO();
+                        clienteDAO.getLogin(email, senha);
+                    } catch (Exception e){
+                        System.out.print("ControleCliente, flag login: Caiu o catch!");
+                    }
                     
-                    Login login = new Login();
-                    login.setLogin(usuario);
-                    login.setSenha(senha);
-//                    fazer verificação de erro
-//                    vai ter que passar pelo DAO
-                     // Coloca os dados do cliente VÁLIDO numa session
-                    request.setAttribute("user", login);
-                    String lg;
-                    lg = request.getAttribute("user").toString();
-                    System.out.print("login: " + login);
-                    System.out.print("lg: " + lg);
-                    // Redireciona para a View
                     
                     request.getRequestDispatcher("index.jsp").
                             forward(request, response);
