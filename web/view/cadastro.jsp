@@ -3,10 +3,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastro</title>
     </head>
     <body>
-        <h1>Acessou?...</h1>
-        cu
+        <h1>Cadastro:</h1>
+        <label for="nome">Nome: </label>
+        <br>
+        <input type="text" name="nome" id="nome" />
+        
     </body>
 </html>

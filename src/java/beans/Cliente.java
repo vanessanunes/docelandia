@@ -1,12 +1,11 @@
 package beans;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class Cliente implements Serializable{
     private int id;
     private String nome;
-    private String sobrenome;
     private String email;
     private String senha;
     private String cpf;
@@ -30,14 +29,6 @@ public class Cliente implements Serializable{
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
     }
 
     public String getEmail() {

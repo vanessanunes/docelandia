@@ -5,10 +5,14 @@
  */
 package controlers;
 
+import beans.Cliente;
 import beans.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,8 +41,7 @@ public class ControleCliente extends HttpServlet {
 //            if (flag == null) {
 //                request.getRequestDispatcher("index.html").
 //                        forward(request, response);
-//            }
-            
+//            } 
             switch (flag) {
                 case "login":
                     String email = request.getParameter("email");
@@ -49,10 +52,36 @@ public class ControleCliente extends HttpServlet {
                     } catch (Exception e){
                         System.out.print("ControleCliente, flag login: Caiu o catch!");
                     }
-                    
-                    
-                    request.getRequestDispatcher("index.jsp").
+//                    página de exemplo, vamos ver depois pra onde vai isso!
+                    request.getRequestDispatcher("acesso.jsp").
                             forward(request, response);
+                case "cadastro":
+                    String nome = request.getParameter("nome");
+                    senha = request.getParameter("senha"); 
+                    email = request.getParameter("email"); 
+                    String cpf = request.getParameter("cpf"); 
+                    String dt_nasc = request.getParameter("dt_nasc"); 
+                    String sexo = request.getParameter("sexo");
+                    
+                    try{
+                        ClienteDAO clienteDAO = new ClienteDAO();
+                        Cliente cliente = new Cliente();
+                        cliente.setNome(nome);
+                        cliente.setSenha(senha);
+                        cliente.setEmail(email);
+                        cliente.setCpf(cpf);
+//                        depois ver como converter string para dt nasc
+                        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                        java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
+                        cliente.setData_nasc(data);
+                        cliente.setSexo(sexo);
+                        clienteDAO.cadastraCliente(cliente);
+                        
+                    } catch (Exception e){
+                        System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
+                    }
+                    
+                    
                     
                     
                     
