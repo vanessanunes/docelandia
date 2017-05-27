@@ -3,7 +3,8 @@ package beans;
 import java.io.Serializable;
 
 public class Endereco implements Serializable{
-    private int id;
+    private int id_end;
+    private int tipo;
     private int cep;
     private String lagradouro;
     private int numero;
@@ -12,18 +13,35 @@ public class Endereco implements Serializable{
     private String cidade;
     private String uf;
     private String ponto_ref;
+    private int id_fk;
 
     public Endereco() {
     }
 
-    public int getId() {
-        return id;
+    public int getId_end() {
+        return id_end;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_end(int id_end) {
+        this.id_end = id_end;
     }
-    
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getId_fk() {
+        return id_fk;
+    }
+
+    public void setId_fk(int id_fk) {
+        this.id_fk = id_fk;
+    }
+
     public int getCep() {
         return cep;
     }
@@ -88,6 +106,4 @@ public class Endereco implements Serializable{
         this.ponto_ref = ponto_ref;
     }
     
-    
-
 }

@@ -71,15 +71,13 @@ public class ClienteDAO {
             Se estiver ele retorna o registo (deve ser APENAS um)            
             */
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
-            List<Login> clientes;
-            clientes = new ArrayList<>();
+            List<Login> usuario;
+            usuarios = new ArrayList<>();
             try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     Login cliente = new Login();
-                    cliente.setId(rs.getInt("id"));
-                    cliente.setEmail(rs.getString("email"));
-                    cliente.setSenha(rs.getString("senha"));
+                    cliente
                     clientes.add(cliente);
                     totalRegistros++;
                 }

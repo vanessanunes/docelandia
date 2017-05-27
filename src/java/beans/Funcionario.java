@@ -3,24 +3,22 @@ package beans;
 import java.io.Serializable;
 
 public class Funcionario extends Endereco implements Serializable {
-    private int id;
+    private int id_func;
     private String nome;
-    private String sobrenome;
-    private String data_nascimento;
     private String funcao;
     private String cpf;
+    private String dt_nasc;
     private String email;
-    private String senha;
 
     public Funcionario() {
     }
 
-    public int getId() {
-        return id;
+    public int getId_func() {
+        return id_func;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_func(int id_func) {
+        this.id_func = id_func;
     }
 
     public String getNome() {
@@ -29,22 +27,6 @@ public class Funcionario extends Endereco implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getSobrenome() {
-        return sobrenome;
-    }
-
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
-    }
-
-    public String getData_nascimento() {
-        return data_nascimento;
-    }
-
-    public void setData_nascimento(String data_nascimento) {
-        this.data_nascimento = data_nascimento;
     }
 
     public String getFuncao() {
@@ -63,6 +45,14 @@ public class Funcionario extends Endereco implements Serializable {
         this.cpf = cpf;
     }
 
+    public String getDt_nasc() {
+        return dt_nasc;
+    }
+
+    public void setDt_nasc(String dt_nasc) {
+        this.dt_nasc = dt_nasc;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -70,15 +60,9 @@ public class Funcionario extends Endereco implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
     
+    
+
     
     
 }

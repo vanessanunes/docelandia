@@ -4,10 +4,9 @@ import java.io.Serializable;
 import java.sql.Date;
 
 public class Cliente implements Serializable{
-    private int id;
+    private int id_clie;
     private String nome;
     private String email;
-    private String senha;
     private String cpf;
     private Date data_nasc;
     private String sexo;
@@ -15,12 +14,12 @@ public class Cliente implements Serializable{
     public Cliente() {
     }
 
-    public int getId() {
-        return id;
+    public int getId_clie() {
+        return id_clie;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_clie(int id_clie) {
+        this.id_clie = id_clie;
     }
 
     public String getNome() {
@@ -37,14 +36,6 @@ public class Cliente implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 
     public String getCpf() {
