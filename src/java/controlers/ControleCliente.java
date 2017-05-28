@@ -56,21 +56,23 @@ public class ControleCliente extends HttpServlet {
                     request.getRequestDispatcher("acesso.jsp").
                             forward(request, response);
                 case "cadastro":
+                    System.out.print("ClienteControle");
                     String nome = request.getParameter("nome");
-                    senha = request.getParameter("senha"); 
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
-                    
+                    System.out.print("Dados: \n"
+                        +"nome: " +nome+
+                            "\nemail: " + email +
+                            "\ndt_nasc: " + dt_nasc +
+                            "\nsexo: " + sexo);
                     try{
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
                         cliente.setNome(nome);
-                        cliente.setSenha(senha);
                         cliente.setEmail(email);
                         cliente.setCpf(cpf);
-//                        depois ver como converter string para dt nasc
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
                         cliente.setData_nasc(data);
