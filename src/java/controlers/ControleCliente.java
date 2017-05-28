@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.ClienteDAO;
+import models.LoginDAO;
+import utils.Utilidades;
 
 public class ControleCliente extends HttpServlet {
 
@@ -60,6 +62,7 @@ public class ControleCliente extends HttpServlet {
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
+                    senha = request.getParameter("senha"); 
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
                     System.out.print("Dados: \n"
@@ -67,9 +70,12 @@ public class ControleCliente extends HttpServlet {
                             "\nemail: " + email +
                             "\ndt_nasc: " + dt_nasc +
                             "\nsexo: " + sexo);
+                    Utilidades u = new Utilidades();
+                    int id_gerada = u.geraNumero();
                     try{
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
+                        cliente.setId_clie(id_gerada);
                         cliente.setNome(nome);
                         cliente.setEmail(email);
                         cliente.setCpf(cpf);
@@ -81,6 +87,23 @@ public class ControleCliente extends HttpServlet {
                         
                     } catch (Exception e){
                         System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
+                        System.out.print(e);
+                    }
+                    
+                    try {
+                        System.out.print("Estamos no login do Controle Cliente");
+                        
+                        Login login = new Login();
+                        login.setId_log(id_gerada);
+                        login.setNome_user(email);
+                        login.setSenha(senha);
+                        login.setTipo(1);
+                        login.setId_fk(id_gerada);
+                        
+                        LoginDAO loginDAO = new LoginDAO();
+                        loginDAO.cadastraLogin(login);
+                    } catch (Exception e){
+                        
                     }
                     
                     

@@ -1,4 +1,4 @@
-/*
+﻿/*
 * @autor Bruno da Costa Silva
 * Projeto: Banco de Dados --> Docelândia
 * Base de dados/schema: docelandia
@@ -133,3 +133,5 @@ alter table login add constraint fk_func foreign key (id_fk) references funciona
 
 
 
+
+ALTER TABLE login MODIFY COLUMN id_log INT auto_increment

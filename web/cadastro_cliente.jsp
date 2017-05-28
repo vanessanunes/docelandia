@@ -33,8 +33,8 @@
 
             <label for="nome">Sexo; </label>
             <br>
-            <input type="radio" name="sexo" value="masculino"> Homi<br>
-            <input type="radio" name="sexo" value="feminino"> Muié<br>
+            <input type="radio" name="sexo" value="m"> Homi<br>
+            <input type="radio" name="sexo" value="f"> Muié<br>
             <br><br>
             <input type="hidden" name="flag" value="cadastro"> 
             <input type="submit" value="Enviar"/>

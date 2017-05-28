@@ -29,19 +29,23 @@ public class ClienteDAO {
      * @param cliente 
      */
     public void cadastraCliente(Cliente cliente){
-        String sql = "insert into cliente(nome, email, cpf, dt_nasc, sexo)"
-                + "values (?, ?, ?, ?, ?)";
+        System.out.print("ClienteDAO - cadastraCliente()");
+        
+        String sql = "insert into cliente(id_clie, nome, email, cpf, dt_nasc, sexo)"
+                + "values (?, ?, ?, ?, ?, ?)";
+        System.out.print("sql: " + sql);
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
                 java.sql.Date dataAtual = new java.sql.Date(
                         Calendar.getInstance().getTimeInMillis());
-
-                stmt.setString(1, cliente.getNome());
-                stmt.setString(2, cliente.getEmail());
-                stmt.setString(3, cliente.getCpf());
-                stmt.setDate(4, cliente.getData_nasc());
-                stmt.setString(5, cliente.getSexo());
+                
+                stmt.setInt(1, cliente.getId_clie());
+                stmt.setString(2, cliente.getNome());
+                stmt.setString(3, cliente.getEmail());
+                stmt.setString(4, cliente.getCpf());
+                stmt.setDate(5, cliente.getData_nasc());
+                stmt.setString(6, cliente.getSexo());
                 
                 stmt.execute();
                 stmt.close();
