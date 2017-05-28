@@ -133,5 +133,3 @@ alter table login add constraint fk_func foreign key (id_fk) references funciona
 
 
 
-
-ALTER TABLE login MODIFY COLUMN id_log INT auto_increment
