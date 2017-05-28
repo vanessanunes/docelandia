@@ -29,8 +29,8 @@ public class ClienteDAO {
      * @param cliente 
      */
     public void cadastraCliente(Cliente cliente){
-        String sql = "insert into cliente(nome, senha, email, cpf, dt_nasc, sexo)"
-                + "values (?, ?, ?, ?, ?, ?)";
+        String sql = "insert into cliente(nome, email, cpf, dt_nasc, sexo)"
+                + "values (?, ?, ?, ?, ?)";
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
@@ -38,11 +38,10 @@ public class ClienteDAO {
                         Calendar.getInstance().getTimeInMillis());
 
                 stmt.setString(1, cliente.getNome());
-                stmt.setString(2, cliente.getSenha());
-                stmt.setString(3, cliente.getEmail());
-                stmt.setString(4, cliente.getCpf());
-                stmt.setDate(5, cliente.getData_nasc());
-                stmt.setString(6, cliente.getSexo());
+                stmt.setString(2, cliente.getEmail());
+                stmt.setString(3, cliente.getCpf());
+                stmt.setDate(4, cliente.getData_nasc());
+                stmt.setString(5, cliente.getSexo());
                 
                 stmt.execute();
                 stmt.close();
@@ -62,8 +61,7 @@ public class ClienteDAO {
      */
     public List<Login> getLogin(String email, String senha){
         @SuppressWarnings("UnusedAssignment")
-        String sql = "select * from login where email ='"+email+"' and senha='"+senha+"'";
-//         por enquanto não tem tabela de login, tô inventando
+        String sql = "select * from login where nome_user ='"+email+"' and senha='"+senha+"'";
         System.out.println("ClienteDAO, getLogin(): " + sql);
         
         try {
@@ -71,13 +69,14 @@ public class ClienteDAO {
             Se estiver ele retorna o registo (deve ser APENAS um)            
             */
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
-            List<Login> usuario;
-            usuarios = new ArrayList<>();
+            List<Login> clientes;
+            clientes = new ArrayList<>();
             try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
                     Login cliente = new Login();
-                    cliente
+                    cliente.getNome_user();
+                    cliente.getSenha();
                     clientes.add(cliente);
                     totalRegistros++;
                 }
