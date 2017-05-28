@@ -1,3 +1,3 @@
 # docelandia
 
-Projeto de faculdade em JSP no padrão MVC
+Projeto 5º Semestre em JSP no padrão MVC
