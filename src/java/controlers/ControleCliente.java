@@ -71,7 +71,7 @@ public class ControleCliente extends HttpServlet {
                             "\ndt_nasc: " + dt_nasc +
                             "\nsexo: " + sexo);
                     Utilidades u = new Utilidades();
-                    int id_gerada = u.geraNumero();
+                    int id_gerada = u.getGeraNumero();
                     try{
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
