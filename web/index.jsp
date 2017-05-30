@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="nav navbar-nav navbar-right">
           <li><a href="index.jsp">Inicio </a></li>
-         <li><a href="cadastro_cliente.jsp">Login</a></li>
+         <li><a href="view/cadastro_cliente.jsp">Login</a></li>
         <li><a href="#">Contato</a></li>
       </ul>
 
@@ -44,9 +44,11 @@
  
 <!-- Telão resposivo -->
 <div id="fieto">
+    </div>
    
     <div id="fieto-overlay">
-    </div>
+        Olar
+    
 
 </div>
 
