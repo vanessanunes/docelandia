@@ -6,6 +6,7 @@
 package controlers;
 
 import beans.Cliente;
+import beans.Endereco;
 import beans.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -103,7 +104,33 @@ public class ControleCliente extends HttpServlet {
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.cadastraLogin(login);
                     } catch (Exception e){
+                        System.out.print("Cadastro de login falhou");
+                    }
+//                    String tipo = request.getParameter("cep");
+                    Double cep = Double.parseDouble(request.getParameter("cep"));
+                    String lagradouro = request.getParameter("lagradouro");
+                    int numero = Integer.parseInt(request.getParameter("numero"));
+                    String bairro = request.getParameter("bairro");
+                    String complemento = request.getParameter("complemento");
+                    String cidade = request.getParameter("cidade");
+                    String uf = request.getParameter("uf");
+                    String ponto_ref = request.getParameter("ponto_ref");
+//                    String id_fk = request.getParameter("sexo");
+                    try {
+                        System.out.print("Estamos no endereco do Controle Cliente");
                         
+                        Endereco endereco = new Endereco();
+                        endereco.setId_end(id_gerada);
+                        endereco.setCep(cep);
+                        endereco.setLagradouro(lagradouro);
+                        endereco.setNumero(numero);
+                        endereco.setBairro(bairro);
+                        endereco.setComplemento(complemento);
+                        endereco.setUf(uf);
+                        endereco.setPonto_ref(ponto_ref);
+                        endereco.setId_fk(id_gerada);
+                    } catch (Exception e) {
+                        System.out.print("Cadastro de endereco fahou");
                     }
                     
                     

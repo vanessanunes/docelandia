@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Endereco implements Serializable{
     private int id_end;
     private int tipo;
-    private int cep;
+    private Double cep;
     private String lagradouro;
     private int numero;
     private String bairro;
@@ -42,13 +42,14 @@ public class Endereco implements Serializable{
         this.id_fk = id_fk;
     }
 
-    public int getCep() {
+    public Double getCep() {
         return cep;
     }
 
-    public void setCep(int cep) {
+    public void setCep(Double cep) {
         this.cep = cep;
     }
+
 
     public String getLagradouro() {
         return lagradouro;

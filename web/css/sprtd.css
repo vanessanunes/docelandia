@@ -163,7 +163,7 @@ color: #f00;
   }
   
   #fieto{
-      background-image:  url("../image/Home.jpg");
+      background-image: url("../image/Home.jpg");
       background-size: cover;
       background-position: center center;
       position: relative;
@@ -175,6 +175,7 @@ color: #f00;
   
   #fieto-overlay{
       position: absolute;
+      background-image: url("../image/logoteste.png");
       background-color: rgba(0,0,0,0.5);
       top: 0;
       bottom: 0;
