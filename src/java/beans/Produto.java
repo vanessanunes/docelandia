@@ -3,22 +3,22 @@ package beans;
 import java.io.Serializable;
 
 public class Produto implements Serializable{
-    private int id;
+//    private int id_prod;
+    private int id_cat;
     private String nome;
     private String descricao;
-    private int id_categoria;
     private float preco;
     private int quantidade;
 
     public Produto() {
     }
 
-    public int getId() {
-        return id;
+    public int getId_cat() {
+        return id_cat;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_cat(int id_cat) {
+        this.id_cat = id_cat;
     }
 
     public String getNome() {
@@ -35,14 +35,6 @@ public class Produto implements Serializable{
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    public int getId_categoria() {
-        return id_categoria;
-    }
-
-    public void setId_categoria(int id_categoria) {
-        this.id_categoria = id_categoria;
     }
 
     public float getPreco() {
