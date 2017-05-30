@@ -98,8 +98,14 @@
             <input type="radio" name="sexo" value="m"> Homi<br>
             <input type="radio" name="sexo" value="f"> Muié<br>
             <br><br>
-
-
+            
+            <label for="tipo">Tipo de endereço:</label>
+            <select>
+                <option value="1">Residencial</option>
+                <option value="2">Comercial</option>
+            </select>
+            <br>
+            <br>
             <label for="cep">CEP:</label>
             <br>
             <input type="text" id="cep" name="cep" onchange="buscaCep(this.value);">&nbsp;
@@ -134,11 +140,11 @@
             <label for="numero">Ponto de Referência: </label>
             <br>
             <input type="text" name="numero" id="numero" />
-
-
+            <br>
+            <br>
+            <input type="hidden" name="flag" value="cadastro"> 
+            <input type="submit" value="Enviar"/>
         </form>
-        <%
-            System.out.print("cadastro.jsp");
-        %>
+
     </body>
 </html>
