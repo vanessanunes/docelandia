@@ -28,7 +28,7 @@
 
             <label for="nome">Data de NascimentO; </label>
             <br>
-            <input type="text" name="dt_nasc" id="dt_nasc" />
+            <input type="date" name="dt_nasc" id="dt_nasc" />
             <br><br>
 
             <label for="nome">Sexo; </label>

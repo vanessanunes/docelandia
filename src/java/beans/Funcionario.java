@@ -1,6 +1,7 @@
 package beans;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Funcionario extends Endereco implements Serializable {
     private int id_func;
