@@ -8,6 +8,7 @@ package controlers;
 import beans.Cliente;
 import beans.Endereco;
 import beans.Login;
+import beans.Telefone;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -106,7 +107,7 @@ public class ControleCliente extends HttpServlet {
                     } catch (Exception e){
                         System.out.print("Cadastro de login falhou");
                     }
-//                    String tipo = request.getParameter("cep");
+                    String tipo = request.getParameter("tipo_end");
                     Double cep = Double.parseDouble(request.getParameter("cep"));
                     String lagradouro = request.getParameter("lagradouro");
                     int numero = Integer.parseInt(request.getParameter("numero"));
@@ -132,10 +133,33 @@ public class ControleCliente extends HttpServlet {
                     } catch (Exception e) {
                         System.out.print("Cadastro de endereco fahou");
                     }
+                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
+                    String num_tel = request.getParameter("num_tel");
+                    String tel_desc = "";
+                    if (tipo_tel == 1){
+                        tel_desc = "Pessoal";
+                    }
+                    if (tipo_tel == 2){
+                        tel_desc = "Residencial";
+                    }
+                    if (tipo_tel == 3){
+                        tel_desc = "Comercial";
+                    }
+                    if (tipo_tel == 4){
+                        tel_desc = "Recado";
+                    }
                     
-                    
-                    
-                    
+                    try {
+                        System.out.print("Estamos no telefne do Controle Cliente");
+                        Telefone telefone = new Telefone();
+//                        telefone.setId_tel(??);
+                        telefone.setId_fk(id_gerada);
+                        telefone.setNumero(numero);
+                        telefone.setTipo(tipo_tel);
+                        telefone.setDescricap(tel_desc);
+                    } catch (Exception e) {
+                        System.out.print("Cadastro de telefone fahou");
+                    }
                     
             }
         }

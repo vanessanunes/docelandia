@@ -41,7 +41,7 @@ public class FuncionarioDAO {
                 stmt.setString(2, funcionario.getNome());
                 stmt.setString(3, funcionario.getEmail());
                 stmt.setString(4, funcionario.getCpf());
-                stmt.setDate(5, funcionario.getDt_nasc());
+                stmt.setString(5, funcionario.getDt_nasc());
                 stmt.setString(6, funcionario.getEmail());
                 
                 stmt.execute();
