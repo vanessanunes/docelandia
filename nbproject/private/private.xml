@@ -3,26 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/ClienteDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleCliente.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/MySQL%20Docelândia.sql</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/index.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/login.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/cadastro_cliente.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleFuncionario.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Funcionario.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Cliente.java</file>
-=======
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/cadastro_cliente.jsp</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleCliente.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/ClienteDAO.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/utils/Utilidades.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/index.jsp</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/beans/Login.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/LoginDAO.java</file>
->>>>>>> fa3a152f75cf02af1d76d692a679779e6a22a681
+            <file>file:/C:/Users/Brunosk/docelandia/src/java/models/ClienteDAO.java</file>
+            <file>file:/C:/Users/Brunosk/docelandia/src/java/controlers/ControleFuncionario.java</file>
+            <file>file:/C:/Users/Brunosk/docelandia/src/java/beans/Cliente.java</file>
+            <file>file:/C:/Users/Brunosk/docelandia/src/java/models/FuncionarioDAO.java</file>
+            <file>file:/C:/Users/Brunosk/docelandia/src/java/beans/Funcionario.java</file>
+            <file>file:/C:/Users/Brunosk/docelandia/src/java/controlers/ControleCliente.java</file>
         </group>
     </open-files>
 </project-private>

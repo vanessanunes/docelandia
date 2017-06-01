@@ -10,7 +10,10 @@ import beans.Funcionario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +37,7 @@ public class ControleFuncionario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         
         /*Variacel flag*/
@@ -60,7 +63,9 @@ public class ControleFuncionario extends HttpServlet {
                     func.setNome(nome);
                     func.setFuncao(funcao);
                     func.setCpf(cpf);
-                    func.setDt_nasc(dt_nasc);
+                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+                    java.util.Date dataFormatada = formato.parse(dt_nasc);
+                    func.setDt_nasc((Date) dataFormatada);
                     func.setEmail(email);
                     
                     break;
@@ -80,7 +85,11 @@ public class ControleFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(ControleFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -94,7 +103,11 @@ public class ControleFuncionario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(ControleFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
