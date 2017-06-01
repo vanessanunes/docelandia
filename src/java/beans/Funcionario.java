@@ -2,17 +2,19 @@ package beans;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class Funcionario extends Endereco implements Serializable {
     private int id_func;
     private String nome;
     private String funcao;
     private String cpf;
-    private String dt_nasc;
+    private Date dt_nasc;
     private String email;
 
     public Funcionario() {
-    }
+    }  
 
     public int getId_func() {
         return id_func;
@@ -46,11 +48,11 @@ public class Funcionario extends Endereco implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getDt_nasc() {
+    public Date getDt_nasc() {
         return dt_nasc;
     }
 
-    public void setDt_nasc(String dt_nasc) {
+    public void setDt_nasc(Date dt_nasc) {
         this.dt_nasc = dt_nasc;
     }
 
@@ -61,7 +63,7 @@ public class Funcionario extends Endereco implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     
 
     
