@@ -40,6 +40,7 @@ public class ControleCliente extends HttpServlet {
         
         // Variável que receberá o valor da flag enviado pelo formulário
         String flag = request.getParameter("flag");
+        String mensagem = "";
         
         try (PrintWriter out = response.getWriter()) {
 //            if (flag == null) {
@@ -59,6 +60,7 @@ public class ControleCliente extends HttpServlet {
 //                    página de exemplo, vamos ver depois pra onde vai isso!
                     request.getRequestDispatcher("acesso.jsp").
                             forward(request, response);
+                    break;
                 case "cadastro":
                     System.out.print("ClienteControle");
                     String nome = request.getParameter("nome");
@@ -160,6 +162,10 @@ public class ControleCliente extends HttpServlet {
                     } catch (Exception e) {
                         System.out.print("Cadastro de telefone fahou");
                     }
+                    
+                    mensagem = "Cadastro de cliente";
+                    response.sendRedirect("view/mensagem.jsp");
+                    break;
                     
             }
         }
