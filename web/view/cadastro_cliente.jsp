@@ -99,7 +99,22 @@
             <input type="radio" name="sexo" value="f"> Muié<br>
             <br><br>
             
-            <label for="tipo">Tipo de endereço:</label>
+             <label for="tipo_tel">Tipo de telefone:</label>
+            <select>
+                <option value="1">Pessoal</option>
+                <option value="2">Residencial</option>
+                <option value="2">Comercial</option>
+                <option value="2">Recado</option>
+            </select>
+            
+             <br><br>
+             
+            <label for="nome">Número:</label>
+            <br>
+            <input type="text" name="num_tel" id="num_tel" />
+            <br><br>
+            
+            <label for="tipo_end">Tipo de endereço:</label>
             <select>
                 <option value="1">Residencial</option>
                 <option value="2">Comercial</option>
