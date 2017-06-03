@@ -37,9 +37,6 @@ public class ClienteDAO {
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-                java.sql.Date dataAtual = new java.sql.Date(
-                        Calendar.getInstance().getTimeInMillis());
-                
                 stmt.setInt(1, cliente.getId_clie());
                 stmt.setString(2, cliente.getNome());
                 stmt.setString(3, cliente.getEmail());

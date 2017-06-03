@@ -48,8 +48,6 @@ public class ControleProduto extends HttpServlet {
                     /*Setando valores*/
                     String nome = request.getParameter("nome_cat");
                     String desc = request.getParameter("descricao");
-                    System.out.print("Nome: " + nome +
-                            "\nDescrição: " + desc);
                     try{
                         Categoria categoria = new Categoria();
                         int cod_cat = util.getGeraNumero();
@@ -61,9 +59,9 @@ public class ControleProduto extends HttpServlet {
                     } catch (Exception e) {
                         System.out.print("ControleProduto, falha em cadastrar categoria");
                     }
-                    mensagem = "Categoria cadastrada com sucesso";
-                    request.getRequestDispatcher("view/mensagem.jsp").forward(request, response);
-                    break;
+//                    mensagem = "Categoria cadastrada com sucesso";
+//                    request.getRequestDispatcher("view/mensagem.jsp").forward(request, response);
+//                    break;
             }
         }
     }

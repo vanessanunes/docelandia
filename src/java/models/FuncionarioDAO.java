@@ -37,21 +37,21 @@ public class FuncionarioDAO {
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-                java.sql.Date dataAtual = new java.sql.Date(
-                        Calendar.getInstance().getTimeInMillis());
-                
-                stmt.setInt(1, cliente.getId_clie());
-                stmt.setString(2, cliente.getNome());
-                stmt.setString(3, cliente.getEmail());
-                stmt.setString(4, cliente.getCpf());
-                stmt.setDate(5, cliente.getData_nasc());
-                stmt.setString(6, cliente.getSexo());
+
+                System.out.print("FuncionarioDAO - try");
+                stmt.setInt(1, funcionario.getId_func());
+                stmt.setString(2, funcionario.getNome());
+                stmt.setString(3, funcionario.getEmail());
+                stmt.setString(4, funcionario.getCpf());
+                stmt.setDate(5, funcionario.getDt_nasc());
                 
                 stmt.execute();
                 stmt.close();
+                System.out.print("FuncionarioDAO - ok");
                 status = ("Dados incluídos com sucesso!");
             }
         } catch (SQLException e) {
+            System.out.print("FuncionarioDAO - falhou" + e);
             throw new RuntimeException(e);
         }
         
