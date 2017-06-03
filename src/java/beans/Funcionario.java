@@ -2,8 +2,7 @@ package beans;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 
 public class Funcionario extends Endereco implements Serializable {
     private int id_func;

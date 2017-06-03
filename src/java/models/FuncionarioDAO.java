@@ -1,6 +1,6 @@
 package models;
 
-import conexao.ConnectionFactory;
+import beans.Cliente;
 import beans.Funcionario;
 import beans.Login;
 import conexao.ConnectionFactory;
@@ -26,23 +26,26 @@ public class FuncionarioDAO {
     }
     
     /***
-     * Entre com o objeto funcionário para realizar cadastro
-     * @param funcionario 
+     * Entre com o objeto cliente para realizar cadastro
+     * @param cliente 
      */
     public void cadastraFuncionario(Funcionario funcionario){
         
-        String sql = "insert into funcionario(id_func, nome, email, cpf, dt_nasc)"
-                + "values (?,?,?,?,?)";
+        String sql = "insert into funcionario(id_func, nome, cargo, cpf, dt_nasc, sexo)"
+                + "values (?, ?, ?, ?, ?, ?)";
+        System.out.print("sql: " + sql);
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-                                
-                stmt.setInt(1, funcionario.getId_func());
-                stmt.setString(2, funcionario.getNome());
-                stmt.setString(3, funcionario.getEmail());
-                stmt.setString(4, funcionario.getCpf());
-                stmt.setDate(5, funcionario.getDt_nasc());
-                stmt.setString(6, funcionario.getEmail());
+                java.sql.Date dataAtual = new java.sql.Date(
+                        Calendar.getInstance().getTimeInMillis());
+                
+                stmt.setInt(1, cliente.getId_clie());
+                stmt.setString(2, cliente.getNome());
+                stmt.setString(3, cliente.getEmail());
+                stmt.setString(4, cliente.getCpf());
+                stmt.setDate(5, cliente.getData_nasc());
+                stmt.setString(6, cliente.getSexo());
                 
                 stmt.execute();
                 stmt.close();
@@ -63,7 +66,8 @@ public class FuncionarioDAO {
     public List<Login> getLogin(String email, String senha){
         @SuppressWarnings("UnusedAssignment")
         String sql = "select * from login where nome_user ='"+email+"' and senha='"+senha+"'";
- 
+        System.out.println("ClienteDAO, getLogin(): " + sql);
+        
         try {
             /* entramos na tabela login e verificamos se está correto,
             Se estiver ele retorna o registo (deve ser APENAS um)            
@@ -88,9 +92,5 @@ public class FuncionarioDAO {
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
-    }
-
-    public String getStatus() {
-        return status;
     }
 }

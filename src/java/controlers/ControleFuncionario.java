@@ -5,26 +5,25 @@
  */
 package controlers;
 
-import utils.Utilidades;
-import beans.Funcionario;
+import beans.Cliente;
+import beans.Endereco;
+import beans.Login;
+import beans.Telefone;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
-import java.text.ParseException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.time.Instant;
+import java.util.Date;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.ClienteDAO;
+import models.FuncionarioDAO;
+import models.LoginDAO;
+import utils.Utilidades;
 
-/**
- *
- * @author Bruno
- */
-@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario"})
 public class ControleFuncionario extends HttpServlet {
 
     /**
@@ -37,38 +36,132 @@ public class ControleFuncionario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        /*Variacel flag*/
+        // Variável que receberá o valor da flag enviado pelo formulário
         String flag = request.getParameter("flag");
         
-        /*Declaração das variaveis*/
-        String nome = request.getParameter("nome");
-        String funcao = request.getParameter("funcao");
-        String cpf = request.getParameter("cpf");
-        String dt_nasc = request.getParameter("dt_nasc");
-        String email = request.getParameter("email");
-        
-        /*Objetos*/
-        Funcionario func = new Funcionario();
-        Utilidades util = new Utilidades();
-        
         try (PrintWriter out = response.getWriter()) {
-  
-            switch (flag){
-                case "cadastro":
-                    /*Setando valores*/
-                    func.setId_func(util.getGeraNumero());
-                    func.setNome(nome);
-                    func.setFuncao(funcao);
-                    func.setCpf(cpf);
-                    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                    java.util.Date dataFormatada = formato.parse(dt_nasc);
-                    func.setDt_nasc((Date) dataFormatada);
-                    func.setEmail(email);
-                    
+
+            switch (flag) {
+                case "login":
+                    String email = request.getParameter("email");
+                    String senha = request.getParameter("senha");
+                    try {
+                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                        FuncionarioDAO.getLogin(email, senha);
+                    } catch (Exception e){
+                        System.out.print("Erro na instancia DAO");
+                    }
+                  
                     break;
+                case "cadastro":
+                    System.out.print("ClienteControle");
+                    String nome = request.getParameter("nome");
+                    email = request.getParameter("email"); 
+                    String cpf = request.getParameter("cpf"); 
+                    senha = request.getParameter("senha"); 
+                    String dt_nasc = request.getParameter("dt_nasc"); 
+                    String sexo = request.getParameter("sexo");
+                    System.out.print("Dados: \n"
+                        +"nome: " +nome+
+                            "\nemail: " + email +
+                            "\ndt_nasc: " + dt_nasc +
+                            "\nsexo: " + sexo);
+                    Utilidades u = new Utilidades();
+                    int id_gerada = u.getGeraNumero();
+                    try{
+                        ClienteDAO clienteDAO = new ClienteDAO();
+                        Cliente cliente = new Cliente();
+                        cliente.setId_clie(id_gerada);
+                        cliente.setNome(nome);
+                        cliente.setEmail(email);
+                        cliente.setCpf(cpf);
+                        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                        java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
+                        cliente.setData_nasc(data);
+                        cliente.setSexo(sexo);
+                        clienteDAO.cadastraCliente(cliente);
+                        
+                    } catch (Exception e){
+                        System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
+                        System.out.print(e);
+                    }
+                    
+                    try {
+                        System.out.print("Estamos no login do Controle Cliente");
+                        
+                        Login login = new Login();
+                        login.setId_log(id_gerada);
+                        login.setNome_user(email);
+                        login.setSenha(senha);
+                        login.setTipo(1);
+                        login.setId_fk(id_gerada);
+                        
+                        LoginDAO loginDAO = new LoginDAO();
+                        loginDAO.cadastraLogin(login);
+                    } catch (Exception e){
+                        System.out.print("Cadastro de login falhou");
+                    }
+                    String tipo = request.getParameter("tipo_end");
+                    Double cep = Double.parseDouble(request.getParameter("cep"));
+                    String lagradouro = request.getParameter("lagradouro");
+                    int numero = Integer.parseInt(request.getParameter("numero"));
+                    String bairro = request.getParameter("bairro");
+                    String complemento = request.getParameter("complemento");
+                    String cidade = request.getParameter("cidade");
+                    String uf = request.getParameter("uf");
+                    String ponto_ref = request.getParameter("ponto_ref");
+//                    String id_fk = request.getParameter("sexo");
+                    try {
+                        System.out.print("Estamos no endereco do Controle Cliente");
+                        
+                        Endereco endereco = new Endereco();
+                        endereco.setId_end(id_gerada);
+                        endereco.setCep(cep);
+                        endereco.setLagradouro(lagradouro);
+                        endereco.setNumero(numero);
+                        endereco.setBairro(bairro);
+                        endereco.setComplemento(complemento);
+                        endereco.setUf(uf);
+                        endereco.setPonto_ref(ponto_ref);
+                        endereco.setId_fk(id_gerada);
+                    } catch (Exception e) {
+                        System.out.print("Cadastro de endereco fahou");
+                    }
+                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
+                    String num_tel = request.getParameter("num_tel");
+                    String tel_desc = "";
+                    if (tipo_tel == 1){
+                        tel_desc = "Pessoal";
+                    }
+                    if (tipo_tel == 2){
+                        tel_desc = "Residencial";
+                    }
+                    if (tipo_tel == 3){
+                        tel_desc = "Comercial";
+                    }
+                    if (tipo_tel == 4){
+                        tel_desc = "Recado";
+                    }
+                    
+                    try {
+                        System.out.print("Estamos no telefne do Controle Cliente");
+                        Telefone telefone = new Telefone();
+//                        telefone.setId_tel(??);
+                        telefone.setId_fk(id_gerada);
+                        telefone.setNumero(numero);
+                        telefone.setTipo(tipo_tel);
+                        telefone.setDescricap(tel_desc);
+                    } catch (Exception e) {
+                        System.out.print("Cadastro de telefone fahou");
+                    }
+                    
+                    mensagem = "Cadastro de cliente";
+                    response.sendRedirect("view/mensagem.jsp");
+                    break;
+                    
             }
         }
     }
@@ -85,11 +178,7 @@ public class ControleFuncionario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ControleFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -103,11 +192,7 @@ public class ControleFuncionario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ControleFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
