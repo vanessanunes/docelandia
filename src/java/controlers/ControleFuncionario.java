@@ -5,8 +5,8 @@
  */
 package controlers;
 
-import beans.Cliente;
 import beans.Endereco;
+import beans.Funcionario;
 import beans.Login;
 import beans.Telefone;
 import java.io.IOException;
@@ -50,47 +50,48 @@ public class ControleFuncionario extends HttpServlet {
                     String senha = request.getParameter("senha");
                     try {
                         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                        FuncionarioDAO.getLogin(email, senha);
+                        funcionarioDAO.getLogin(email, senha);
                     } catch (Exception e){
                         System.out.print("Erro na instancia DAO");
                     }
                   
+                    
                     break;
                 case "cadastro":
-                    System.out.print("ClienteControle");
+                    
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
                     senha = request.getParameter("senha"); 
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
-                    System.out.print("Dados: \n"
-                        +"nome: " +nome+
-                            "\nemail: " + email +
-                            "\ndt_nasc: " + dt_nasc +
-                            "\nsexo: " + sexo);
+                    String funcao = request.getParameter("funcao");
+                    
                     Utilidades u = new Utilidades();
                     int id_gerada = u.getGeraNumero();
+                    
                     try{
-                        ClienteDAO clienteDAO = new ClienteDAO();
-                        Cliente cliente = new Cliente();
-                        cliente.setId_clie(id_gerada);
-                        cliente.setNome(nome);
-                        cliente.setEmail(email);
-                        cliente.setCpf(cpf);
+                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                        Funcionario funcionario = new Funcionario();
+                        funcionario.setId_func(id_gerada);
+                        funcionario.setNome(nome);
+                        funcionario.setEmail(email);
+                        funcionario.setCpf(cpf);
+                        funcionario.setFuncao(funcao);
+                        
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
-                        cliente.setData_nasc(data);
-                        cliente.setSexo(sexo);
-                        clienteDAO.cadastraCliente(cliente);
+                        funcionario.setData_nasc(data);
+                        
+                        funcionario.setSexo(sexo);
+                        
+                        funcionarioDAO.cadastraFuncionario(funcionario);
                         
                     } catch (Exception e){
-                        System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
-                        System.out.print(e);
+                        System.out.print("Erro no cadastro");
                     }
                     
                     try {
-                        System.out.print("Estamos no login do Controle Cliente");
                         
                         Login login = new Login();
                         login.setId_log(id_gerada);
@@ -114,9 +115,7 @@ public class ControleFuncionario extends HttpServlet {
                     String uf = request.getParameter("uf");
                     String ponto_ref = request.getParameter("ponto_ref");
 //                    String id_fk = request.getParameter("sexo");
-                    try {
-                        System.out.print("Estamos no endereco do Controle Cliente");
-                        
+                    try {                       
                         Endereco endereco = new Endereco();
                         endereco.setId_end(id_gerada);
                         endereco.setCep(cep);
@@ -128,7 +127,7 @@ public class ControleFuncionario extends HttpServlet {
                         endereco.setPonto_ref(ponto_ref);
                         endereco.setId_fk(id_gerada);
                     } catch (Exception e) {
-                        System.out.print("Cadastro de endereco fahou");
+                        System.out.print("Cadastro com erro");
                     }
                     int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
                     String num_tel = request.getParameter("num_tel");
@@ -147,19 +146,13 @@ public class ControleFuncionario extends HttpServlet {
                     }
                     
                     try {
-                        System.out.print("Estamos no telefne do Controle Cliente");
                         Telefone telefone = new Telefone();
-//                        telefone.setId_tel(??);
-                        telefone.setId_fk(id_gerada);
                         telefone.setNumero(numero);
                         telefone.setTipo(tipo_tel);
                         telefone.setDescricap(tel_desc);
                     } catch (Exception e) {
                         System.out.print("Cadastro de telefone fahou");
                     }
-                    
-                    mensagem = "Cadastro de cliente";
-                    response.sendRedirect("view/mensagem.jsp");
                     break;
                     
             }

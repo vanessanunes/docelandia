@@ -9,6 +9,7 @@
 * Alteração dos campos: Cep e Cpf para o tipo "varchar"
 * Remoção das chaves estrangeiras em: Endereço e Telefone
 * Adição do campo sexo em: Funcionario
+* Adição do campo descrição em: Pedidos
 */
 
 CREATE TABLE Categoria (
@@ -47,6 +48,7 @@ ALTER TABLE Funcionario ADD CONSTRAINT PK_Funcionario PRIMARY KEY (id_func);
 CREATE TABLE Pedido (
     id_ped INT NOT NULL, /*Chave primaria composta: Tabela Pedido e Cliente*/
     dt_pedido date,
+    descricao varchar(100),
     id_clie INT
 );
 
@@ -70,7 +72,7 @@ ALTER TABLE Produto add constraint fk_categoria foreign key (id_cat) references 
 CREATE TABLE Telefone (
     id_tel INT NOT NULL,
     tipo boolean, /*Identifica se o campo é: Cliente ou Funcionário*/
-    numero NUMERIC(15),
+    numero varchar(15),
     descricao VARCHAR(50)
 );
 

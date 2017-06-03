@@ -9,8 +9,17 @@ public class Funcionario extends Endereco implements Serializable {
     private String nome;
     private String funcao;
     private String cpf;
-    private Date dt_nasc;
+    private Date data_nasc;
     private String email;
+    private String sexo;
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 
     public Funcionario() {
     }  
@@ -47,12 +56,12 @@ public class Funcionario extends Endereco implements Serializable {
         this.cpf = cpf;
     }
 
-    public Date getDt_nasc() {
-        return dt_nasc;
+    public Date getData_nasc() {
+        return data_nasc;
     }
 
-    public void setDt_nasc(Date dt_nasc) {
-        this.dt_nasc = dt_nasc;
+    public void setData_nasc(Date dt_nasc) {
+        this.data_nasc = dt_nasc;
     }
 
     public String getEmail() {
