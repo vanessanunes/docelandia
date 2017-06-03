@@ -77,11 +77,9 @@ public class ControleFuncionario extends HttpServlet {
                         funcionario.setEmail(email);
                         funcionario.setCpf(cpf);
                         funcionario.setFuncao(funcao);
-                        
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
                         funcionario.setData_nasc(data);
-                        
                         funcionario.setSexo(sexo);
                         
                         funcionarioDAO.cadastraFuncionario(funcionario);
@@ -96,8 +94,8 @@ public class ControleFuncionario extends HttpServlet {
                         login.setId_log(id_gerada);
                         login.setNome_user(email);
                         login.setSenha(senha);
-                        login.setTipo(1);
-                        login.setId_fk(id_gerada);
+                        login.setTipo_user(2);
+                        login.setId_user(id_gerada);
                         
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.cadastraLogin(login);
@@ -105,7 +103,7 @@ public class ControleFuncionario extends HttpServlet {
                         System.out.print("Cadastro de login falhou");
                     }
                     String tipo = request.getParameter("tipo_end");
-                    Double cep = Double.parseDouble(request.getParameter("cep"));
+                    String cep = request.getParameter("cep");
                     String lagradouro = request.getParameter("lagradouro");
                     int numero = Integer.parseInt(request.getParameter("numero"));
                     String bairro = request.getParameter("bairro");
@@ -124,7 +122,8 @@ public class ControleFuncionario extends HttpServlet {
                         endereco.setComplemento(complemento);
                         endereco.setUf(uf);
                         endereco.setPonto_ref(ponto_ref);
-                        endereco.setId_fk(id_gerada);
+                        endereco.setId_user(id_gerada);
+                        endereco.setTipo_user(2);
                     } catch (Exception e) {
                         System.out.print("Cadastro com erro");
                     }

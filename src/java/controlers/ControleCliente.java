@@ -94,8 +94,8 @@ public class ControleCliente extends HttpServlet {
                         login.setId_log(id_gerada);
                         login.setNome_user(email);
                         login.setSenha(senha);
-                        login.setTipo(1);
-                        login.setId_fk(id_gerada);
+                        login.setTipo_user(1);
+                        login.setId_user(id_gerada);
                         
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.cadastraLogin(login);
@@ -105,8 +105,6 @@ public class ControleCliente extends HttpServlet {
                     }
                     String tipo = request.getParameter("tipo_end");
                     String cep = request.getParameter("cep");
-                    cep = cep.replace("-", "");
-//                    Double cep = cep;
                     String lagradouro = request.getParameter("lagradouro");
                     int numero = Integer.parseInt(request.getParameter("numero"));
                     String bairro = request.getParameter("bairro");
@@ -118,19 +116,18 @@ public class ControleCliente extends HttpServlet {
 //                    System.out.print("cep: " + cep);
                     try {
                         System.out.print("Estamos no endereco do Controle Cliente");
-                        cep = cep.replace("-", "");
-                        System.out.print(cep);
-                        Double new_cep = Double.parseDouble(cep);
+                        
                         Endereco endereco = new Endereco();
                         endereco.setId_end(id_gerada);
-                        endereco.setCep(new_cep);
+                        endereco.setCep(cep);
                         endereco.setLagradouro(lagradouro);
                         endereco.setNumero(numero);
                         endereco.setBairro(bairro);
                         endereco.setComplemento(complemento);
                         endereco.setUf(uf);
                         endereco.setPonto_ref(ponto_ref);
-                        endereco.setId_fk(id_gerada);
+                        endereco.setId_user(id_gerada);
+                        endereco.setTipo_user(1);
                         EnderecoDAO enderecoDAO = new EnderecoDAO();
                         enderecoDAO.cadastraEndereco(endereco);
                     } catch (Exception e) {

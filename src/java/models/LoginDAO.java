@@ -26,8 +26,8 @@ public class LoginDAO {
     
     public void cadastraLogin(Login login){
         
-        String sql = "insert into login(id_log, nome_user, senha, tipo)"
-                + "values (?, ?, ?, ?)";
+        String sql = "insert into login(id_log, nome_user, senha, id_user, tipo_user)"
+                + "values (?, ?, ?, ?, ?)";
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
@@ -35,7 +35,8 @@ public class LoginDAO {
                 stmt.setInt(1, login.getId_log());
                 stmt.setString(2, login.getNome_user());
                 stmt.setString(3, login.getSenha());
-                stmt.setInt(4, login.getTipo());
+                stmt.setInt(4, login.getTipo_user());
+                stmt.setInt(5, login.getId_user());
                 
                 stmt.execute();
                 stmt.close();
@@ -65,14 +66,14 @@ public class LoginDAO {
                 while (rs.next()) {
 
                     Login usuario = new Login();
-                    usuario.setId_fk(rs.getInt("id"));
-                    
-                    if (usuario.getId_fk() == 1) {
-//                        cliente
-//                        Cliente cliente = new Cliente()
-                    } else {
-//                        funcionario
-                    }
+//                    usuario.setId_fk(rs.getInt("id"));
+//                    
+//                    if (usuario.getId_fk() == 1) {
+////                        cliente
+////                        Cliente cliente = new Cliente()
+//                    } else {
+////                        funcionario
+//                    }
                     
                     
                     usuarios.add(usuario);
