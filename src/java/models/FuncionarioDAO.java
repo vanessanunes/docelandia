@@ -32,7 +32,7 @@ public class FuncionarioDAO {
     public void cadastraFuncionario(Funcionario funcionario){
         
         String sql = "insert into funcionario(id_func, nome, cargo, cpf, dt_nasc, sexo)"
-                + "values (?, ?, ?, ?, ?, ?)";
+                + "values (?, ?, ?, ?, ?, ?, ?)";
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
