@@ -5,7 +5,6 @@
  */
 package controlers;
 
-import beans.Cliente;
 import beans.Endereco;
 import beans.Funcionario;
 import beans.Login;
@@ -20,10 +19,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.ClienteDAO;
 import models.FuncionarioDAO;
 import models.LoginDAO;
 import utils.Utilidades;
-
 
 public class ControleFuncionario extends HttpServlet {
 
@@ -42,7 +41,6 @@ public class ControleFuncionario extends HttpServlet {
         
         // Variável que receberá o valor da flag enviado pelo formulário
         String flag = request.getParameter("flag");
-        Utilidades u = new Utilidades();
         
         try (PrintWriter out = response.getWriter()) {
 
@@ -57,9 +55,10 @@ public class ControleFuncionario extends HttpServlet {
                         System.out.print("Erro na instancia DAO");
                     }
                   
+                    
                     break;
                 case "cadastro":
-                    System.out.print("ClienteControle");
+                    
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
@@ -67,33 +66,32 @@ public class ControleFuncionario extends HttpServlet {
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
                     String funcao = request.getParameter("funcao");
-                   
+                    
+                    Utilidades u = new Utilidades();
                     int id_gerada = u.getGeraNumero();
+                    
                     try{
-                        System.out.print("ControleFunc - cadastro");
-                        Funcionario func = new Funcionario();
-                        func.setId_func(u.getGeraNumero());
-                        func.setNome(nome);
-                        func.setFuncao(funcao);
-                        func.setCpf(cpf);
+                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                        Funcionario funcionario = new Funcionario();
+                        funcionario.setId_func(id_gerada);
+                        funcionario.setNome(nome);
+                        funcionario.setEmail(email);
+                        funcionario.setCpf(cpf);
+                        funcionario.setFuncao(funcao);
                         
-                        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-                        java.util.Date dataFormatada = formato.parse(dt_nasc);
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
+                        funcionario.setData_nasc(data);
                         
-                        func.setDt_nasc(data);
-                        func.setEmail(email);
-                        FuncionarioDAO funcDAO = new FuncionarioDAO();
-                        funcDAO.cadastraFuncionario(func);
+                        funcionario.setSexo(sexo);
+                        
+                        funcionarioDAO.cadastraFuncionario(funcionario);
                         
                     } catch (Exception e){
-                        System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
-                        System.out.print(e);
+                        System.out.print("Erro no cadastro");
                     }
                     
                     try {
-                        System.out.print("Estamos no login do Controle Cliente");
                         
                         Login login = new Login();
                         login.setId_log(id_gerada);
@@ -117,9 +115,7 @@ public class ControleFuncionario extends HttpServlet {
                     String uf = request.getParameter("uf");
                     String ponto_ref = request.getParameter("ponto_ref");
 //                    String id_fk = request.getParameter("sexo");
-                    try {
-                        System.out.print("Estamos no endereco do Controle Cliente");
-                        
+                    try {                       
                         Endereco endereco = new Endereco();
                         endereco.setId_end(id_gerada);
                         endereco.setCep(cep);
@@ -131,7 +127,7 @@ public class ControleFuncionario extends HttpServlet {
                         endereco.setPonto_ref(ponto_ref);
                         endereco.setId_fk(id_gerada);
                     } catch (Exception e) {
-                        System.out.print("Cadastro de endereco fahou");
+                        System.out.print("Cadastro com erro");
                     }
                     int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
                     String num_tel = request.getParameter("num_tel");
@@ -150,27 +146,14 @@ public class ControleFuncionario extends HttpServlet {
                     }
                     
                     try {
-                        System.out.print("Estamos no telefne do Controle Cliente");
                         Telefone telefone = new Telefone();
-//                        telefone.setId_tel(??);
-                        telefone.setId_fk(id_gerada);
                         telefone.setNumero(numero);
                         telefone.setTipo(tipo_tel);
                         telefone.setDescricap(tel_desc);
                     } catch (Exception e) {
                         System.out.print("Cadastro de telefone fahou");
                     }
-                    /*Setando valores*/
-                    try {
-                        
-                    } catch(Exception e){
-                        System.out.print(e);
-                    }
-
-                    
-//                    mensagem = "Cadastro de cliente";
-//                    response.sendRedirect("view/mensagem.jsp");
-//                    break;
+                    break;
                     
             }
         }
