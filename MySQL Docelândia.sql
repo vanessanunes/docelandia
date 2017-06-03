@@ -135,8 +135,6 @@ alter table login drop tipo;
 
 alter table telefone add tipo_user int;
 alter table telefone add id_user int;
-alter table telefone drop tipo;
 
 alter table endereco add tipo_user int;
 alter table endereco add id_user int;
-alter table endereco drop tipo;
