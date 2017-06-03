@@ -47,4 +47,11 @@ public class LoginDAO {
         
     }
     
+    public void acessaLogin(String email, String senha){
+        System.out.print("LoginDAO - acessaLogin()");
+        String sql = "select"
+                + "values (?, ?, ?, ?)";
+        
+    }
+    
 }
