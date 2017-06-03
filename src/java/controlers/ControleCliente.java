@@ -37,7 +37,6 @@ public class ControleCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         
         // Variável que receberá o valor da flag enviado pelo formulário
         String flag = request.getParameter("flag");
@@ -65,7 +64,6 @@ public class ControleCliente extends HttpServlet {
                             forward(request, response);
                     break;
                 case "cadastro":
-                    System.out.print("Cadastro");
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
@@ -73,9 +71,7 @@ public class ControleCliente extends HttpServlet {
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
                    
-                    
                     try{
-                        System.out.print("criando cliente");
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
                         cliente.setId_clie(id_gerada);
@@ -94,8 +90,6 @@ public class ControleCliente extends HttpServlet {
                     }
                     
                     try {
-                        System.out.print("criando login");
-                        
                         Login login = new Login();
                         login.setId_log(id_gerada);
                         login.setNome_user(email);
@@ -122,42 +116,42 @@ public class ControleCliente extends HttpServlet {
                     String ponto_ref = request.getParameter("ponto_ref");
                     String id_fk = request.getParameter("sexo");
 //                    System.out.print("cep: " + cep);
-//                    try {
-//                        System.out.print("Estamos no endereco do Controle Cliente");
-//                        cep = cep.replace("-", "");
-//                        System.out.print(cep);
-//                        Double new_cep = Double.parseDouble(cep);
-//                        Endereco endereco = new Endereco();
-//                        endereco.setId_end(id_gerada);
-//                        endereco.setCep(new_cep);
-//                        endereco.setLagradouro(lagradouro);
-//                        endereco.setNumero(numero);
-//                        endereco.setBairro(bairro);
-//                        endereco.setComplemento(complemento);
-//                        endereco.setUf(uf);
-//                        endereco.setPonto_ref(ponto_ref);
-//                        endereco.setId_fk(id_gerada);
-//                        EnderecoDAO enderecoDAO = new EnderecoDAO();
-//                        enderecoDAO.cadastraEndereco(endereco);
-//                    } catch (Exception e) {
-//                        System.out.print("ControleCliente - endereço: catch!");
-//                        System.out.print(e);
+                    try {
+                        System.out.print("Estamos no endereco do Controle Cliente");
+                        cep = cep.replace("-", "");
+                        System.out.print(cep);
+                        Double new_cep = Double.parseDouble(cep);
+                        Endereco endereco = new Endereco();
+                        endereco.setId_end(id_gerada);
+                        endereco.setCep(new_cep);
+                        endereco.setLagradouro(lagradouro);
+                        endereco.setNumero(numero);
+                        endereco.setBairro(bairro);
+                        endereco.setComplemento(complemento);
+                        endereco.setUf(uf);
+                        endereco.setPonto_ref(ponto_ref);
+                        endereco.setId_fk(id_gerada);
+                        EnderecoDAO enderecoDAO = new EnderecoDAO();
+                        enderecoDAO.cadastraEndereco(endereco);
+                    } catch (Exception e) {
+                        System.out.print("ControleCliente - endereço: catch!");
+                        System.out.print(e);
+                    }
+//                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
+//                    String num_tel = request.getParameter("num_tel");
+//                    String tel_desc = "";
+//                    if (tipo_tel == 1){
+//                        tel_desc = "Pessoal";
 //                    }
-                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
-                    String num_tel = request.getParameter("num_tel");
-                    String tel_desc = "";
-                    if (tipo_tel == 1){
-                        tel_desc = "Pessoal";
-                    }
-                    if (tipo_tel == 2){
-                        tel_desc = "Residencial";
-                    }
-                    if (tipo_tel == 3){
-                        tel_desc = "Comercial";
-                    }
-                    if (tipo_tel == 4){
-                        tel_desc = "Recado";
-                    }
+//                    if (tipo_tel == 2){
+//                        tel_desc = "Residencial";
+//                    }
+//                    if (tipo_tel == 3){
+//                        tel_desc = "Comercial";
+//                    }
+//                    if (tipo_tel == 4){
+//                        tel_desc = "Recado";
+//                    }
                     
 //                    try {
 //                        System.out.print("ControleCliente - telefone: catch!");

@@ -25,7 +25,6 @@ public class EnderecoDAO {
         
         String sql = "insert into endereco(id_end, tipo, cep, lagradouro, numero, bairro, complemento, cidade, uf, ponto_ref, id_fk)"
                 + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        System.out.print("sql: " + sql);
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {

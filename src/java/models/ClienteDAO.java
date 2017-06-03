@@ -29,11 +29,9 @@ public class ClienteDAO {
      * @param cliente 
      */
     public void cadastraCliente(Cliente cliente){
-        System.out.print("ClienteDAO - cadastraCliente()");
         
         String sql = "insert into cliente(id_clie, nome, email, cpf, dt_nasc, sexo)"
                 + "values (?, ?, ?, ?, ?, ?)";
-        System.out.print("sql: " + sql);
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
@@ -47,6 +45,7 @@ public class ClienteDAO {
                 stmt.execute();
                 stmt.close();
                 status = ("Dados incluídos com sucesso!");
+                System.out.print(status);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
