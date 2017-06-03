@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Bruno/docelandia/src/java/models/ClienteDAO.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleCliente.java</file>
             <file>file:/C:/Users/Bruno/docelandia/MySQL%20Docelândia.sql</file>
@@ -15,6 +16,13 @@
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Login.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Cliente.java</file>
             <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_cliente.jsp</file>
+=======
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/view/login.jsp</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/beans/Funcionario.java</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleCliente.java</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleLogin.java</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleFuncionario.java</file>
+>>>>>>> 4ce2b9cbe4b8f53c5218aad618dd02f158e27dfa
         </group>
     </open-files>
 </project-private>

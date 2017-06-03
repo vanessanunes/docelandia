@@ -4,8 +4,7 @@ import java.io.Serializable;
 
 public class Endereco implements Serializable{
     private int id_end;
-    private int tipo;
-    private Double cep;
+    private String cep;
     private String lagradouro;
     private int numero;
     private String bairro;
@@ -13,7 +12,9 @@ public class Endereco implements Serializable{
     private String cidade;
     private String uf;
     private String ponto_ref;
-    private int id_fk;
+    private int tipo_user;
+    private int id_user;
+    private int tipo;
 
     public Endereco() {
     }
@@ -26,30 +27,13 @@ public class Endereco implements Serializable{
         this.id_end = id_end;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
-
-    public int getId_fk() {
-        return id_fk;
-    }
-
-    public void setId_fk(int id_fk) {
-        this.id_fk = id_fk;
-    }
-
-    public Double getCep() {
+    public String getCep() {
         return cep;
     }
 
-    public void setCep(Double cep) {
+    public void setCep(String cep) {
         this.cep = cep;
     }
-
 
     public String getLagradouro() {
         return lagradouro;
@@ -105,6 +89,30 @@ public class Endereco implements Serializable{
 
     public void setPonto_ref(String ponto_ref) {
         this.ponto_ref = ponto_ref;
+    }
+
+    public int getTipo_user() {
+        return tipo_user;
+    }
+
+    public void setTipo_user(int tipo_user) {
+        this.tipo_user = tipo_user;
+    }
+
+    public int getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
+    }
+
+    public int getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
     }
     
 }

@@ -1,11 +1,15 @@
 package models;
 
+import beans.Cliente;
 import beans.Login;
 import conexao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class LoginDAO {
     private final Connection conexao;
@@ -21,11 +25,9 @@ public class LoginDAO {
     }
     
     public void cadastraLogin(Login login){
-        System.out.print("LoginDAO - cadastraLoginCliente()");
         
-        String sql = "insert into login(id_log, nome_user, senha, tipo)"
-                + "values (?, ?, ?, ?)";
-        System.out.print("sql: " + sql);
+        String sql = "insert into login(id_log, nome_user, senha, id_user, tipo_user)"
+                + "values (?, ?, ?, ?, ?)";
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
@@ -33,11 +35,13 @@ public class LoginDAO {
                 stmt.setInt(1, login.getId_log());
                 stmt.setString(2, login.getNome_user());
                 stmt.setString(3, login.getSenha());
-                stmt.setInt(4, login.getTipo());
+                stmt.setInt(4, login.getTipo_user());
+                stmt.setInt(5, login.getId_user());
                 
                 stmt.execute();
                 stmt.close();
                 status = ("Dados incluídos com sucesso!");
+                System.out.print(status);
             }
         } catch (SQLException e) {
             System.out.print("Caiu no catch do LoginDAO - CadastraLogin");
@@ -45,6 +49,47 @@ public class LoginDAO {
             throw new RuntimeException(e);
         }
         
+    }
+    
+    public List<Login> acessaLogin(String email, String senha){
+        System.out.print("LoginDAO - acessaLogin()");
+        String sql = "select * from login where 'email' = '"+email+"' and 'senha' = '"+senha+"'";
+        try {
+            @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+            List<Login> usuarios;
+            usuarios = new ArrayList<>();
+
+            try (PreparedStatement stmt = this.conexao.
+                    prepareStatement(sql);
+                    ResultSet rs = stmt.executeQuery()) {
+
+                while (rs.next()) {
+
+                    Login usuario = new Login();
+//                    usuario.setId_fk(rs.getInt("id"));
+//                    
+//                    if (usuario.getId_fk() == 1) {
+////                        cliente
+////                        Cliente cliente = new Cliente()
+//                    } else {
+////                        funcionario
+//                    }
+                    
+                    
+                    usuarios.add(usuario);
+
+                    totalRegistros++;
+                }
+
+                rs.close();
+                stmt.close();
+
+                return usuarios;
+            }
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
     
 }

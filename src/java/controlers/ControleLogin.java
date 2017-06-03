@@ -1,25 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlers;
 
-import beans.Categoria;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.LoginDAO;
 import utils.Utilidades;
-import models.CategoriaDAO;
 
-/**
- *
- * @author Vanessa.Nunes
- */
-public class ControleProduto extends HttpServlet {
+
+public class ControleLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,36 +23,32 @@ public class ControleProduto extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        /*Variacel flag*/
         String flag = request.getParameter("flag");
         String mensagem = "";
-        
-        Utilidades util = new Utilidades();
+        Utilidades u = new Utilidades();
+        int id_gerada = u.getGeraNumero();
         
         try (PrintWriter out = response.getWriter()) {
-  
-            switch (flag){
-                case "cad_cat":
-                    System.out.print("Entramos no ControleProduto");
-                    /*Setando valores*/
-                    String nome = request.getParameter("nome_cat");
-                    String desc = request.getParameter("descricao");
-                    try{
-                        Categoria categoria = new Categoria();
-                        int cod_cat = util.getGeraNumero();
-                        categoria.setId_cat(cod_cat);
-                        categoria.setNome(nome);
-                        categoria.setDescricao(desc);
-                        CategoriaDAO categoriaDAO = new CategoriaDAO();
-                        categoriaDAO.cadastrarCategoria(categoria);
-                    } catch (Exception e) {
-                        System.out.print("ControleProduto, falha em cadastrar categoria");
+            if (flag == null) {
+                request.getRequestDispatcher("index.html").
+                        forward(request, response);
+            } 
+            switch (flag) {
+                case "login":
+                    String email = request.getParameter("email");
+                    String senha = request.getParameter("senha");
+                    try {
+                        LoginDAO loginDAO = new LoginDAO();
+                        loginDAO.acessaLogin(email, senha);
+                    } catch (Exception e){
+                        System.out.print("ControleCliente, flag login: Caiu o catch!");
                     }
-//                    mensagem = "Categoria cadastrada com sucesso";
-//                    request.getRequestDispatcher("view/mensagem.jsp").forward(request, response);
-//                    break;
+//                    página de exemplo, vamos ver depois pra onde vai isso!
+                    request.getRequestDispatcher("acesso.jsp").
+                            forward(request, response);
+                    break;
             }
+       
         }
     }
 

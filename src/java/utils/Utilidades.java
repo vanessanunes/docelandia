@@ -19,8 +19,8 @@ public class Utilidades {
         int retorno = 0;
 
         // Concatena os números aleatórios entre 1 e 9
-        for (int i = 1; i < 10; i++) {
-            retorno += gerador.nextInt(10);
+        for (int i = 1; i < 6000; i++) {
+            retorno += gerador.nextInt(6000);
         }
         this.num = retorno;
     }

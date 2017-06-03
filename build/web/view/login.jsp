@@ -3,11 +3,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
     </head>
     <body>
-        <h1>login</h1>
-        <form action="ControleCliente" method="post">
+        <h1>Login</h1>
+        <form action="ControleLogin" method="post">
             Login:<br>
             <input type="email" id="email" name="email">
             <br> <br>

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.ClienteDAO;
+import models.EnderecoDAO;
 import models.LoginDAO;
 import utils.Utilidades;
 
@@ -36,17 +37,18 @@ public class ControleCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         
         // Variável que receberá o valor da flag enviado pelo formulário
         String flag = request.getParameter("flag");
         String mensagem = "";
+        Utilidades u = new Utilidades();
+        int id_gerada = u.getGeraNumero();
         
         try (PrintWriter out = response.getWriter()) {
-//            if (flag == null) {
-//                request.getRequestDispatcher("index.html").
-//                        forward(request, response);
-//            } 
+            if (flag == null) {
+                request.getRequestDispatcher("index.html").
+                        forward(request, response);
+            } 
             switch (flag) {
                 case "login":
                     String email = request.getParameter("email");
@@ -62,20 +64,13 @@ public class ControleCliente extends HttpServlet {
                             forward(request, response);
                     break;
                 case "cadastro":
-                    System.out.print("ClienteControle");
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
                     senha = request.getParameter("senha"); 
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
-                    System.out.print("Dados: \n"
-                        +"nome: " +nome+
-                            "\nemail: " + email +
-                            "\ndt_nasc: " + dt_nasc +
-                            "\nsexo: " + sexo);
-                    Utilidades u = new Utilidades();
-                    int id_gerada = u.getGeraNumero();
+                   
                     try{
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
@@ -90,27 +85,26 @@ public class ControleCliente extends HttpServlet {
                         clienteDAO.cadastraCliente(cliente);
                         
                     } catch (Exception e){
-                        System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
+                        System.out.print("ControleCliente - cliente: catch!");
                         System.out.print(e);
                     }
                     
                     try {
-                        System.out.print("Estamos no login do Controle Cliente");
-                        
                         Login login = new Login();
                         login.setId_log(id_gerada);
                         login.setNome_user(email);
                         login.setSenha(senha);
-                        login.setTipo(1);
-                        login.setId_fk(id_gerada);
+                        login.setTipo_user(1);
+                        login.setId_user(id_gerada);
                         
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.cadastraLogin(login);
                     } catch (Exception e){
-                        System.out.print("Cadastro de login falhou");
+                        System.out.print("ControleCliente - login: catch!");
+                        System.out.print(e);
                     }
                     String tipo = request.getParameter("tipo_end");
-                    Double cep = Double.parseDouble(request.getParameter("cep"));
+                    String cep = request.getParameter("cep");
                     String lagradouro = request.getParameter("lagradouro");
                     int numero = Integer.parseInt(request.getParameter("numero"));
                     String bairro = request.getParameter("bairro");
@@ -118,7 +112,8 @@ public class ControleCliente extends HttpServlet {
                     String cidade = request.getParameter("cidade");
                     String uf = request.getParameter("uf");
                     String ponto_ref = request.getParameter("ponto_ref");
-//                    String id_fk = request.getParameter("sexo");
+                    String id_fk = request.getParameter("sexo");
+//                    System.out.print("cep: " + cep);
                     try {
                         System.out.print("Estamos no endereco do Controle Cliente");
                         
@@ -131,41 +126,46 @@ public class ControleCliente extends HttpServlet {
                         endereco.setComplemento(complemento);
                         endereco.setUf(uf);
                         endereco.setPonto_ref(ponto_ref);
-                        endereco.setId_fk(id_gerada);
+                        endereco.setId_user(id_gerada);
+                        endereco.setTipo_user(1);
+                        EnderecoDAO enderecoDAO = new EnderecoDAO();
+                        enderecoDAO.cadastraEndereco(endereco);
                     } catch (Exception e) {
-                        System.out.print("Cadastro de endereco fahou");
+                        System.out.print("ControleCliente - endereço: catch!");
+                        System.out.print(e);
                     }
-                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
-                    String num_tel = request.getParameter("num_tel");
-                    String tel_desc = "";
-                    if (tipo_tel == 1){
-                        tel_desc = "Pessoal";
-                    }
-                    if (tipo_tel == 2){
-                        tel_desc = "Residencial";
-                    }
-                    if (tipo_tel == 3){
-                        tel_desc = "Comercial";
-                    }
-                    if (tipo_tel == 4){
-                        tel_desc = "Recado";
-                    }
+//                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
+//                    String num_tel = request.getParameter("num_tel");
+//                    String tel_desc = "";
+//                    if (tipo_tel == 1){
+//                        tel_desc = "Pessoal";
+//                    }
+//                    if (tipo_tel == 2){
+//                        tel_desc = "Residencial";
+//                    }
+//                    if (tipo_tel == 3){
+//                        tel_desc = "Comercial";
+//                    }
+//                    if (tipo_tel == 4){
+//                        tel_desc = "Recado";
+//                    }
                     
-                    try {
-                        System.out.print("Estamos no telefne do Controle Cliente");
-                        Telefone telefone = new Telefone();
-//                        telefone.setId_tel(??);
-                        telefone.setId_fk(id_gerada);
-                        telefone.setNumero(numero);
-                        telefone.setTipo(tipo_tel);
-                        telefone.setDescricap(tel_desc);
-                    } catch (Exception e) {
-                        System.out.print("Cadastro de telefone fahou");
-                    }
+//                    try {
+//                        System.out.print("ControleCliente - telefone: catch!");
+//                        Telefone telefone = new Telefone();
+////                        telefone.setId_tel(??);
+//                        telefone.setId_fk(id_gerada);
+//                        telefone.setNumero(numero);
+//                        telefone.setTipo(tipo_tel);
+//                        telefone.setDescricap(tel_desc);
+//                    } catch (Exception e) {
+//                        System.out.print("ControleCliente - telefone: catch!");
+//                        System.out.print(e);
+//                    }
                     
-                    mensagem = "Cadastro de cliente";
-                    response.sendRedirect("view/mensagem.jsp");
-                    break;
+//                    mensagem = "Cadastro de cliente";
+//                    response.sendRedirect("view/mensagem.jsp");
+//                    break;
                     
             }
         }

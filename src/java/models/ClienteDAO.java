@@ -29,17 +29,12 @@ public class ClienteDAO {
      * @param cliente 
      */
     public void cadastraCliente(Cliente cliente){
-        System.out.print("ClienteDAO - cadastraCliente()");
         
         String sql = "insert into cliente(id_clie, nome, email, cpf, dt_nasc, sexo)"
                 + "values (?, ?, ?, ?, ?, ?)";
-        System.out.print("sql: " + sql);
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-                java.sql.Date dataAtual = new java.sql.Date(
-                        Calendar.getInstance().getTimeInMillis());
-                
                 stmt.setInt(1, cliente.getId_clie());
                 stmt.setString(2, cliente.getNome());
                 stmt.setString(3, cliente.getEmail());
@@ -50,6 +45,7 @@ public class ClienteDAO {
                 stmt.execute();
                 stmt.close();
                 status = ("Dados incluídos com sucesso!");
+                System.out.print(status);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
