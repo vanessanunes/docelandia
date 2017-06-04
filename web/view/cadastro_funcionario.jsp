@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>Cadastro de Funcionário</h1>
-        <form name="func" action="../ControleFuncionario" method="post">
+        <form name="cadastro" action="../ControleFuncionario" method="post">
             <label for="nome">Nome: </label>
             <br>
             <input name="nome" id="nome" />
@@ -32,12 +32,29 @@
             <label for="email">Email: </label>
             <br>
             <input name="email" id="email" />
-            <br>
-            <br>
-            <input type="hidden" name="flag" value="cadastro" />
-            <input type="submit" value="Enviar" />
+            <br><br>
             
+            <b>CEP:</b><br>
+            <input type="text" name="cep"/><br><br>
+            <b>Lagradouro:</b><br>
+            <input type="text" name="lagradouro"/><br><br>
+            <b>Numero:</b><br>
+            <input type="text" name="numero"/><br><br>
+            <b>Bairro:</b><br>
+            <input type="text" name="bairro"/><br><br>
+            <b>Complemento:</b><br>
+            <input type="text" name="complemento"/><br><br>
+            <b>Cidade:</b><br>
+            <input type="text" name="cidade"/><br><br>
+            <b>UF:</b><br>
+            <input type="text" name="uf"/><br><br>
+            <b>Ponto Referencia:</b><br>
+            <input type="text" name="ponto_ref"/><br><br>
             
+            <input type="hidden" name="flag" value="cadastro"> 
+            <input type="submit" value="Cadastrar"/>
         </form>
+        <br><br>
+        
     </body>
 </html>

@@ -23,7 +23,8 @@ public class EnderecoDAO {
     public void cadastraEndereco(Endereco endereco){
         System.out.print("EnderecoDAO - cadastraEndereco()");
         
-        String sql = "insert into endereco(id_end, tipo, cep, lagradouro, numero, bairro, complemento, cidade, uf, ponto_ref, id_fk)"
+        String sql = "insert into endereco(id_end, tipo, cep, lagradouro, numero,"
+                + " bairro, complemento, cidade, uf, ponto_ref, id_fk)"
                 + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         
         try {
@@ -31,15 +32,15 @@ public class EnderecoDAO {
                 
                 stmt.setInt(1, endereco.getId_end());
                 stmt.setInt(2, endereco.getTipo());
-                stmt.setDouble(3, endereco.getCep());
+                stmt.setString(3, endereco.getCep());
                 stmt.setString(4, endereco.getLagradouro());
-                stmt.setInt(5, endereco.getNumero());
+                stmt.setString(5, endereco.getNumero());
                 stmt.setString(6, endereco.getBairro());
                 stmt.setString(7, endereco.getComplemento());
                 stmt.setString(8, endereco.getCidade());
                 stmt.setString(9, endereco.getUf());
                 stmt.setString(10, endereco.getPonto_ref());
-                stmt.setInt(11, endereco.getId_fk());
+                stmt.setInt(11, endereco.getTipo_user());
                 
                 stmt.execute();
                 stmt.close();
@@ -48,6 +49,9 @@ public class EnderecoDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        
+              
     }
+        public String getStatus(){
+            return status;
+        }
 }

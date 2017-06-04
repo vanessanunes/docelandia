@@ -71,9 +71,10 @@ ALTER TABLE Produto add constraint fk_categoria foreign key (id_cat) references 
 
 CREATE TABLE Telefone (
     id_tel INT NOT NULL,
-    tipo boolean, /*Identifica se o campo é: Cliente ou Funcionário*/
     numero varchar(15),
-    descricao VARCHAR(50)
+    descricao VARCHAR(50),
+    tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
+    id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
 
 ALTER TABLE Telefone ADD CONSTRAINT PK_Telefone PRIMARY KEY (id_tel);
@@ -81,15 +82,17 @@ ALTER TABLE Telefone ADD CONSTRAINT PK_Telefone PRIMARY KEY (id_tel);
 
 CREATE TABLE Endereco (
     id_end INT NOT NULL,
-    tipo INT,
+    tipo INT, /*Tipo de telefone(1=Casa, 2=Celular, 3=Recado...)*/
     cep varchar(10),
     lagradouro VARCHAR(50),
-    numero numeric(5),
+    numero varchar(15),
     bairro VARCHAR(30),
     complemento VARCHAR(50),
     cidade VARCHAR(50),
     uf CHAR(2),
-    ponto_ref VARCHAR(30)
+    ponto_ref VARCHAR(30),
+    tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
+    id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
 
 ALTER TABLE Endereco ADD CONSTRAINT PK_Endereco PRIMARY KEY (id_end);
@@ -110,10 +113,8 @@ CREATE TABLE Pagamento (
     id_ped INT,
     tipo VARCHAR(20), /*Tipo de pagamento escolhido (Cartão, Boleto, Dinheiro)*/
     dt_pag DATE,
-	
-	/*18/05*/
-	pago boolean, /*Flag*/
-	n_par int /*Numero de parcelas*/
+    pago boolean, /*Flag*/
+    n_par int /*Numero de parcelas*/
 );
 
 alter table Pagamento add constraint pk_pagamento primary key (id_pag, id_ped);
@@ -121,20 +122,11 @@ alter table Pagamento add constraint fk_pedido foreign key (id_ped) references P
 
 /*26/05*/
 create table login (
-	id_log int,
+    id_log int,
     nome_user varchar(30),
     senha varchar(70),
-    tipo boolean /*Flag - Verifica se o usuario é Floginuncionario ou Cliente(1 ou 0)*/
+    tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
+    id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
 
 alter table login add constraint pk_login primary key (id_log);
-
-alter table login add tipo_user int;
-alter table login add id_user int;
-alter table login drop tipo;
-
-alter table telefone add tipo_user int;
-alter table telefone add id_user int;
-
-alter table endereco add tipo_user int;
-alter table endereco add id_user int;

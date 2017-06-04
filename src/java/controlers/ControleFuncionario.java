@@ -8,22 +8,26 @@ package controlers;
 import beans.Endereco;
 import beans.Funcionario;
 import beans.Login;
-import beans.Telefone;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.ClienteDAO;
+import models.EnderecoDAO;
 import models.FuncionarioDAO;
 import models.LoginDAO;
 import utils.Utilidades;
 
+/**
+ *
+ * @author Bruno
+ */
+@WebServlet(name = "ControleFuncionario", urlPatterns = {"/ControleFuncionario"})
 public class ControleFuncionario extends HttpServlet {
 
     /**
@@ -37,126 +41,177 @@ public class ControleFuncionario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        // Variável que receberá o valor da flag enviado pelo formulário
-        String flag = request.getParameter("flag");
+        response.setContentType("text/html;charset=UTF-8");
         
         try (PrintWriter out = response.getWriter()) {
-
-            switch (flag) {
-                case "login":
-                    String email = request.getParameter("email");
-                    String senha = request.getParameter("senha");
-                    try {
-                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                        funcionarioDAO.getLogin(email, senha);
-                    } catch (Exception e){
-                        System.out.print("Erro na instancia DAO");
-                    }
-                  
-                    
-                    break;
+            // Variável que receberá o valor da flag enviado pelo formulário
+            String flag = request.getParameter("flag");
+            String status;
+                        
+            String nome = request.getParameter("nome");
+            String email = request.getParameter("email"); 
+            String cpf = request.getParameter("cpf"); 
+            String senha = request.getParameter("senha"); 
+            String dt_nasc = request.getParameter("dt_nasc"); 
+            String sexo = request.getParameter("sexo");
+            String funcao = request.getParameter("funcao");
+            
+            String cep = request.getParameter("cep");
+            String lagradouro = request.getParameter("lagradouro");
+            String numero = request.getParameter("numero");
+            String bairro = request.getParameter("bairro");
+            String complemento = request.getParameter("complemento");
+            String cidade = request.getParameter("cidade");
+            String uf = request.getParameter("uf");
+            String ponto_ref = request.getParameter("ponto_ref");
+           
+                        
+            switch(flag){
                 case "cadastro":
-                    
-                    String nome = request.getParameter("nome");
-                    email = request.getParameter("email"); 
-                    String cpf = request.getParameter("cpf"); 
-                    senha = request.getParameter("senha"); 
-                    String dt_nasc = request.getParameter("dt_nasc"); 
-                    String sexo = request.getParameter("sexo");
-                    String funcao = request.getParameter("funcao");
-                    
-                    Utilidades u = new Utilidades();
-                    int id_gerada = u.getGeraNumero();
-                    
-                    try{
-                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                    try{                    
+                        Utilidades u = new Utilidades();
+                        int id_gerada = u.getGeraNumero();
                         Funcionario funcionario = new Funcionario();
+                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+//                        
                         funcionario.setId_func(id_gerada);
                         funcionario.setNome(nome);
                         funcionario.setEmail(email);
                         funcionario.setCpf(cpf);
                         funcionario.setFuncao(funcao);
+                        try{
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
-                        funcionario.setData_nasc(data);
+                        funcionario.setData_nasc(dt_nasc);
+                        }catch(Exception e){
+                            response.sendRedirect("cadastro_cliente.jsp");
+                        }
                         funcionario.setSexo(sexo);
                         
                         funcionarioDAO.cadastraFuncionario(funcionario);
+                        status = funcionarioDAO.getStatus();
                         
-                    } catch (Exception e){
-                        System.out.print("Erro no cadastro");
-                    }
-                    
-                    try {
+                        request.setAttribute("status", status);
+                        //response.sendRedirect("cadastro_funcionario.jsp");
                         
-                        Login login = new Login();
-                        login.setId_log(id_gerada);
-                        login.setNome_user(email);
-                        login.setSenha(senha);
-                        login.setTipo_user(2);
-                        login.setId_user(id_gerada);
-                        
-                        LoginDAO loginDAO = new LoginDAO();
-                        loginDAO.cadastraLogin(login);
-                    } catch (Exception e){
-                        System.out.print("Cadastro de login falhou");
-                    }
-                    String tipo = request.getParameter("tipo_end");
-                    String cep = request.getParameter("cep");
-                    String lagradouro = request.getParameter("lagradouro");
-                    int numero = Integer.parseInt(request.getParameter("numero"));
-                    String bairro = request.getParameter("bairro");
-                    String complemento = request.getParameter("complemento");
-                    String cidade = request.getParameter("cidade");
-                    String uf = request.getParameter("uf");
-                    String ponto_ref = request.getParameter("ponto_ref");
-//                    String id_fk = request.getParameter("sexo");
-                    try {                       
-                        Endereco endereco = new Endereco();
-                        endereco.setId_end(id_gerada);
-                        endereco.setCep(cep);
-                        endereco.setLagradouro(lagradouro);
-                        endereco.setNumero(numero);
-                        endereco.setBairro(bairro);
-                        endereco.setComplemento(complemento);
-                        endereco.setUf(uf);
-                        endereco.setPonto_ref(ponto_ref);
-                        endereco.setId_user(id_gerada);
-                        endereco.setTipo_user(2);
-                    } catch (Exception e) {
-                        System.out.print("Cadastro com erro");
-                    }
-                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
-                    String num_tel = request.getParameter("num_tel");
-                    String tel_desc = "";
-                    if (tipo_tel == 1){
-                        tel_desc = "Pessoal";
-                    }
-                    if (tipo_tel == 2){
-                        tel_desc = "Residencial";
-                    }
-                    if (tipo_tel == 3){
-                        tel_desc = "Comercial";
-                    }
-                    if (tipo_tel == 4){
-                        tel_desc = "Recado";
-                    }
-                    
-                    try {
-                        Telefone telefone = new Telefone();
-                        telefone.setNumero(numero);
-                        telefone.setTipo(tipo_tel);
-                        telefone.setDescricap(tel_desc);
-                    } catch (Exception e) {
-                        System.out.print("Cadastro de telefone fahou");
+                    }catch(Exception ex){
+                        Logger.getLogger(ControleFuncionario.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     break;
-                    
             }
+           
+//        // Variável que receberá o valor da flag enviado pelo formulário
+//        String flag = request.getParameter("flag");
+//        String status = null;
+//        
+//        Funcionario funcionario = new Funcionario();
+//        request.setAttribute("status", "estou aqui?");
+//            switch (flag) {
+//                case "login":
+//                    String email = request.getParameter("email");
+//                        String senha = request.getParameter("senha");
+//                    try {
+//                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+//                        funcionarioDAO.getLogin(email, senha);
+//                        
+//                    } catch (Exception e){
+//                        System.out.print("Erro na instancia DAO");
+//                    }
+//                  
+//                    
+//                    break;
+//                case "cadastro":
+//                    request.setAttribute("status", "estou aqui?2");
+//                    String nome = request.getParameter("nome");
+//                    email = request.getParameter("email"); 
+//                    String cpf = request.getParameter("cpf"); 
+//                    senha = request.getParameter("senha"); 
+//                    String dt_nasc = request.getParameter("dt_nasc"); 
+//                    String sexo = request.getParameter("sexo");
+//                    String funcao = request.getParameter("funcao");
+//                    
+//                    Utilidades u = new Utilidades();
+//                    int id_gerada = u.getGeraNumero();
+//                    
+//                    try{
+//                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+//                        
+//                        funcionario.setId_func(id_gerada);
+//                        funcionario.setNome(nome);
+//                        funcionario.setEmail(email);
+//                        funcionario.setCpf(cpf);
+//                        funcionario.setFuncao(funcao);
+//                        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+//                        java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
+//                        funcionario.setData_nasc(data);
+//                        funcionario.setSexo(sexo);
+//                        
+//                        funcionarioDAO.cadastraFuncionario(funcionario);
+//                        status = funcionarioDAO.getStatus();
+//                        request.setAttribute("status", status);
+//                        response.sendRedirect("cadastro_funcionario.jsp");
+//                        
+//                    } catch (Exception e){
+//                        System.out.print("Erro no cadastro");
+//                    }
+//                    
+//                    try {
+//                        
+//                        Login login = new Login();
+//                        login.setId_log(id_gerada);
+//                        login.setNome_user(email);
+//                        login.setSenha(senha);
+//                        login.setId_user(funcionario.getId_func());
+//                        login.setTipo_user(2);
+//                        
+//                        LoginDAO loginDAO = new LoginDAO();
+//                        loginDAO.cadastraLogin(login);
+//                        
+//                    } catch (Exception e){
+//                        System.out.print("Cadastro de login falhou");
+//                    }
+//                    
+//                    try{
+//                        EnderecoDAO endDAO = new EnderecoDAO();
+//                        Endereco end = new Endereco();
+//                        
+//                        end.setId_end(u.getGeraNumero());
+//                        String cep = request.getParameter("cep");
+//                        String lagradouro = request.getParameter("lagradouro");
+//                        String numero = request.getParameter("numero");
+//                        String bairro = request.getParameter("bairro");
+//                        String complemento = request.getParameter("complemento");
+//                        String cidade = request.getParameter("cidade");
+//                        String uf = request.getParameter("uf");
+//                        String ponto_ref = request.getParameter("ponto_ref");
+//                        
+//                                         
+//                        end.setCep(cep);
+//                        end.setLagradouro(lagradouro);
+//                        end.setNumero(numero);
+//                        end.setBairro(bairro);
+//                        end.setComplemento(complemento);
+//                        end.setCidade(cidade);
+//                        end.setUf(uf);
+//                        end.setPonto_ref(ponto_ref);
+//                        end.setId_user(funcionario.getId_func());
+//                        end.setTipo(2);
+//                        
+//                        endDAO.cadastraEndereco(end);
+//                        status = endDAO.getStatus();
+//                        request.setAttribute("status", status);
+//                        response.sendRedirect("cadastro_funcionario.jsp");
+//                        
+//                        
+//                        
+//                    }catch(Exception e){
+//                        System.out.println("Erro ao cadastrar endereco cliente");
+//                    }
+//                    
+//            }
         }
     }
-
+    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -195,5 +250,6 @@ public class ControleFuncionario extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
 }
+
+

@@ -91,4 +91,8 @@ public class FuncionarioDAO {
             throw new RuntimeException(ex);
         }
     }
+    
+    public String getStatus(){
+        return status;
+    }
 }
