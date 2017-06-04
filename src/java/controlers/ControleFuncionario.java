@@ -82,7 +82,7 @@ public class ControleFuncionario extends HttpServlet {
                         try{
                         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                         java.sql.Date data = new java.sql.Date(format.parse(dt_nasc).getTime());
-                        funcionario.setData_nasc(dt_nasc);
+                        funcionario.setData_nasc(data);
                         }catch(Exception e){
                             response.sendRedirect("cadastro_cliente.jsp");
                         }

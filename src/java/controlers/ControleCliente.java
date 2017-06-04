@@ -106,7 +106,7 @@ public class ControleCliente extends HttpServlet {
                     String tipo = request.getParameter("tipo_end");
                     String cep = request.getParameter("cep");
                     String lagradouro = request.getParameter("lagradouro");
-                    int numero = Integer.parseInt(request.getParameter("numero"));
+                    String numero = request.getParameter("numero");
                     String bairro = request.getParameter("bairro");
                     String complemento = request.getParameter("complemento");
                     String cidade = request.getParameter("cidade");
