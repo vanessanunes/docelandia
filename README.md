@@ -9,4 +9,12 @@ Projeto 5º Semestre em JSP no padrão MVC
 
 - Testando a area de cadastro do Mr Reyaldo
 
--- Van parede gayzice -- 
+-- Subindo arquivos testes -- 
+
+-- Nova pagina "Quem somos" --
+
+-- Novas partes menu -- 
+
+- Imagem adicionada --  
+
+-- Não redirecionei a imagem de maneira correta ainda testando -- 

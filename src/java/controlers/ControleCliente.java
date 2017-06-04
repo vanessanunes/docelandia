@@ -57,8 +57,9 @@ public class ControleCliente extends HttpServlet {
 //                    página de exemplo, vamos ver depois pra onde vai isso!
                     request.getRequestDispatcher("acesso.jsp").
                             forward(request, response);
+                    
                 case "cadastro":
-                    System.out.print("ClienteControle");
+                   // System.out.print("ClienteControle");
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
@@ -72,6 +73,7 @@ public class ControleCliente extends HttpServlet {
                             "\nsexo: " + sexo);
                     Utilidades u = new Utilidades();
                     int id_gerada = u.geraNumero();
+                    
                     try{
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
@@ -89,6 +91,7 @@ public class ControleCliente extends HttpServlet {
                         System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
                         System.out.print(e);
                     }
+                     
                     
                     try {
                         System.out.print("Estamos no login do Controle Cliente");
