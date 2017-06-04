@@ -35,8 +35,10 @@ public class ControleLogin extends HttpServlet {
             } 
             switch (flag) {
                 case "login":
+                    System.out.print("Controler login");
                     String email = request.getParameter("email");
                     String senha = request.getParameter("senha");
+                    System.out.print("Email: " +email+ " senha:" + senha);
                     try {
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.acessaLogin(email, senha);
