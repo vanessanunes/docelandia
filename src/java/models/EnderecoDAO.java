@@ -23,10 +23,11 @@ public class EnderecoDAO {
     public void cadastraEndereco(Endereco endereco){
         System.out.print("EnderecoDAO - cadastraEndereco()");
         
-        String sql = "insert into endereco(id_end, tipo, cep, lagradouro, numero,"
-                + " bairro, complemento, cidade, uf, ponto_ref, id_fk)"
-                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        
+        String sql = "insert into endereco(id_end, tipo, cep, lagradouro, numero," //5
+                + " bairro, complemento, cidade, uf, ponto_ref, " //5
+                + "tipo_user, id_user)" //2
+                + "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+      
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
                 
@@ -41,10 +42,11 @@ public class EnderecoDAO {
                 stmt.setString(9, endereco.getUf());
                 stmt.setString(10, endereco.getPonto_ref());
                 stmt.setInt(11, endereco.getTipo_user());
+                stmt.setInt(12, endereco.getId_user());
                 
                 stmt.execute();
                 stmt.close();
-                status = ("Dados incluídos com sucesso!");
+                status = ("Dados do endereço incluídos com sucesso!");
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

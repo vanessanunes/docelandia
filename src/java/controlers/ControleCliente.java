@@ -103,40 +103,43 @@ public class ControleCliente extends HttpServlet {
                         System.out.print("ControleCliente - login: catch!");
                         System.out.print(e);
                     }
-                    String tipo = request.getParameter("tipo_end");
+                    int tipo = Integer.parseInt(request.getParameter("tipo_end"));
+                    System.out.print("tipo:" + tipo);
                     String cep = request.getParameter("cep");
                     String lagradouro = request.getParameter("lagradouro");
                     String numero = request.getParameter("numero");
-                    String bairro = request.getParameter("bairro");
                     String complemento = request.getParameter("complemento");
+                    String bairro = request.getParameter("bairro");
                     String cidade = request.getParameter("cidade");
                     String uf = request.getParameter("uf");
                     String ponto_ref = request.getParameter("ponto_ref");
-                    String id_fk = request.getParameter("sexo");
-//                    System.out.print("cep: " + cep);
-                    try {
-                        System.out.print("Estamos no endereco do Controle Cliente");
-                        
-                        Endereco endereco = new Endereco();
-                        endereco.setId_end(id_gerada);
-                        endereco.setCep(cep);
-                        endereco.setLagradouro(lagradouro);
-                        endereco.setNumero(numero);
-                        endereco.setBairro(bairro);
-                        endereco.setComplemento(complemento);
-                        endereco.setUf(uf);
-                        endereco.setPonto_ref(ponto_ref);
-                        endereco.setId_user(id_gerada);
-                        endereco.setTipo_user(1);
-                        EnderecoDAO enderecoDAO = new EnderecoDAO();
-                        enderecoDAO.cadastraEndereco(endereco);
-                    } catch (Exception e) {
-                        System.out.print("ControleCliente - endereço: catch!");
-                        System.out.print(e);
-                    }
+                    System.out.print("cep: " + cep +
+                            "tipo: " + tipo);
+//                    try {
+//                        System.out.print("Estamos no endereco do Controle Cliente");
+//                        Endereco endereco = new Endereco();
+//                        endereco.setId_end(id_gerada);
+//                        endereco.setCep(cep);
+//                        endereco.setLagradouro(lagradouro);
+//                        endereco.setNumero(numero);
+//                        endereco.setBairro(bairro);
+//                        endereco.setComplemento(complemento);
+//                        endereco.setCidade(cidade);
+//                        endereco.setUf(uf);
+//                        endereco.setPonto_ref(ponto_ref);
+//                        endereco.setId_user(4);
+//                        endereco.setTipo_user(1);
+//                        endereco.setTipo(1);
+//                        EnderecoDAO enderecoDAO = new EnderecoDAO();
+//                        enderecoDAO.cadastraEndereco(endereco);
+//                    } catch (Exception e) {
+//                        System.out.print("ControleCliente - endereço: catch!");
+//                        System.out.print(e);
+//                    }
 //                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
 //                    String num_tel = request.getParameter("num_tel");
 //                    String tel_desc = "";
+//                    System.out.print(tel_desc);
 //                    if (tipo_tel == 1){
 //                        tel_desc = "Pessoal";
 //                    }
@@ -149,15 +152,20 @@ public class ControleCliente extends HttpServlet {
 //                    if (tipo_tel == 4){
 //                        tel_desc = "Recado";
 //                    }
+//                    if (tipo_tel == 0){
+//                        tel_desc = "None";
+//                    } 
                     
 //                    try {
-//                        System.out.print("ControleCliente - telefone: catch!");
+//                        System.out.print("ControleCliente - telefone");
 //                        Telefone telefone = new Telefone();
-////                        telefone.setId_tel(??);
-//                        telefone.setId_fk(id_gerada);
 //                        telefone.setNumero(numero);
+//                        telefone.setId_tel(id_gerada);
+//                        telefone.setDescricao(tel_desc);
+//                        telefone.setId_user(id_gerada);
+//                        telefone.setTipo_user(1);
 //                        telefone.setTipo(tipo_tel);
-//                        telefone.setDescricap(tel_desc);
+//                        
 //                    } catch (Exception e) {
 //                        System.out.print("ControleCliente - telefone: catch!");
 //                        System.out.print(e);

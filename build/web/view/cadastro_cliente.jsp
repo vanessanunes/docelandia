@@ -115,7 +115,7 @@
             <br><br>
             
             <label for="tipo_end">Tipo de endereço:</label>
-            <select>
+            <select name="tipo_end" id="tipo_end">
                 <option value="1">Residencial</option>
                 <option value="2">Comercial</option>
             </select>

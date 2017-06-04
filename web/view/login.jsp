@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Login</h1>
-        <form action="ControleLogin" method="post">
+        <form action="../ControleLogin" method="post">
             Login:<br>
             <input type="email" id="email" name="email">
             <br> <br>

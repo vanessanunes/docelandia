@@ -130,3 +130,4 @@ create table login (
 );
 
 alter table login add constraint pk_login primary key (id_log);
+ALTER TABLE telefone ADD tipo int;

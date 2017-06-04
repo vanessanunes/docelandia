@@ -4,8 +4,8 @@ import java.io.Serializable;
 
 public class Telefone implements Serializable{
    private int id_tel;
-   private int numero;
-   private String descricap;
+   private String numero;
+   private String descricao;
    private int id_user;
    private int tipo_user;
    private int tipo;
@@ -21,21 +21,22 @@ public class Telefone implements Serializable{
         this.id_tel = id_tel;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
-    public String getDescricap() {
-        return descricap;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescricap(String descricap) {
-        this.descricap = descricap;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
+
 
     public int getId_user() {
         return id_user;

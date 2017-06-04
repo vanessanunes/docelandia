@@ -40,7 +40,7 @@ public class LoginDAO {
                 
                 stmt.execute();
                 stmt.close();
-                status = ("Dados incluídos com sucesso!");
+                status = ("Dados do login incluídos com sucesso!");
                 System.out.print(status);
             }
         } catch (SQLException e) {

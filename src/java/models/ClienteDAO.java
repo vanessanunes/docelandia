@@ -44,7 +44,7 @@ public class ClienteDAO {
                 
                 stmt.execute();
                 stmt.close();
-                status = ("Dados incluídos com sucesso!");
+                status = ("Dados do cliente incluídos com sucesso!");
                 System.out.print(status);
             }
         } catch (SQLException e) {
