@@ -6,7 +6,9 @@
 package controlers;
 
 import beans.Cliente;
+import beans.Endereco;
 import beans.Login;
+import beans.Telefone;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -18,6 +20,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.ClienteDAO;
+import models.EnderecoDAO;
 import models.LoginDAO;
 import utils.Utilidades;
 
@@ -34,16 +37,18 @@ public class ControleCliente extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
         
         // Variável que receberá o valor da flag enviado pelo formulário
         String flag = request.getParameter("flag");
+        String mensagem = "";
+        Utilidades u = new Utilidades();
+        int id_gerada = u.getGeraNumero();
         
         try (PrintWriter out = response.getWriter()) {
-//            if (flag == null) {
-//                request.getRequestDispatcher("index.html").
-//                        forward(request, response);
-//            } 
+            if (flag == null) {
+                request.getRequestDispatcher("index.html").
+                        forward(request, response);
+            } 
             switch (flag) {
                 case "login":
                     String email = request.getParameter("email");
@@ -57,15 +62,21 @@ public class ControleCliente extends HttpServlet {
 //                    página de exemplo, vamos ver depois pra onde vai isso!
                     request.getRequestDispatcher("acesso.jsp").
                             forward(request, response);
+<<<<<<< HEAD
                     
                 case "cadastro":
                    // System.out.print("ClienteControle");
+=======
+                    break;
+                case "cadastro":
+>>>>>>> 6a78089e30f84abc178515f9da83a0088b60d3cf
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
                     senha = request.getParameter("senha"); 
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
+<<<<<<< HEAD
                     System.out.print("Dados: \n"
                         +"nome: " +nome+
                             "\nemail: " + email +
@@ -74,6 +85,9 @@ public class ControleCliente extends HttpServlet {
                     Utilidades u = new Utilidades();
                     int id_gerada = u.geraNumero();
                     
+=======
+                   
+>>>>>>> 6a78089e30f84abc178515f9da83a0088b60d3cf
                     try{
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
@@ -88,30 +102,96 @@ public class ControleCliente extends HttpServlet {
                         clienteDAO.cadastraCliente(cliente);
                         
                     } catch (Exception e){
-                        System.out.print("ControleCliente, flag cadastro: Caiu o catch!");
+                        System.out.print("ControleCliente - cliente: catch!");
                         System.out.print(e);
                     }
                      
                     
                     try {
-                        System.out.print("Estamos no login do Controle Cliente");
-                        
                         Login login = new Login();
                         login.setId_log(id_gerada);
                         login.setNome_user(email);
                         login.setSenha(senha);
-                        login.setTipo(1);
-                        login.setId_fk(id_gerada);
+                        login.setTipo_user(1);
+                        login.setId_user(id_gerada);
                         
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.cadastraLogin(login);
                     } catch (Exception e){
-                        
+                        System.out.print("ControleCliente - login: catch!");
+                        System.out.print(e);
                     }
+                    int tipo = Integer.parseInt(request.getParameter("tipo_end"));
+                    System.out.print("tipo:" + tipo);
+                    String cep = request.getParameter("cep");
+                    String lagradouro = request.getParameter("lagradouro");
+                    String numero = request.getParameter("numero");
+                    String complemento = request.getParameter("complemento");
+                    String bairro = request.getParameter("bairro");
+                    String cidade = request.getParameter("cidade");
+                    String uf = request.getParameter("uf");
+                    String ponto_ref = request.getParameter("ponto_ref");
+                    System.out.print("cep: " + cep +
+                            "tipo: " + tipo);
+//                    try {
+//                        System.out.print("Estamos no endereco do Controle Cliente");
+//                        Endereco endereco = new Endereco();
+//                        endereco.setId_end(id_gerada);
+//                        endereco.setCep(cep);
+//                        endereco.setLagradouro(lagradouro);
+//                        endereco.setNumero(numero);
+//                        endereco.setBairro(bairro);
+//                        endereco.setComplemento(complemento);
+//                        endereco.setCidade(cidade);
+//                        endereco.setUf(uf);
+//                        endereco.setPonto_ref(ponto_ref);
+//                        endereco.setId_user(4);
+//                        endereco.setTipo_user(1);
+//                        endereco.setTipo(1);
+//                        EnderecoDAO enderecoDAO = new EnderecoDAO();
+//                        enderecoDAO.cadastraEndereco(endereco);
+//                    } catch (Exception e) {
+//                        System.out.print("ControleCliente - endereço: catch!");
+//                        System.out.print(e);
+//                    }
+//                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
+//                    String num_tel = request.getParameter("num_tel");
+//                    String tel_desc = "";
+//                    System.out.print(tel_desc);
+//                    if (tipo_tel == 1){
+//                        tel_desc = "Pessoal";
+//                    }
+//                    if (tipo_tel == 2){
+//                        tel_desc = "Residencial";
+//                    }
+//                    if (tipo_tel == 3){
+//                        tel_desc = "Comercial";
+//                    }
+//                    if (tipo_tel == 4){
+//                        tel_desc = "Recado";
+//                    }
+//                    if (tipo_tel == 0){
+//                        tel_desc = "None";
+//                    } 
                     
+//                    try {
+//                        System.out.print("ControleCliente - telefone");
+//                        Telefone telefone = new Telefone();
+//                        telefone.setNumero(numero);
+//                        telefone.setId_tel(id_gerada);
+//                        telefone.setDescricao(tel_desc);
+//                        telefone.setId_user(id_gerada);
+//                        telefone.setTipo_user(1);
+//                        telefone.setTipo(tipo_tel);
+//                        
+//                    } catch (Exception e) {
+//                        System.out.print("ControleCliente - telefone: catch!");
+//                        System.out.print(e);
+//                    }
                     
-                    
-                    
+//                    mensagem = "Cadastro de cliente";
+//                    response.sendRedirect("view/mensagem.jsp");
+//                    break;
                     
             }
         }

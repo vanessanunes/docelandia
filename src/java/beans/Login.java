@@ -4,8 +4,8 @@ public class Login {
     private int id_log;
     private String nome_user;
     private String senha;
-    private int tipo;
-    private int id_fk; // não sei se precisa
+    private int tipo_user;
+    private int id_user;
 
     public Login() {
     }
@@ -34,20 +34,22 @@ public class Login {
         this.senha = senha;
     }
 
-    public int getTipo() {
-        return tipo;
+    public int getTipo_user() {
+        return tipo_user;
     }
 
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
+    public void setTipo_user(int tipo_user) {
+        this.tipo_user = tipo_user;
     }
 
-    public int getId_fk() {
-        return id_fk;
+    public int getId_user() {
+        return id_user;
     }
 
-    public void setId_fk(int id_fk) {
-        this.id_fk = id_fk;
+    public void setId_user(int id_user) {
+        this.id_user = id_user;
     }
+    
+    
     
 }

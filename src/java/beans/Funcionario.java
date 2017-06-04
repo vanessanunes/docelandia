@@ -1,17 +1,28 @@
 package beans;
 
 import java.io.Serializable;
+import java.sql.Date;
+
 
 public class Funcionario extends Endereco implements Serializable {
     private int id_func;
     private String nome;
     private String funcao;
     private String cpf;
-    private String dt_nasc;
+    private Date data_nasc;
     private String email;
+    private String sexo;
+
+    public String getSexo() {
+        return sexo;
+    }
+
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
+    }
 
     public Funcionario() {
-    }
+    }  
 
     public int getId_func() {
         return id_func;
@@ -45,12 +56,12 @@ public class Funcionario extends Endereco implements Serializable {
         this.cpf = cpf;
     }
 
-    public String getDt_nasc() {
-        return dt_nasc;
+    public Date getData_nasc() {
+        return data_nasc;
     }
 
-    public void setDt_nasc(String dt_nasc) {
-        this.dt_nasc = dt_nasc;
+    public void setData_nasc(Date dt_nasc) {
+        this.data_nasc = dt_nasc;
     }
 
     public String getEmail() {
@@ -60,7 +71,7 @@ public class Funcionario extends Endereco implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
     
 
     

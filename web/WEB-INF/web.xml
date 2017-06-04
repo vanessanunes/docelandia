@@ -4,9 +4,25 @@
         <servlet-name>ControleCliente</servlet-name>
         <servlet-class>controlers.ControleCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControleProduto</servlet-name>
+        <servlet-class>controlers.ControleProduto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControleLogin</servlet-name>
+        <servlet-class>controlers.ControleLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControleCliente</servlet-name>
         <url-pattern>/ControleCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleProduto</servlet-name>
+        <url-pattern>/ControleProduto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControleLogin</servlet-name>
+        <url-pattern>/ControleLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

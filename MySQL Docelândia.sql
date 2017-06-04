@@ -1,8 +1,15 @@
-﻿/*
+﻿
+/*
 * @autor Bruno da Costa Silva
 * Projeto: Banco de Dados --> Docelândia
 * Base de dados/schema: docelandia
 *
+-------- Alterações dia 02/06
+* 
+* Alteração dos campos: Cep e Cpf para o tipo "varchar"
+* Remoção das chaves estrangeiras em: Endereço e Telefone
+* Adição do campo sexo em: Funcionario
+* Adição do campo descrição em: Pedidos
 */
 
 CREATE TABLE Categoria (
@@ -15,10 +22,10 @@ ALTER TABLE Categoria ADD CONSTRAINT PK_Categoria PRIMARY KEY (id_cat);
 
 
 CREATE TABLE Cliente (
-    id_clie INT NOT NULL,
+    id_clie INT,
     nome VARCHAR(50),
     email VARCHAR(50),
-    cpf NUMERIC(12),
+    cpf varchar(15),
     dt_nasc DATE,
     sexo CHAR(1)
 );
@@ -30,16 +37,18 @@ CREATE TABLE Funcionario (
     id_func INT NOT NULL,
     nome VARCHAR(50),
     funcao VARCHAR(30),
-    cpf NUMERIC(12),
+    cpf varchar(15),
     dt_nasc DATE,
-    email VARCHAR(30)
+    email VARCHAR(30),
+    sexo char(1)
 );
 
 ALTER TABLE Funcionario ADD CONSTRAINT PK_Funcionario PRIMARY KEY (id_func);
 
-/*Tabela que precisa ser melhorada!!!!!*/
 CREATE TABLE Pedido (
     id_ped INT NOT NULL, /*Chave primaria composta: Tabela Pedido e Cliente*/
+    dt_pedido date,
+    descricao varchar(100),
     id_clie INT
 );
 
@@ -56,42 +65,37 @@ CREATE TABLE Produto (
     quantidade NUMERIC(5)
 );
 
-ALTER TABLE Produto ADD CONSTRAINT PK_Produto PRIMARY KEY (id_prod);
+ALTER TABLE Produto ADD CONSTRAINT PK_Produto PRIMARY KEY (id_prod, id_cat);
 ALTER TABLE Produto add constraint fk_categoria foreign key (id_cat) references Categoria (id_cat);
 
 
 CREATE TABLE Telefone (
     id_tel INT NOT NULL,
-    tipo INT,
-    numero NUMERIC(15),
+    numero varchar(15),
     descricao VARCHAR(50),
-    id_fk INT /*Chave estrangeira composta: Tabela Cliente e Funcionario*/
+    tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
+    id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
 
-
-
 ALTER TABLE Telefone ADD CONSTRAINT PK_Telefone PRIMARY KEY (id_tel);
-alter table Telefone add constraint fk_comp_clie foreign key (id_fk) references Cliente (id_clie);
-alter table Telefone add constraint fk_comp_func foreign key (id_fk) references Funcionario (id_func);
 
 
 CREATE TABLE Endereco (
     id_end INT NOT NULL,
-    tipo INT,
-    cep NUMERIC(8),
+    tipo INT, /*Tipo de telefone(1=Casa, 2=Celular, 3=Recado...)*/
+    cep varchar(10),
     lagradouro VARCHAR(50),
-    numero INT,
+    numero varchar(15),
     bairro VARCHAR(30),
     complemento VARCHAR(50),
     cidade VARCHAR(50),
     uf CHAR(2),
     ponto_ref VARCHAR(30),
-    id_fk INT /*Chave estrangeira composta: Tabela Cliente e Funcionario*/
+    tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
+    id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
 
 ALTER TABLE Endereco ADD CONSTRAINT PK_Endereco PRIMARY KEY (id_end);
-alter table Endereco add constraint fk_end_clie foreign key (id_fk) references Cliente (id_clie);
-alter table Endereco add constraint fk_end_func foreign key (id_fk) references Funcionario (id_func);
 
 
 CREATE TABLE Itens (
@@ -109,10 +113,8 @@ CREATE TABLE Pagamento (
     id_ped INT,
     tipo VARCHAR(20), /*Tipo de pagamento escolhido (Cartão, Boleto, Dinheiro)*/
     dt_pag DATE,
-	
-	/*18/05*/
-	pago boolean, /*Flag*/
-	n_par int /*Numero de parcelas*/
+    pago boolean, /*Flag*/
+    n_par int /*Numero de parcelas*/
 );
 
 alter table Pagamento add constraint pk_pagamento primary key (id_pag, id_ped);
@@ -120,16 +122,12 @@ alter table Pagamento add constraint fk_pedido foreign key (id_ped) references P
 
 /*26/05*/
 create table login (
-	id_log int,
+    id_log int,
     nome_user varchar(30),
     senha varchar(70),
-    tipo boolean, /*Flag - Verifica se o usuario é Floginuncionario ou Cliente(1 ou 0)*/
-    id_fk int /*Chave estrangeira composta - Tabelas Cliente e Funcionario*/
+    tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
+    id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
 
 alter table login add constraint pk_login primary key (id_log);
-alter table login add constraint fk_clie foreign key (id_fk) references cliente (id_clie);
-alter table login add constraint fk_func foreign key (id_fk) references funcionario (id_func);
-
-
-
+ALTER TABLE telefone ADD tipo int;
