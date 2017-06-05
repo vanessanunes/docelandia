@@ -8,7 +8,7 @@ Foi implementado:
 - implantado o bootstrap.
 - Testando a area de cadastro do Mr Reyaldo
 
-<<<<<<< HEAD
+HEAD
 -- Subindo arquivos testes -- 
 
 -- Nova pagina "Quem somos" --
@@ -17,8 +17,7 @@ Foi implementado:
 
 - Imagem adicionada --  
 
--- Não redirecionei a imagem de maneira correta ainda testando -- 
-=======
+-- Não redirecionei a imagem de maneira correta ainda testando --
 [back]
 - cadastro de categoria
 - cadastro na tabela cliente
@@ -32,4 +31,4 @@ Falta:
 - cadastro de produto (só falta conseguir pegar o valor do drop down)
 - carrinho (regista pedidos feitos pelo user)
 - pagamento
->>>>>>> a41e8e5ea297bde48ee1bb21a8e2e28301538b8d
+

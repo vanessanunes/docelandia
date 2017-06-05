@@ -63,32 +63,26 @@ public class ControleCliente extends HttpServlet {
 //                    página de exemplo, vamos ver depois pra onde vai isso!
                     request.getRequestDispatcher("acesso.jsp").
                             forward(request, response);
-<<<<<<< HEAD
+
                     
-                case "cadastro":
-                   // System.out.print("ClienteControle");
-=======
+               
+
                     break;
                 case "cadastro":
->>>>>>> 6a78089e30f84abc178515f9da83a0088b60d3cf
+
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
                     senha = request.getParameter("senha"); 
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
-<<<<<<< HEAD
                     System.out.print("Dados: \n"
                         +"nome: " +nome+
                             "\nemail: " + email +
                             "\ndt_nasc: " + dt_nasc +
                             "\nsexo: " + sexo);
-                    Utilidades u = new Utilidades();
-                    int id_gerada = u.geraNumero();
-                    
-=======
-                   
->>>>>>> 6a78089e30f84abc178515f9da83a0088b60d3cf
+            
+
                     try{
                         ClienteDAO clienteDAO = new ClienteDAO();
                         Cliente cliente = new Cliente();
