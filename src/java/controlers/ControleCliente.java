@@ -22,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 import models.ClienteDAO;
 import models.EnderecoDAO;
 import models.LoginDAO;
+import models.TelefoneDAO;
 import utils.Utilidades;
 
 public class ControleCliente extends HttpServlet {
@@ -192,8 +193,48 @@ public class ControleCliente extends HttpServlet {
 //                    mensagem = "Cadastro de cliente";
 //                    response.sendRedirect("view/mensagem.jsp");
 //                    break;
-                    
+                case "cad_tel":
+                    System.out.print("Cadastro de tel, teste");
+//                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
+                    int tipo_tel = 1;
+                    String num_tel = request.getParameter("num_tel");
+                    String tel_desc = "";
+                    System.out.print(tel_desc);
+                    if (tipo_tel == 1){
+                        tel_desc = "Pessoal";
+                    }
+                    if (tipo_tel == 2){
+                        tel_desc = "Residencial";
+                    }
+                    if (tipo_tel == 3){
+                        tel_desc = "Comercial";
+                    }
+                    if (tipo_tel == 4){
+                        tel_desc = "Recado";
+                    }
+                    if (tipo_tel == 0){
+                        tel_desc = "None";
+                    } 
+                    System.out.print("Descrição: " + tel_desc);
+                    try {
+                        System.out.print("ControleCliente - telefone");
+                        Telefone telefone = new Telefone();
+                        telefone.setId_tel(id_gerada);
+                        
+                        telefone.setNumero(num_tel);
+                        
+                        telefone.setDescricao(tel_desc);
+                        telefone.setId_user(id_gerada);
+                        telefone.setTipo_user(1);
+                        telefone.setTipo(tipo_tel);
+                        TelefoneDAO telDAO = new TelefoneDAO();
+                        telDAO.cadastraTelefone(telefone);
+                    } catch (Exception e) {
+                        System.out.print("ControleCliente - telefone: catch!");
+                        System.out.print(e);
+                    }
             }
+            
         }
     }
 

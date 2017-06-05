@@ -68,17 +68,18 @@
     </div>
    
     <div id="fieto-overlay">
+        <br>    
         <a href="/view/cadastro_cliente.jsp"> Cadastro Cliente</a>
         <br>
-        <a href="/view/cadastro_funcionario.jsp"> Cadastro Funcionario</a>
+        <a href="view/cadastro_funcionario.jsp"> Cadastro Funcionario</a>
         <br>
-        <a href="/view/cadastro_categoria.jsp"> Cadastro Categoria</a>
+        <a href="view/cadastro_categoria.jsp"> Cadastro Categoria</a>
         <br>
-        <a href="/view/cadastro_produto.jsp"> Cadastro Produto</a>
+        <a href="view/cadastro_produto.jsp"> Cadastro Produto</a>
         <br>
-        <a href="/view/cadastro_cliente.jsp"> Cadastro Cliente</a>
+        <a href="view/cadastro_cliente.jsp"> Cadastro Cliente</a>
         <br>
-        <a href="/view/cadastro_cliente.jsp"> Cadastro Cliente</a>
+        <a href="view/cadastro_cliente.jsp"> Cadastro Cliente</a>
         <br>
         
         

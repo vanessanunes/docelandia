@@ -53,14 +53,13 @@ public class LoginDAO {
     
     public List<Login> acessaLogin(String email, String senha){
         System.out.print("LoginDAO - acessaLogin()");
-        String sql = "select * from login where 'email' = '"+email+"' and 'senha' = '"+senha+"'";
+        String sql = "select * from login where 'nome_user' = '"+email+"' and 'senha' = '"+senha+"'";
         try {
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
             List<Login> usuarios;
             usuarios = new ArrayList<>();
 
-            try (PreparedStatement stmt = this.conexao.
-                    prepareStatement(sql);
+            try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
 
                 while (rs.next()) {

@@ -3,7 +3,7 @@ package beans;
 import java.io.Serializable;
 
 public class Produto implements Serializable{
-//    private int id_prod;
+    private int id_prod;
     private int id_cat;
     private String nome;
     private String descricao;
@@ -13,6 +13,14 @@ public class Produto implements Serializable{
     public Produto() {
     }
 
+    public int getId_prod() {
+        return id_prod;
+    }
+
+    public void setId_prod(int id_prod) {
+        this.id_prod = id_prod;
+    }
+    
     public int getId_cat() {
         return id_cat;
     }
