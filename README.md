@@ -32,3 +32,4 @@ Falta:
 - carrinho (regista pedidos feitos pelo user)
 - pagamento
 
+DAYANE LINDA TESTANDO ISSO AQUI
