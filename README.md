@@ -15,7 +15,7 @@ Foi implementado:
 - função de efetuar login
 
 Falta:
-- cadastro de telefone
+- cadastro de telefone (só falta o tipo do telefone - pegar valor pelo drop down)
 - cadastro de endereço
 - função para saber quando user está logado
 - cadastro de produto (só falta conseguir pegar o valor do drop down)
