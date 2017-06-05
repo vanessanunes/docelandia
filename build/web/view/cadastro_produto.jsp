@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Cadastro de Produto</h1>
-        <form action="ControleProduto" method="post">
+        <form action="../ControleProduto" method="post">
             <label for="nome_pro">Nome do Produto:</label>
             <br>
             <input type="text" id="nome_pro" name="nome_pro" />
@@ -37,7 +37,7 @@
             </select>
             <br>
             <br>
-            <input type="hidden" name="flag" value="cad_pro" /> 
+            <input type="hidden" name="flag" value="cad_prod" /> 
             <input type="submit" value="Enviar" />
         </form>
         

@@ -47,7 +47,7 @@
     </div>
    
     <div id="fieto-overlay">
-        <br>
+        <br>    
         <a href="/view/cadastro_cliente.jsp"> Cadastro Cliente</a>
         <br>
         <a href="view/cadastro_funcionario.jsp"> Cadastro Funcionario</a>

@@ -18,6 +18,6 @@ Falta:
 - cadastro de telefone
 - cadastro de endereço
 - função para saber quando user está logado
-- cadastro de produto
+- cadastro de produto (só falta conseguir pegar o valor do drop down)
 - carrinho (regista pedidos feitos pelo user)
 - pagamento
