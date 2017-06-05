@@ -99,7 +99,7 @@
             <input type="radio" name="sexo" value="f"> Muié<br>
             <br><br>
             
-             <label for="tipo_tel">Tipo de telefone:</label>
+            <label for="tipo_tel">Tipo de telefone:</label>
             <select>
                 <option value="1">Pessoal</option>
                 <option value="2">Residencial</option>
