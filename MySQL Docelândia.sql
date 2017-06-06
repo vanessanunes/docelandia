@@ -1,4 +1,4 @@
-﻿
+
 /*
 * @autor Bruno da Costa Silva
 * Projeto: Banco de Dados --> Docelândia
@@ -84,13 +84,13 @@ CREATE TABLE Endereco (
     id_end INT NOT NULL,
     tipo INT, /*Tipo de telefone(1=Casa, 2=Celular, 3=Recado...)*/
     cep varchar(10),
-    lagradouro VARCHAR(50),
+    lagradouro VARCHAR(100),
     numero varchar(15),
-    bairro VARCHAR(30),
+    bairro VARCHAR(100),
     complemento VARCHAR(50),
     cidade VARCHAR(50),
     uf CHAR(2),
-    ponto_ref VARCHAR(30),
+    ponto_ref VARCHAR(100),
     tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
     id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
