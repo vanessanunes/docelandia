@@ -31,20 +31,19 @@ public class FuncionarioDAO {
      */
     public void cadastraFuncionario(Funcionario funcionario){
         
-        String sql = "insert into funcionario(id_func, nome, cargo, cpf, dt_nasc, sexo)"
-                + "values (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "insert into funcionario(id_func, nome, funcao, cpf, dt_nasc, email, sexo)"
+                + "values (?,?,?,?,?,?,?)";
         
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-                java.sql.Date dataAtual = new java.sql.Date(
-                        Calendar.getInstance().getTimeInMillis());
                 
                 stmt.setInt(1, funcionario.getId_func());
                 stmt.setString(2, funcionario.getNome());
                 stmt.setString(3, funcionario.getEmail());
                 stmt.setString(4, funcionario.getCpf());
                 stmt.setDate(5, funcionario.getData_nasc());
-                stmt.setString(6, funcionario.getSexo());
+                stmt.setString(6, funcionario.getEmail());
+                stmt.setString(7, funcionario.getSexo());
                 
                 stmt.execute();
                 stmt.close();

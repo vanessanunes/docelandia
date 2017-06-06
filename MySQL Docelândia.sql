@@ -73,6 +73,7 @@ CREATE TABLE Telefone (
     id_tel INT NOT NULL,
     numero varchar(15),
     descricao VARCHAR(50),
+    tipo int,
     tipo_user int, /*Identifica se o campo é: Cliente ou Funcionário*/
     id_user int /*Coluna que vai receber o ID do Cliente ou Funcionario*/
 );
@@ -82,11 +83,11 @@ ALTER TABLE Telefone ADD CONSTRAINT PK_Telefone PRIMARY KEY (id_tel);
 
 CREATE TABLE Endereco (
     id_end INT NOT NULL,
-    tipo INT, /*Tipo de telefone(1=Casa, 2=Celular, 3=Recado...)*/
+    tipo varchar(10), /*Tipo de telefone(1=Casa, 2=Celular, 3=Recado...)*/
     cep varchar(10),
-    lagradouro VARCHAR(50),
-    numero varchar(15),
-    bairro VARCHAR(30),
+    lagradouro VARCHAR(100),
+    numero varchar(10),
+    bairro VARCHAR(100),
     complemento VARCHAR(50),
     cidade VARCHAR(50),
     uf CHAR(2),

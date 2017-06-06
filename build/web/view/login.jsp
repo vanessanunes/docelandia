@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
+HEAD
 <html lang="pt-br">
 <head>
   <title>Docelandia - Central de doces</title>
@@ -51,7 +51,7 @@
 
 
 </body>
-=======
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -70,7 +70,7 @@
             <input type="submit" value="Entrar">
         </form>
     </body>
->>>>>>> 6a78089e30f84abc178515f9da83a0088b60d3cf
+
 </html>
 
 
