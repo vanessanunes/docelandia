@@ -9,7 +9,6 @@ Foi implementado:
 - implantado o bootstrap.
 - Testando a area de cadastro do Mr Reyaldo
 
-HEAD
 -- Subindo arquivos testes -- 
 
 -- Nova pagina "Quem somos" --
