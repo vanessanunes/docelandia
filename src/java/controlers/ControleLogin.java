@@ -40,6 +40,7 @@ public class ControleLogin extends HttpServlet {
                     String senha = request.getParameter("password");
                     System.out.print("Email: " +email+ " senha:" + senha);
                     try {
+                        System.out.print("ControleCliente, flag login: bora pro dao");
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.acessaLogin(email, senha);
                     } catch (Exception e){
