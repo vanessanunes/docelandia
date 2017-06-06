@@ -34,35 +34,32 @@
     <!-- Menu normal responsivo  -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="nav navbar-nav navbar-right">
+
           <li><a href="cadastro_funcionario.jsp">Inicio </a></li>
+
          <li><a href="login.html">Login</a></li>
-        <li><a href="#">Contato</a></li>
+
+
+        <li><a href="contato.html">Contato</a></li>
+        <li><a href="quemsomos.jsp">Quem somos</a></li>
+        
       </ul>
 
   </div>
 </nav>
  
-<!-- Telão resposivo -->
-<div id="">
-    </div>
+
    
+<!-- Telão resposivo -->
+<div id="fieto">
+
     <div id="fieto-overlay">
-        <br>    
-        <a href="/view/cadastro_cliente.jsp"> Cadastro Cliente</a>
-        <br>
-        <a href="view/cadastro_funcionario.jsp"> Cadastro Funcionario</a>
-        <br>
-        <a href="view/cadastro_categoria.jsp"> Cadastro Categoria</a>
-        <br>
-        <a href="view/cadastro_produto.jsp"> Cadastro Produto</a>
-        <br>
-        <a href="view/cadastro_cliente.jsp"> Cadastro Cliente</a>
-        <br>
-        <a href="view/cadastro_cliente.jsp"> Cadastro Cliente</a>
-        <br>
-        
-        
+       
+    </div>
     
+    <div class="controle-doc">
+       <span style="position: absolute; top: 210px; left:45%;">Docelandia</span>
+    </div>
 
 </div>
 

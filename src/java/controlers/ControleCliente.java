@@ -63,15 +63,26 @@ public class ControleCliente extends HttpServlet {
 //                    página de exemplo, vamos ver depois pra onde vai isso!
                     request.getRequestDispatcher("acesso.jsp").
                             forward(request, response);
+
+                    
+               
+
                     break;
                 case "cadastro":
+
                     String nome = request.getParameter("nome");
                     email = request.getParameter("email"); 
                     String cpf = request.getParameter("cpf"); 
                     senha = request.getParameter("senha"); 
                     String dt_nasc = request.getParameter("dt_nasc"); 
                     String sexo = request.getParameter("sexo");
-                   
+                    System.out.print("Dados: \n"
+                        +"nome: " +nome+
+                            "\nemail: " + email +
+                            "\ndt_nasc: " + dt_nasc +
+                            "\nsexo: " + sexo);
+            
+
                     try{
                         int id_cadastro = u.getGeraNumero();
                         ClienteDAO clienteDAO = new ClienteDAO();
@@ -89,6 +100,7 @@ public class ControleCliente extends HttpServlet {
                         System.out.print("ControleCliente - cliente: catch!");
                         System.out.print(e);
                     }
+                     
                     
                     try {
                         int id_login = u.getGeraNumero();

@@ -1,0 +1,128 @@
+body{
+background:#FFFAFA;
+background:#FFFAFA;
+}
+.map{ 
+width:100%;
+height:200px;
+}
+
+.h1{
+	width:100%;
+	text-align: center;
+	font-family:"Constantia";
+  font-size: 32px;
+  font-weight: 800;
+  color: #378DE5;
+  -webkit-text-stroke: 0.3px;
+
+}
+.h5{
+	width:100%;
+	border-bottom:1px solid #CCC;
+	font-family:"Microsoft Sans Serif";
+  color: #B9D3EE;
+	font-size:16px;
+	padding-bottom:5px;
+	  -webkit-text-stroke: 0.1px;
+}
+
+.main{
+	width:100%;
+	height:700px;
+}
+
+.teste{
+	width:1500px;
+	height:600px;
+}
+
+.contact-form{
+	width:750px;
+	height:500px;
+	position:absolute;
+}
+
+.company_address{
+	width:750px;
+	height:500px;
+	position:relative;
+	float:right;
+}
+
+.esp{
+	height:500px;
+	width:250px;
+}
+
+.row1{
+	padding-top:40px;
+	padding-bottom:20px;
+}
+
+.row{
+	padding:20px;
+}
+
+button.css3button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #8099a6;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#b7c3c9);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ffffff),
+		to(#b7c3c9));
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #c7c7c7;
+	-moz-box-shadow:
+		0px 1px 3px rgba(166,166,166,0.5),
+		inset 0px 0px 1px rgba(191,191,191,1);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(166,166,166,0.5),
+		inset 0px 0px 1px rgba(191,191,191,1);
+	box-shadow:
+		0px 1px 3px rgba(166,166,166,0.5),
+		inset 0px 0px 1px rgba(191,191,191,1);
+	text-shadow:
+		0px -1px 0px rgba(145,7,145,0.7),
+		0px 1px 0px rgba(255,255,255,0.3);
+		float:left;
+		margin-left:30px;
+}
+
+.ger {
+	padding-top:30px;
+	color:#000;
+	font-size:20px;
+	text-align:left;
+		width:100%;
+	font-family:"Constantia";
+  color: #378DE5;
+  -webkit-text-stroke: 0.3px;
+}
+
+.ger1 {
+	color:#000;
+	font-size:15px;
+	font-family:Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", serif;
+	color:#999;
+	text-align:left;
+	-webkit-text-stroke: 0.3px;
+	
+}
+
+.ger2 {
+	color:#000;
+	font-size:20px;
+	text-align:left;
+		font-family:"Constantia";
+  color: #378DE5;
+  -webkit-text-stroke: 0.3px;
+}
