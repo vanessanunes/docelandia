@@ -55,39 +55,43 @@ public class LoginDAO {
         System.out.print("LoginDAO - acessaLogin()");
         String sql = "select * from login where 'nome_user' = '"+email+"' and 'senha' = '"+senha+"'";
         try {
-            @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
-            List<Login> usuarios;
-            usuarios = new ArrayList<>();
-
+//            @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+            List<Login> usuarios = new ArrayList<>();
+            
             try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
-
+                System.out.print(rs);
                 while (rs.next()) {
-
                     Login usuario = new Login();
-//                    usuario.setId_fk(rs.getInt("id"));
-//                    
-//                    if (usuario.getId_fk() == 1) {
-////                        cliente
-////                        Cliente cliente = new Cliente()
-//                    } else {
-////                        funcionario
-//                    }
+                    usuario.setId_log(rs.getInt("id_log"));
+                    usuario.setId_user(rs.getInt("id_user"));
+                    usuario.setTipo_user(rs.getInt("tipo_user"));
+                    usuario.setNome_user("nome_user");
+                    usuario.setSenha("senha");
+                    System.out.print(usuario.getId_log());
+                    System.out.print(usuario.getId_user());
+                    System.out.print(usuario.getTipo_user());
+                    System.out.print(usuario.getNome_user());
+                    System.out.print(usuario.getSenha());
                     
-                    
+                    if (usuario.getTipo_user() == 1) {
+                        System.out.print("Tipo user: Cliente "+ usuario.getTipo_user());
+//                        cliente
+//                        Cliente cliente = new Cliente()
+                    } else {
+                        System.out.print("Tipo user: usuário " + usuario.getTipo_user());
+//                        funcionario
+                    }
                     usuarios.add(usuario);
-
                     totalRegistros++;
                 }
-
                 rs.close();
                 stmt.close();
-
                 return usuarios;
             }
-
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+//            throw new RuntimeException(ex);
+            System.out.print(ex);
         }
     }
     

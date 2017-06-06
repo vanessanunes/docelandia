@@ -37,7 +37,6 @@ public class Telefone implements Serializable{
         this.descricao = descricao;
     }
 
-
     public int getId_user() {
         return id_user;
     }
