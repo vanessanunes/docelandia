@@ -22,13 +22,6 @@
                 <option value="3">Comercial</option>
                 <option value="4">Recado</option>
             </select><br><br>
-            <label for="nome">Número:</label>
-            <br>
-            <!--Só mexi um pouquinho ;p - by Bruno-->
-            <input type="text" name="num_tel" id="num_tel" />
-            <br>
-            <label for="descricao">Descrição:</label><br>
-            <input type="text" name="descricao"/>
 =======
              <label for="tipo_tel">Tipo de telefone:</label>
             <select name="tipo_tel" id="tipo_tel">
@@ -42,10 +35,14 @@
             
              <br><br>
              
+>>>>>>> fc97cc50fdfeff61106ebbec6e64da82b5c32e99
             <label for="nome">Número:</label>
             <br>
+            <!--Só mexi um pouquinho ;p - by Bruno-->
             <input type="text" name="num_tel" id="num_tel" />
->>>>>>> fc97cc50fdfeff61106ebbec6e64da82b5c32e99
+            <br>
+            <label for="descricao">Descrição:</label><br>
+            <input type="text" name="descricao"/>
             <br><br>
             <input type="hidden" name="flag" value="cad_tel"> 
             <input type="submit" value="Enviar"/>

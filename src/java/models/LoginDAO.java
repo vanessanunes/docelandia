@@ -35,8 +35,8 @@ public class LoginDAO {
                 stmt.setInt(1, login.getId_log());
                 stmt.setString(2, login.getNome_user());
                 stmt.setString(3, login.getSenha());
-                stmt.setInt(4, login.getTipo_user());
-                stmt.setInt(5, login.getId_user());
+                stmt.setInt(4, login.getId_user());
+                stmt.setInt(5, login.getTipo_user());
                 
                 stmt.execute();
                 stmt.close();
@@ -51,33 +51,45 @@ public class LoginDAO {
         
     }
     
-    public List<Login> acessaLogin(String email, String senha){
-        System.out.print("LoginDAO - acessaLogin()");
-        String sql = "select * from login where 'nome_user' = '"+email+"' and 'senha' = '"+senha+"'";
+    public List<Login> getLogin(String email, String senha) {
+        @SuppressWarnings("UnusedAssignment")
+        String sql = "SELECT * FROM `login` WHERE `nome_user` like '"+email+"' and `senha` = '"+senha+"'";
+                
         try {
-//            @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+            @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
             List<Login> usuarios = new ArrayList<>();
-            
-            try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
+
+            try (PreparedStatement stmt = this.conexao.
+                    prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
-                System.out.print(rs);
+
                 while (rs.next()) {
+
                     Login usuario = new Login();
                     usuario.setId_log(rs.getInt("id_log"));
                     usuario.setId_user(rs.getInt("id_user"));
                     usuario.setTipo_user(rs.getInt("tipo_user"));
-                    usuario.setNome_user("nome_user");
-                    usuario.setSenha("senha");
+                    usuario.setNome_user(rs.getString("nome_user"));
+                    usuario.setSenha(rs.getString("senha"));
                     System.out.print(usuario.getId_log());
                     System.out.print(usuario.getId_user());
                     System.out.print(usuario.getTipo_user());
                     System.out.print(usuario.getNome_user());
                     System.out.print(usuario.getSenha());
-                    
+
+                    usuarios.add(usuario);
+
                     if (usuario.getTipo_user() == 1) {
                         System.out.print("Tipo user: Cliente "+ usuario.getTipo_user());
-//                        cliente
-//                        Cliente cliente = new Cliente()
+                        try {
+                            ClienteDAO clienteDAO = new ClienteDAO();
+                            Cliente cliente = new Cliente();
+                            cliente.setId_clie(usuario.getId_user());
+                            clienteDAO.getLogin(cliente.getId_clie());
+                        } catch (Exception e){
+                            System.out.print(e);
+                        }
+                        
                     } else {
                         System.out.print("Tipo user: usuário " + usuario.getTipo_user());
 //                        funcionario
@@ -85,14 +97,15 @@ public class LoginDAO {
                     usuarios.add(usuario);
                     totalRegistros++;
                 }
+
                 rs.close();
                 stmt.close();
                 return usuarios;
             }
         } catch (SQLException ex) {
-//            throw new RuntimeException(ex);
             System.out.print(ex);
         }
     }
+    
     
 }

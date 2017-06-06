@@ -42,7 +42,7 @@ public class ControleLogin extends HttpServlet {
                     try {
                         System.out.print("ControleCliente, flag login: bora pro dao");
                         LoginDAO loginDAO = new LoginDAO();
-                        loginDAO.acessaLogin(email, senha);
+                        loginDAO.getLogin(email, senha);
                     } catch (Exception e){
                         System.out.print("ControleCliente, flag login: Caiu o catch!");
                     }
