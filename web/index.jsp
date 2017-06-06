@@ -35,7 +35,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="nav navbar-nav navbar-right">
 
-          <li><a href="cadastro_funcionario.jsp">Inicio </a></li>
+          <li><a href="#">Inicio </a></li>
 
          <li><a href="login.html">Login</a></li>
 

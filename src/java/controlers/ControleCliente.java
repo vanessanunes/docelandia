@@ -141,8 +141,9 @@ public class ControleCliente extends HttpServlet {
                         telefone.setTipo(tipo_tel);
                         TelefoneDAO telDAO = new TelefoneDAO();
                         telDAO.cadastraTelefone(telefone);
+                        mensagem = "Login cadastrado com sucesso";
                     } catch (Exception e) {
-                        System.out.print("ControleCliente - telefone: catch!");
+                        mensagem = "Login não cadastrado com sucesso";
                         System.out.print(e);
                     }
                     break;
