@@ -3,43 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Bruno/docelandia/MySQL%20Docelândia.sql</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleProduto.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/EnderecoDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleFuncionario.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Login.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Cliente.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/ClienteDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleCliente.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_funcionario.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/erro.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/index.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Telefone.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_telefone.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Endereco.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/login.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/TelefoneDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/utils/Utilidades.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/FuncionarioDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Funcionario.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_cliente.jsp</file>
-=======
-<<<<<<< HEAD
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/index.jsp</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleLogin.java</file>
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleCliente.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/ProdutoDAO.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/TelefoneDAO.java</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/LoginDAO.java</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/css/style.css</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/css/sprtd.css</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/ClienteDAO.java</file>
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/view/produto.jsp</file>
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/beans/Telefone.java</file>
-=======
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/quemsomos.jsp</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/css/qm.css</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/css/sprtd.css</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/cadastro_cliente.jsp</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/index.jsp</file>
->>>>>>> 09b24d077a7b6e0f95805160c88ab90732286d6d
->>>>>>> fc97cc50fdfeff61106ebbec6e64da82b5c32e99
         </group>
     </open-files>
 </project-private>

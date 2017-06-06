@@ -64,7 +64,6 @@ public class LoginDAO {
                     ResultSet rs = stmt.executeQuery()) {
 
                 while (rs.next()) {
-
                     Login usuario = new Login();
                     usuario.setId_log(rs.getInt("id_log"));
                     usuario.setId_user(rs.getInt("id_user"));
@@ -76,7 +75,6 @@ public class LoginDAO {
                     System.out.print(usuario.getTipo_user());
                     System.out.print(usuario.getNome_user());
                     System.out.print(usuario.getSenha());
-
                     usuarios.add(usuario);
 
                     if (usuario.getTipo_user() == 1) {
@@ -97,7 +95,6 @@ public class LoginDAO {
                     usuarios.add(usuario);
                     totalRegistros++;
                 }
-
                 rs.close();
                 stmt.close();
                 return usuarios;
