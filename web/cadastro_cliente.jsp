@@ -39,8 +39,6 @@
             <input type="hidden" name="flag" value="cadastro"> 
             <input type="submit" value="Enviar"/>
         </form>
-        <%
-            System.out.print("cadastro.jsp");
-        %>
+
     </body>
 </html>

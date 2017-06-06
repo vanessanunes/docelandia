@@ -84,13 +84,11 @@ public class ControleCliente extends HttpServlet {
                         cliente.setData_nasc(data);
                         cliente.setSexo(sexo);
                         clienteDAO.cadastraCliente(cliente);
-                        
+                        mensagem = "Cliente cadastrado com sucesso";
                     } catch (Exception e){
-                        System.out.print("ControleCliente - cliente: catch!");
+                        mensagem = "Cliente não foi cadastrado com sucesso";
                         System.out.print(e);
                     }
-                     
-                    
                     try {
                         int id_login = u.getGeraNumero();
                         Login login = new Login();
@@ -101,77 +99,89 @@ public class ControleCliente extends HttpServlet {
                         login.setId_user(cliente.getId_clie());
                         LoginDAO loginDAO = new LoginDAO();
                         loginDAO.cadastraLogin(login);
+                        mensagem = "Login cadastrado com sucesso";
                     } catch (Exception e){
-                        System.out.print("ControleCliente - login: catch!");
+                        mensagem = "Login cadastrado com sucesso";
                         System.out.print(e);
                     }
-//                    int tipo_end = Integer.parseInt(request.getParameter("tipo_end"));
-//                    String cep = request.getParameter("cep");
-//                    String lagradouro = request.getParameter("lagradouro");
-//                    String numero = request.getParameter("numero");
-//                    String complemento = request.getParameter("complemento");
-//                    String bairro = request.getParameter("bairro");
-//                    String cidade = request.getParameter("cidade");
-//                    String uf = request.getParameter("uf");
-//                    String ponto_ref = request.getParameter("ponto_ref");
-//
-//                    try {
-//                        int id_end = u.getGeraNumero();
-//                        System.out.print("Estamos no endereco do Controle Cliente");
-//                        Endereco endereco = new Endereco();
-//                        endereco.setId_end(id_end);
-//                        endereco.setCep(cep);
-//                        endereco.setLagradouro(lagradouro);
-//                        endereco.setNumero(numero);
-//                        endereco.setBairro(bairro);
-//                        endereco.setComplemento(complemento);
-//                        endereco.setCidade(cidade);
-//                        endereco.setUf(uf);
-//                        endereco.setPonto_ref(ponto_ref);
-//                        endereco.setId_user(cliente.getId_clie());
-//                        endereco.setTipo_user(1);
-//                        endereco.setTipo(tipo_end);
-//                        EnderecoDAO enderecoDAO = new EnderecoDAO();
-//                        enderecoDAO.cadastraEndereco(endereco);
-//                    } catch (Exception e) {
-//                        System.out.print("ControleCliente - endereço: catch!");
-//                        System.out.print(e);
-//                    }
-//                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
-//                    String num_tel = request.getParameter("num_tel");
-//                    String tel_desc = "";
-//                    System.out.print(tel_desc);
-//                    if (tipo_tel == 1){
-//                        tel_desc = "Pessoal";
-//                    }
-//                    if (tipo_tel == 2){
-//                        tel_desc = "Residencial";
-//                    }
-//                    if (tipo_tel == 3){
-//                        tel_desc = "Comercial";
-//                    }
-//                    if (tipo_tel == 4){
-//                        tel_desc = "Recado";
-//                    }
-//                    if (tipo_tel == 0){
-//                        tel_desc = "None";
-//                    } 
+                    break;
+                case "cad_tel":
+                    int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
+                    String num_tel = request.getParameter("num_tel");
+                    String tel_desc = "";
+                    System.out.print(tel_desc);
+                    if (tipo_tel == 1){
+                        tel_desc = "Pessoal";
+                    }
+                    if (tipo_tel == 2){
+                        tel_desc = "Celular";
+                    }
+                    if (tipo_tel == 3){
+                        tel_desc = "Residencial";
+                    }
+                    if (tipo_tel == 4){
+                        tel_desc = "Comercial";
+                    }
+                    if (tipo_tel == 5){
+                        tel_desc = "Recado";
+                    }
+                    if (tipo_tel == 0){
+                        tel_desc = "None";
+                    } 
+                    
+                    try {
+                        int id_tel = u.getGeraNumero();
+                        String numero = request.getParameter("num_tel");
+                        Telefone telefone = new Telefone();
+                        telefone.setNumero(numero);
+                        telefone.setId_tel(id_tel);
+                        telefone.setDescricao(tel_desc);
+                        telefone.setId_user(cliente.getId_clie());
+                        telefone.setTipo_user(1);
+                        telefone.setTipo(tipo_tel);
+                        TelefoneDAO telDAO = new TelefoneDAO();
+                        telDAO.cadastraTelefone(telefone);
+                    } catch (Exception e) {
+                        System.out.print("ControleCliente - telefone: catch!");
+                        System.out.print(e);
+                    }
+                    break;
+                case "cad_end":
+                    int tipo_end = Integer.parseInt(request.getParameter("tipo_end"));
+                    String cep = request.getParameter("cep");
+                    String lagradouro = request.getParameter("lagradouro");
+                    String numero = request.getParameter("numero");
+                    String complemento = request.getParameter("complemento");
+                    String bairro = request.getParameter("bairro");
+                    String cidade = request.getParameter("cidade");
+                    String uf = request.getParameter("uf");
+                    String ponto_ref = request.getParameter("ponto_ref");
+
+                    try {
+                        int id_end = u.getGeraNumero();
+                        System.out.print("Estamos no endereco do Controle Cliente");
+                        Endereco endereco = new Endereco();
+                        endereco.setId_end(id_end);
+                        endereco.setCep(cep);
+                        endereco.setLagradouro(lagradouro);
+                        endereco.setNumero(numero);
+                        endereco.setBairro(bairro);
+                        endereco.setComplemento(complemento);
+                        endereco.setCidade(cidade);
+                        endereco.setUf(uf);
+                        endereco.setPonto_ref(ponto_ref);
+                        endereco.setId_user(cliente.getId_clie());
+                        endereco.setTipo_user(1);
+                        endereco.setTipo(tipo_end);
+                        EnderecoDAO enderecoDAO = new EnderecoDAO();
+                        enderecoDAO.cadastraEndereco(endereco);
+                    } catch (Exception e) {
+                        System.out.print("ControleCliente - endereço: catch!");
+                        System.out.print(e);
+                    }
+                    break;
+
 //                    
-//                    try {
-//                        int id_tel = u.getGeraNumero();
-//                        System.out.print("ControleCliente - telefone");
-//                        Telefone telefone = new Telefone();
-//                        telefone.setNumero(numero);
-//                        telefone.setId_tel(id_tel);
-//                        telefone.setDescricao(tel_desc);
-//                        telefone.setId_user(cliente.getId_clie());
-//                        telefone.setTipo_user(1);
-//                        telefone.setTipo(tipo_tel);
-//                        
-//                    } catch (Exception e) {
-//                        System.out.print("ControleCliente - telefone: catch!");
-//                        System.out.print(e);
-//                    }
                     
 //                    mensagem = "Cadastro de cliente";
 //                    response.sendRedirect("view/mensagem.jsp");

@@ -15,11 +15,13 @@
         <h1>Cadastro de telefone - teste</h1>
         <form name="cadastro" action="../ControleCliente" method="post">
              <label for="tipo_tel">Tipo de telefone:</label>
-            <select>
+            <select name="tipo_tel" id="tipo_tel">
+                <option value="0">Selecione o tipo...</option>
                 <option value="1">Pessoal</option>
-                <option value="2">Residencial</option>
-                <option value="2">Comercial</option>
-                <option value="2">Recado</option>
+                <option value="2">Celular</option>
+                <option value="3">Residencial</option>
+                <option value="4">Comercial</option>
+                <option value="5">Recado</option>
             </select>
             
              <br><br>
