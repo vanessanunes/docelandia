@@ -1,11 +1,13 @@
 package beans;
+import java.sql.Date;
 import models.PedidoDAO;
 
 public class Pedido {
     private int id_ped;
+    private Date dt_pedido;
     private int id_clie;
-    private int descricao; 
-    private int preco;
+    private String descricao; 
+    
     public Pedido() {
     }
 
@@ -25,22 +27,22 @@ public class Pedido {
         this.id_clie = id_clie;
     }
 
-
-
-    public int getDescricao( ) {
+    public String getDescricao( ) {
         return descricao;
     }
 
-    public void setDescricao(int ddescricao) {
-        this.descricao = ddescricao;
-    }
-   
-    public int getPreco( ) {
-        return preco;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
-    public void setPreco(int dpreco) {
-        this.preco = dpreco;
+    public Date getDt_pedido() {
+        return dt_pedido;
     }
+
+    public void setDt_pedido(Date dt_pedido) {
+        this.dt_pedido = dt_pedido;
+    }
+   
+    
     
 }
