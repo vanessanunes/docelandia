@@ -102,7 +102,7 @@ public class LoginDAO {
         } catch (SQLException ex) {
             System.out.print(ex);
         }
-    }
     
     
-}
+    
+

@@ -51,7 +51,7 @@
             <b>Ponto Referencia:</b><br>
             <input type="text" name="ponto_ref"/><br><br>
             
-            <input type="hidden" name="flag" value="cad_endereco"> 
+            <input type="hidden" name="flag" value="cadastro"> 
             <input type="submit" value="Cadastrar"/>
         </form>
         <br><br>

@@ -38,7 +38,7 @@ color: #f00;
 
   
   #fieto{
-      background-image: url("../image/fundo-2.png");
+      background-image: url("../image/Home.jpg");
       background-size: cover;
       background-position: center center;
       position: relative;
@@ -65,7 +65,7 @@ color: #f00;
    color: #fff;
 font-family: "Georgia", "Palatino", "serif";
   }
-  
+  /*Teste*/
   span{
     
      text-align: center;
@@ -83,17 +83,16 @@ font-family: "Georgia", "Palatino", "serif";
      animation-iteration-count: 2s;
   }
   
-  @keyframes mover{
-       
-      0%{
-          top: 210px; 
-          left:45%;
-      }
-      25%{
-          top: 210px;
-          rigth:10%;
-         
-          
-      }
-  }
+  .LoginCol{
+      height: 100px;
+      width: 100px;
+      background-color: #000;
+      margin-top: 25%;
+       }
   
+       
+       input{
+           width: 10px;
+           height: 10px;
+       }
+       

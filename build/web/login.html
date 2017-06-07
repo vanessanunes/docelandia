@@ -1,22 +1,73 @@
-﻿<!doctype html>
-<html>
+<!DOCTYPE html>
+
+<html lang="pt-br">
 <head>
-<meta charset="utf-8">
-<title>Docelandia</title>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+  <title>Docelandia - Central de doces</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+
+
 </head>
-<body>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+    
+    
+    
+    <nav role="navigation" class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    
+  
+<div class="navbar-header">
+      <a class="navbar-brand" href="index.jsp"></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" >
+        
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Logo -->
+      
+    </div>
+    <!-- Menu normal responsivo  -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="../index.jsp">Inicio </a></li>
+          <li><a href="login.jsp">Login</a></li>
+          
+          <li><a href="contato.html"></a></li>
+        <li><a href="../quemsomos.jsp">Quem somos</a></li>
+        
+        
+        
+        
+      </ul>
+
+  </div>
+</nav>
+ 
+    
+    
+    
+    
+    
+    
 <div id="wrapper">
     	<div id="box">
         	<div id="top_header">
-          		<h3>Login</h3>
+                    <h3>Docelândia</h3>
+                    .
           		<h5>Faça seu login Docelândia.</h5>
         	</div>
         
         <div id="inputs">
-        	<form id='login' method="post" action="ControleLogin" accept-charset='UTF-8' style="margin-left:6px;">
+        	<form id='login' action='' method='post' accept-charset='UTF-8' style="margin-left:6px;">
 				
-				<input type="hidden" name="flag" value="login"> 
+				<input type='hidden' name='submitted' id='submitted' value='1'/>
 
 				<div class='container'>
 					<input type='text' name='username' id='username' value='' maxlength="50" size="30" placeholder="Usuario"/><br/>
@@ -33,7 +84,8 @@
 			</form>
 
 	        <div id="bottom">
-	          <a href="cadastro_cliente.jsp">Crie Sua Conta</a>
+	         
+                  <a href="../cadastro_cliente.jsp">Crie sua conta</a>
 	          <a class="right_a" href="#">Esqueçeu sua senha?</a>
 	        </div>
         </div>
@@ -42,3 +94,12 @@
 
 </body>
 </html>
+
+
+
+
+    </body>
+
+</html>
+
+

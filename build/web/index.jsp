@@ -35,11 +35,8 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="nav navbar-nav navbar-right">
 
-          <li><a href="#">Inicio </a></li>
-
-         <li><a href="login.html">Login</a></li>
-
-
+          <li><a href="index.jsp">Inicio </a></li>
+         <li><a href="view/login.jsp">Login</a></li>
         <li><a href="contato.html">Contato</a></li>
         <li><a href="quemsomos.jsp">Quem somos</a></li>
         
