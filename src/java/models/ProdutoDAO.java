@@ -58,6 +58,7 @@ public class ProdutoDAO {
                 stmt.setDouble(3, produto.getPreco());
                 stmt.setInt(4, produto.getQuantidade());
                 stmt.setInt(5, produto.getId_cat());
+                stmt.setInt(5, produto.getId_prod());
                 
                 stmt.execute();
                 stmt.close();
