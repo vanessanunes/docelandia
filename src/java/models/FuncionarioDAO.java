@@ -55,6 +55,8 @@ public class FuncionarioDAO {
         
     }
     
+    public void pesquisa(){}
+    
     /***
      * Busca sql e retorna caso login for efetuado com sucesso
      * @param email

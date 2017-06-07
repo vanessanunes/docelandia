@@ -86,11 +86,7 @@ CREATE TABLE Endereco (
     tipo varchar(10), /*Tipo de telefone(1=Casa, 2=Celular, 3=Recado...)*/
     cep varchar(10),
     lagradouro VARCHAR(100),
-<<<<<<< HEAD
-    numero varchar(10),
-=======
     numero varchar(15),
->>>>>>> fc97cc50fdfeff61106ebbec6e64da82b5c32e99
     bairro VARCHAR(100),
     complemento VARCHAR(50),
     cidade VARCHAR(50),

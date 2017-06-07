@@ -1,11 +1,14 @@
 package controlers;
 
+import beans.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.FuncionarioDAO;
 import models.LoginDAO;
 import utils.Utilidades;
 
@@ -24,7 +27,12 @@ public class ControleLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String flag = request.getParameter("flag");
-        String mensagem = "";
+        String status;
+        
+        String user = request.getParameter("username");
+        String senha = request.getParameter("password");
+        List<Login> logins;
+        
         Utilidades u = new Utilidades();
         int id_gerada = u.getGeraNumero();
         
@@ -33,23 +41,30 @@ public class ControleLogin extends HttpServlet {
                 request.getRequestDispatcher("index.html").
                         forward(request, response);
             } 
+            
             switch (flag) {
                 case "login":
-                    System.out.print("Controler login");
-                    String email = request.getParameter("username");
-                    String senha = request.getParameter("password");
-                    System.out.print("Email: " +email+ " senha:" + senha);
                     try {
-                        System.out.print("ControleCliente, flag login: bora pro dao");
-                        LoginDAO loginDAO = new LoginDAO();
-                        loginDAO.getLogin(email, senha);
+                        LoginDAO logDAO = new LoginDAO();
+                        logDAO.getLogin(user, senha);
+                        Login log = new Login();
+                        
+                        if(logDAO.getTotalRegistros() >= 1){
+                            System.out.print("Login encontrado");
+                            logins = logDAO.listar();
+                            
+                            request.setAttribute("logins", logins);
+                            
+                            request.getRequestDispatcher("view/lista_logins.jsp").
+                                forward(request, response);
+                        }
+                        else
+                            System.out.print("Login não cadastrado");
+                        
                     } catch (Exception e){
-                        System.out.print("ControleCliente, flag login: Caiu o catch!");
+                        System.out.print("Erro na instancia DAO");
+                        response.sendRedirect("view/erro.jsp");
                     }
-//                    página de exemplo, vamos ver depois pra onde vai isso!
-                    request.getRequestDispatcher("acesso.jsp").
-                            forward(request, response);
-                    break;
             }
        
         }

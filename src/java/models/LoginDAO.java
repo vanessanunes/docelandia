@@ -10,6 +10,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class LoginDAO {
     private final Connection conexao;
@@ -26,7 +28,7 @@ public class LoginDAO {
     
     public void cadastraLogin(Login login){
         
-        String sql = "insert into login(id_log, nome_user, senha, id_user, tipo_user)"
+        String sql = "insert into login(id_log, nome_user, senha, tipo_user, id_user)"
                 + "values (?, ?, ?, ?, ?)";
         
         try {
@@ -35,8 +37,8 @@ public class LoginDAO {
                 stmt.setInt(1, login.getId_log());
                 stmt.setString(2, login.getNome_user());
                 stmt.setString(3, login.getSenha());
-                stmt.setInt(4, login.getId_user());
-                stmt.setInt(5, login.getTipo_user());
+                stmt.setInt(4, login.getTipo_user());
+                stmt.setInt(5, login.getId_user());
                 
                 stmt.execute();
                 stmt.close();
@@ -51,57 +53,79 @@ public class LoginDAO {
         
     }
     
-    public List<Login> getLogin(String email, String senha) {
+    public List<Login> getLogin(String nome_user, String senha) {
+
         @SuppressWarnings("UnusedAssignment")
-        String sql = "SELECT * FROM `login` WHERE `nome_user` like '"+email+"' and `senha` = '"+senha+"'";
-                
+        String sql = "select * from login where "
+                + " nome_user='" + nome_user
+                + "' and senha='" + senha + "'";
+
         try {
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
-            List<Login> usuarios = new ArrayList<>();
+            List<Login> logins;
+            logins = new ArrayList<>();
 
             try (PreparedStatement stmt = this.conexao.
                     prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
 
                 while (rs.next()) {
-                    Login usuario = new Login();
-                    usuario.setId_log(rs.getInt("id_log"));
-                    usuario.setId_user(rs.getInt("id_user"));
-                    usuario.setTipo_user(rs.getInt("tipo_user"));
-                    usuario.setNome_user(rs.getString("nome_user"));
-                    usuario.setSenha(rs.getString("senha"));
-                    System.out.print(usuario.getId_log());
-                    System.out.print(usuario.getId_user());
-                    System.out.print(usuario.getTipo_user());
-                    System.out.print(usuario.getNome_user());
-                    System.out.print(usuario.getSenha());
-                    usuarios.add(usuario);
 
-                    if (usuario.getTipo_user() == 1) {
-                        System.out.print("Tipo user: Cliente "+ usuario.getTipo_user());
-                        try {
-                            ClienteDAO clienteDAO = new ClienteDAO();
-                            Cliente cliente = new Cliente();
-                            cliente.setId_clie(usuario.getId_user());
-                            clienteDAO.getLogin(cliente.getId_clie());
-                        } catch (Exception e){
-                            System.out.print(e);
-                        }
-                        
-                    } else {
-                        System.out.print("Tipo user: usuário " + usuario.getTipo_user());
-//                        funcionario
-                    }
-                    usuarios.add(usuario);
+                    Login log = new Login();
+                    log.setId_log(rs.getInt("id_log"));
+                    log.setNome_user(rs.getString("nome_user"));
+                    log.setSenha(rs.getString("senha"));
+                    log.setTipo_user(rs.getInt("tipo_user"));
+                    log.setTipo_user(rs.getInt("id_user"));
+
+                    logins.add(log);
+   
                     totalRegistros++;
                 }
+
                 rs.close();
                 stmt.close();
-                return usuarios;
+
+                return logins;
             }
+
         } catch (SQLException ex) {
-            System.out.print(ex);
+            throw new RuntimeException(ex);
         }
+    }
+    
+    public List<Login> listar() {
+        List<Login> logins = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM login ORDER BY nome_user";
+            try (PreparedStatement ps = conexao.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+
+                while (rs.next()) {
+                    Login log = new Login();
+                    log.setId_log(rs.getInt("id_log"));
+                    log.setNome_user(rs.getString("nome_user"));
+                    log.setSenha(rs.getString("senha"));
+                    log.setTipo_user(rs.getInt("tipo_user"));
+                    log.setId_user(rs.getInt("id_user"));
+                    
+
+                    logins.add(log);
+                }
+            }
+            return logins;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException("Falha ao listar os logins.", ex);
+        }
+    }
+    
+    public String getStatus(){
+        return status;
+    }
+    
+    public int getTotalRegistros() {
+        return totalRegistros;
     }
     
     
