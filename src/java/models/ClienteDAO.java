@@ -12,6 +12,7 @@ import java.util.Calendar;
 import java.util.List;
 
 public class ClienteDAO {
+
     private final Connection conexao;
     private String status;
     private int totalRegistros;
@@ -24,11 +25,11 @@ public class ClienteDAO {
         this.conexao = new ConnectionFactory().getConnection();
     }
 
-    public void cadastraCliente(Cliente cliente){
-        
+    public void cadastraCliente(Cliente cliente) {
+
         String sql = "insert into cliente(id_clie, nome, email, cpf, dt_nasc, sexo)"
                 + "values (?, ?, ?, ?, ?, ?)";
-        
+
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
                 stmt.setInt(1, cliente.getId_clie());
@@ -37,7 +38,7 @@ public class ClienteDAO {
                 stmt.setString(4, cliente.getCpf());
                 stmt.setDate(5, cliente.getData_nasc());
                 stmt.setString(6, cliente.getSexo());
-                
+
                 stmt.execute();
                 stmt.close();
                 status = ("Dados do cliente incluídos com sucesso!");
@@ -48,12 +49,73 @@ public class ClienteDAO {
         }
     }
 
-    public List<Cliente> getLogin(int id_clie){
+    public void editarCliente(Cliente cliente) {
+
+        String sql = "UPDATE cliente"
+                + "SET nome = ?, email = ?, cpf = ?, dt_nasc = ?, sexo = ?"
+                + "WHERE id_clie = ?";
+
+        try {
+            try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+                stmt.setString(1, cliente.getNome());
+                stmt.setString(2, cliente.getEmail());
+                stmt.setString(3, cliente.getCpf());
+                stmt.setDate(4, cliente.getData_nasc());
+                stmt.setString(5, cliente.getSexo());
+
+                stmt.execute();
+                stmt.close();
+                status = ("Dados do cliente incluídos com sucesso!");
+                System.out.print(status);
+            }
+        } catch (SQLException e) {
+            System.out.print(e);
+        }
+    }
+
+    public void alteraSenha(Login usuario) {
+        String sql = "update login set senha=? where id_user = ?";
+
+        try {
+            try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+
+                stmt.setString(1, usuario.getSenha());
+                stmt.setInt(2, usuario.getId_user());
+                stmt.execute();
+                stmt.close();
+
+                status = ("Senha alterada com sucesso!");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public void excluirCliente(Login usuario) {
+        String sqlLogin = "delete from login where id_user = ?";
+
+        try {
+            try (PreparedStatement stmt = conexao.prepareStatement(sqlLogin)) {
+                stmt.setInt(1, usuario.getId_user());
+                stmt.execute();
+                stmt.close();
+                status = ("Usuário excluído com sucesso!");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+    
+    public List<Cliente> getLogin(int id_clie) {
         @SuppressWarnings("UnusedAssignment")
-        String sql = "SELECT * FROM `cliente` WHERE `id_clie` = '"+id_clie+"'";
+        String sql = "SELECT * FROM `cliente` WHERE `id_clie` = '" + id_clie + "'";
         System.out.println("ClienteDAO, getLogin(): " + sql);
 //        System.out.print(cliente.getId_clie());
-        
+
         try {
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
             List<Cliente> clientes = new ArrayList<>();
@@ -67,7 +129,7 @@ public class ClienteDAO {
                     cliente.setCpf(rs.getString("cpf"));
                     cliente.setData_nasc(rs.getDate("dt_nasc"));
                     cliente.setSexo(rs.getString("sexo"));
-                    
+
                     clientes.add(cliente);
                     totalRegistros++;
                 }
@@ -75,10 +137,10 @@ public class ClienteDAO {
                 stmt.close();
                 return clientes;
             }
-            
+
         } catch (SQLException ex) {
             System.out.print(ex);
         }
     }
-    
+
 }
