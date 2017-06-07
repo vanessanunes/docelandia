@@ -9,6 +9,10 @@
     <body>
         <h1>Cadastro de Funcionário</h1>
         <form name="cadastro" action="../ControleFuncionario" method="post">
+            <b>Nome de usuario:</b><br>
+            <input type="text" name="user"/><br><br>           
+            <b>Senha:</b><br>
+            <input type="password" name="senha"/><br><br>
             <label for="nome">Nome: </label>
             <br>
             <input name="nome" id="nome" />

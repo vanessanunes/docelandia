@@ -30,13 +30,10 @@ public class FuncionarioDAO {
      * @param cliente 
      */
     public void cadastraFuncionario(Funcionario funcionario){
-        
         String sql = "insert into funcionario(id_func, nome, funcao, cpf, dt_nasc, email, sexo)"
                 + "values (?,?,?,?,?,?,?)";
-        
         try {
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-                
                 stmt.setInt(1, funcionario.getId_func());
                 stmt.setString(2, funcionario.getNome());
                 stmt.setString(3, funcionario.getEmail());
@@ -44,7 +41,6 @@ public class FuncionarioDAO {
                 stmt.setDate(5, funcionario.getData_nasc());
                 stmt.setString(6, funcionario.getEmail());
                 stmt.setString(7, funcionario.getSexo());
-                
                 stmt.execute();
                 stmt.close();
                 status = ("Dados incluídos com sucesso!");
@@ -54,6 +50,72 @@ public class FuncionarioDAO {
         }
         
     }
+    
+<<<<<<< HEAD
+    public void pesquisa(){}
+=======
+    public void editarFuncionario(Funcionario funcionario) {
+        String sql = "UPDATE funcionario"
+                + "SET nome = ?, funcao = ?, cpf = ?, dt_nasc = ?, email = ?, sexo = ?"
+                + "WHERE id_func = ?";
+
+        try {
+            try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+                stmt.setString(1, funcionario.getNome());
+                stmt.setString(2, funcionario.getFuncao());
+                stmt.setString(3, funcionario.getCpf());
+                stmt.setDate(4, funcionario.getData_nasc());
+                stmt.setString(5, funcionario.getEmail());
+                stmt.setString(6, funcionario.getSexo());
+                stmt.setInt(7, funcionario.getId_func());
+
+                stmt.execute();
+                stmt.close();
+                status = ("Dados do cliente incluídos com sucesso!");
+                System.out.print(status);
+            }
+        } catch (SQLException e) {
+            System.out.print(e);
+        }
+    }
+    
+    public void alteraSenha(Login usuario) {
+        String sql = "update login set senha=? where id_user = ?";
+
+        try {
+            try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+
+                stmt.setString(1, usuario.getSenha());
+                stmt.setInt(2, usuario.getId_user());
+                stmt.execute();
+                stmt.close();
+
+                status = ("Senha alterada com sucesso!");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public void excluirFuncionario(Login usuario) {
+        String sqlLogin = "delete from login where id_user = ?";
+
+        try {
+            try (PreparedStatement stmt = conexao.prepareStatement(sqlLogin)) {
+                stmt.setInt(1, usuario.getId_user());
+                stmt.execute();
+                stmt.close();
+                status = ("Usuário excluído com sucesso!");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+>>>>>>> 09115f767f1d112218fb2036644ffd6d77107f61
     
     /***
      * Busca sql e retorna caso login for efetuado com sucesso
@@ -91,7 +153,4 @@ public class FuncionarioDAO {
         }
     }
     
-    public String getStatus(){
-        return status;
-    }
 }

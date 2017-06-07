@@ -53,16 +53,18 @@ public class ControleFuncionario extends HttpServlet {
             String status;
             
             // Valores para cadastro de funcionario
+            String user = request.getParameter("user");
+            String senha = request.getParameter("senha");
+            
             String nome = request.getParameter("nome");
             String email = request.getParameter("email"); 
-            String cpf = request.getParameter("cpf"); 
-            String senha = request.getParameter("senha"); 
+            String cpf = request.getParameter("cpf");             
             String dt_nasc = request.getParameter("dt_nasc"); 
             String sexo = request.getParameter("sexo");
             String funcao = request.getParameter("funcao");
             
             // Valores para cadastro de endereço
-            int tipo_end = Integer.parseInt(request.getParameter("tipo_end"));
+            //int tipo_end = Integer.parseInt(request.getParameter("tipo_end"));
             String cep = request.getParameter("cep");
             String lagradouro = request.getParameter("lagradouro");
             String numero = request.getParameter("numero");
@@ -73,12 +75,13 @@ public class ControleFuncionario extends HttpServlet {
             String ponto_ref = request.getParameter("ponto_ref");
             
             // Valores para cadastro de telefone
-            int tipo_tel = Integer.parseInt(request.getParameter("tipo"));
+            //int tipo_tel = Integer.parseInt(request.getParameter("tipo"));
             String numero_tel = request.getParameter("num_tel");
             String descricao = request.getParameter("descricao");
             
             
             Funcionario funcionario = new Funcionario();
+            Login log = new Login();
            
                         
             switch(flag){
@@ -87,6 +90,7 @@ public class ControleFuncionario extends HttpServlet {
                         Utilidades u = new Utilidades();
                         int id_gerada = u.getGeraNumero();
                         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+                        LoginDAO logDAO = new LoginDAO();
 //                        
                         funcionario.setId_func(id_gerada);
                         funcionario.setNome(nome);
@@ -98,26 +102,25 @@ public class ControleFuncionario extends HttpServlet {
                         funcionario.setData_nasc(data);                     
                         funcionario.setSexo(sexo);
                         
+                        log.setId_log(id_gerada);
+                        log.setNome_user(user);
+                        log.setSenha(senha);
+                        log.setId_user(funcionario.getId_func());
+                        log.setTipo_user(2);
+                        
+                        logDAO.cadastraLogin(log);
                         funcionarioDAO.cadastraFuncionario(funcionario);
+                        
+                        status = logDAO.getStatus();
+                        System.out.print("Status login: "+ status);
                         status = funcionarioDAO.getStatus();
-                        request.setAttribute("erro", status);
+                        System.out.print("Status funcionario: "+ status);
                         
                     }catch(Exception ex){
                         response.sendRedirect("view/erro.jsp");
                     }
                     break;
-                    
-                case "login":
-                    try {
-                        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                        funcionarioDAO.getLogin(email, senha);
                         
-                    } catch (Exception e){
-                        System.out.print("Erro na instancia DAO");
-                        response.sendRedirect("view/erro.jsp");
-                    }
-                    break;
-                    
                 case "cad_endereco":
                     try{
                         Endereco end = new Endereco();
@@ -125,7 +128,7 @@ public class ControleFuncionario extends HttpServlet {
                         Utilidades util = new Utilidades();
                         
                         end.setId_end(util.getGeraNumero());
-                        end.setTipo(tipo_end);
+                        //end.setTipo(tipo_end);
                         end.setCep(cep);
                         end.setLagradouro(lagradouro);
                         end.setNumero(numero);
@@ -153,7 +156,7 @@ public class ControleFuncionario extends HttpServlet {
                     
                     tel.setId_tel(util.getGeraNumero());
                     tel.setNumero(numero_tel);
-                    tel.setTipo(tipo_tel);
+                    //tel.setTipo(tipo_tel);
                     tel.setDescricao(descricao);
                     tel.setId_user(funcionario.getId_func());
                     tel.setTipo_user(2);
