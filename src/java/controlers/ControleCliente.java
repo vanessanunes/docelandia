@@ -52,13 +52,15 @@ public class ControleCliente extends HttpServlet {
             } 
             switch (flag) {
                 case "login":
+                    System.out.print("ControleCliente, login");
                     String email = request.getParameter("email");
                     String senha = request.getParameter("senha");
                     try {
-                        ClienteDAO clienteDAO = new ClienteDAO();
-                        clienteDAO.getLogin(email, senha);
+                        LoginDAO loginDAO = new LoginDAO();
+                        loginDAO.getLogin(email, senha);
                     } catch (Exception e){
                         System.out.print("ControleCliente, flag login: Caiu o catch!");
+                        System.out.print(e);
                     }
 //                    página de exemplo, vamos ver depois pra onde vai isso!
                     request.getRequestDispatcher("acesso.jsp").
@@ -109,7 +111,6 @@ public class ControleCliente extends HttpServlet {
                     int tipo_tel = Integer.parseInt(request.getParameter("tipo_tel"));
                     String num_tel = request.getParameter("num_tel");
                     String tel_desc = "";
-                    System.out.print(tel_desc);
                     if (tipo_tel == 1){
                         tel_desc = "Pessoal";
                     }
@@ -160,7 +161,6 @@ public class ControleCliente extends HttpServlet {
 
                     try {
                         int id_end = u.getGeraNumero();
-                        System.out.print("Estamos no endereco do Controle Cliente");
                         Endereco endereco = new Endereco();
                         endereco.setId_end(id_end);
                         endereco.setCep(cep);

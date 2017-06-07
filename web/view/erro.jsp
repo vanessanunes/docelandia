@@ -1,6 +1,6 @@
 <%-- 
-    Document   : lixo
-    Created on : 03/06/2017, 22:00:54
+    Document   : erro.jsp
+    Created on : 05/06/2017, 21:42:00
     Author     : Bruno
 --%>
 
@@ -9,11 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Erro</title>
     </head>
     <body>
-       <%
-            out.print(request.getAttribute("erro").toString());
+        <h1>Tela inutil que mosta se tem erro ;p</h1>
+        <%
+            out.print(request.getAttribute("erro"));
         %>
     </body>
 </html>

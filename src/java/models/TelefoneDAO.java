@@ -20,7 +20,7 @@ public class TelefoneDAO {
     }
     
      public void cadastraTelefone(Telefone telefone){
-        String sql = "insert into telefone(id_tel, numero, descricao, tipo_user, id_user, tipo)"
+        String sql = "insert into telefone(id_tel, numero, descricao, tipo, tipo_user, id_user)"
                 + "values (?, ?, ?, ?, ?, ?)";
         
         try {
@@ -29,9 +29,9 @@ public class TelefoneDAO {
                 stmt.setInt(1, telefone.getId_tel());
                 stmt.setString(2, telefone.getNumero());
                 stmt.setString(3, telefone.getDescricao());
-                stmt.setInt(4, telefone.getTipo_user());
-                stmt.setFloat(5, telefone.getId_user());
-                stmt.setInt(6, telefone.getTipo());
+                stmt.setInt(4, telefone.getTipo());
+                stmt.setFloat(5, telefone.getTipo_user());
+                stmt.setInt(6, telefone.getId_user());
                 
                 stmt.execute();
                 stmt.close();
@@ -41,4 +41,8 @@ public class TelefoneDAO {
             throw new RuntimeException(e);
         }
     }
+     
+     public String getStatus(){
+         return status;
+     }
 }

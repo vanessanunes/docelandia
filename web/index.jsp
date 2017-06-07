@@ -47,9 +47,6 @@
 
   </div>
 </nav>
- 
-
-   
 <!-- Telão resposivo -->
 <div id="fieto">
 

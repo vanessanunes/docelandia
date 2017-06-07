@@ -3,20 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/index.jsp</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleLogin.java</file>
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/controlers/ControleCliente.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/ProdutoDAO.java</file>
-            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/TelefoneDAO.java</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/LoginDAO.java</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/css/style.css</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/css/sprtd.css</file>
+            <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/models/ClienteDAO.java</file>
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/view/produto.jsp</file>
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/src/java/beans/Telefone.java</file>
-=======
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/quemsomos.jsp</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/css/qm.css</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/css/sprtd.css</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/cadastro_cliente.jsp</file>
-            <file>file:/C:/Users/IBM_ADMIN/docelandia/web/index.jsp</file>
->>>>>>> 09b24d077a7b6e0f95805160c88ab90732286d6d
         </group>
     </open-files>
 </project-private>

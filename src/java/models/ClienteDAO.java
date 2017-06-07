@@ -23,11 +23,7 @@ public class ClienteDAO {
         this.criterios = null;
         this.conexao = new ConnectionFactory().getConnection();
     }
-    
-    /***
-     * Entre com o objeto cliente para realizar cadastro
-     * @param cliente 
-     */
+
     public void cadastraCliente(Cliente cliente){
         
         String sql = "insert into cliente(id_clie, nome, email, cpf, dt_nasc, sexo)"
@@ -48,35 +44,30 @@ public class ClienteDAO {
                 System.out.print(status);
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            System.out.print(e);
         }
-        
     }
-    
-    /***
-     * Busca sql e retorna caso login for efetuado com sucesso
-     * @param email
-     * @param senha
-     * @return registro
-     */
-    public List<Login> getLogin(String email, String senha){
+
+    public List<Cliente> getLogin(int id_clie){
         @SuppressWarnings("UnusedAssignment")
-        String sql = "select * from login where nome_user ='"+email+"' and senha='"+senha+"'";
+        String sql = "SELECT * FROM `cliente` WHERE `id_clie` = '"+id_clie+"'";
         System.out.println("ClienteDAO, getLogin(): " + sql);
+//        System.out.print(cliente.getId_clie());
         
         try {
-            /* entramos na tabela login e verificamos se está correto,
-            Se estiver ele retorna o registo (deve ser APENAS um)            
-            */
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
-            List<Login> clientes;
-            clientes = new ArrayList<>();
+            List<Cliente> clientes = new ArrayList<>();
             try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
-                    Login cliente = new Login();
-                    cliente.getNome_user();
-                    cliente.getSenha();
+                    Cliente cliente = new Cliente();
+                    cliente.setId_clie(rs.getInt("id_clie"));
+                    cliente.setNome(rs.getString("nome"));
+                    cliente.setEmail(rs.getString("email"));
+                    cliente.setCpf(rs.getString("cpf"));
+                    cliente.setData_nasc(rs.getDate("dt_nasc"));
+                    cliente.setSexo(rs.getString("sexo"));
+                    
                     clientes.add(cliente);
                     totalRegistros++;
                 }
@@ -84,9 +75,10 @@ public class ClienteDAO {
                 stmt.close();
                 return clientes;
             }
-
+            
         } catch (SQLException ex) {
-            throw new RuntimeException(ex);
+            System.out.print(ex);
         }
     }
+    
 }
