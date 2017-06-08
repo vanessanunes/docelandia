@@ -46,7 +46,7 @@
                             document.getElementById("erro").innerHTML = "CEP não localizado!";
                             // Limpa os campos de exibição, caso haja algum valor neles
                             document.getElementById("tipo_logradouro").value = "";
-                            document.getElementById("logradouro").value = "";
+                            document.getElementById("lagradouro").value = "";
                             document.getElementById("bairro").value = "";
                             document.getElementById("cidade").value = "";
                             document.getElementById("estado").value = "";
@@ -71,8 +71,9 @@
 <fieldset>
 
     <link href="css/cadastro.css" rel="stylesheet" type="text/css"/>
-<!-- Nome-->
-<div class="form-group">
+
+ 
+        <div class="form-group">
   <label class="col-md-4 control-label" for="nome">Nome:</label>  
   <div class="col-md-4">
   <input id="nome" name="nome" type="text" placeholder="Nome Completo" class="form-control input-md">
@@ -158,7 +159,7 @@
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="bairro">bairro</label>  
+  <label class="col-md-4 control-label" for="bairro">Bairro</label>  
   <div class="col-md-4">
       <input id="bairro" name="bairro" type="text" placeholder="bairro" class="form-control input-md">
     
@@ -168,7 +169,17 @@
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="estado">Logradouro</label>  
+  <label class="col-md-4 control-label" for="cidade">Cidade</label>  
+  <div class="col-md-4">
+      <input id="estado" name="cidade" type="text" placeholder="cidade" class="form-control input-md">
+    
+            
+ 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="estado">Estado</label>  
   <div class="col-md-4">
       <input id="estado" name="estado" type="text" placeholder="estado" class="form-control input-md">
     
@@ -176,7 +187,6 @@
  
   </div>
 </div>
-
 
 
 
@@ -199,11 +209,8 @@
 	</div>
   </div>
 </div>
-
-
-
-
-
+        
+        
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" >Enviar</label>
