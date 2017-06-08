@@ -3,23 +3,20 @@ import beans.Produto;
 import conexao.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProdutoDAO {
-
-
-    private String status;
-    private int totalRegisto;
-    private String criterios;
     private final Connection conexao;
-
-    /**
-     *
-     * Conexão com cadastro do produto
-     */
+    private String status;
+    private int totalRegistros;
+    private String criterios;
+  
     public ProdutoDAO() throws Exception {
         this.status = null;
-        this.totalRegisto = 0;
+        this.totalRegistros = 0;
         this.criterios = null;
         this.conexao = new ConnectionFactory().getConnection();
 
@@ -88,6 +85,57 @@ public class ProdutoDAO {
         return status;
     }
     
+    public List<Produto> listaTodosProdutos() {
+        
+        @SuppressWarnings("UnusedAssignment")
+        String sql = "select * from produto";
+
+        try {
+            @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+            List<Produto> produtos = new ArrayList<>();
+
+            try (PreparedStatement stmt = this.conexao.
+                    prepareStatement(sql);
+                    ResultSet rs = stmt.executeQuery()) {
+
+                while (rs.next()) {
+
+                    Produto produto = new Produto();
+                    produto.setId_prod(rs.getInt("id_prod"));
+                    produto.setId_cat(rs.getInt("id_cat"));
+                    produto.setNome(rs.getString("nome"));
+                    produto.setDescricao(rs.getString("descricao"));
+                    produto.setPreco(rs.getFloat("preco"));
+                    produto.setQuantidade(rs.getInt("quantidade"));
+                    produto.setImagem(rs.getString("imagem"));
+
+                    produtos.add(produto);
+
+                    totalRegistros++;
+                }
+                rs.close();
+                stmt.close();
+
+                return produtos;
+            }
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+    
+    public String getCriterios() {
+        if (!this.criterios.equals("=")) {
+            return ("Dados não localizados para [" + criterios + "]");
+        } else {
+            return ("Não há registros cadastrados!");
+        }
+    }
+    
+    public int getTotalRegistros() {
+        return totalRegistros;
+    }
+
 }
 
 

@@ -9,6 +9,7 @@ public class Produto implements Serializable{
     private String descricao;
     private float preco;
     private int quantidade;
+    private String imagem;
 
     public Produto() {
     }
@@ -60,6 +61,15 @@ public class Produto implements Serializable{
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+    
     
     
 }
