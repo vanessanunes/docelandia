@@ -19,6 +19,13 @@ Foi implementado:
 
 -- Não redirecionei a imagem de maneira correta ainda testando --
 
+-- Adicionada cadastro.jsp --
+
+-- Adicionado contato.html --
+
+-- Adicionado login -- 
+
+
 [back]
 Foi implementado:
 - cadastro de categoria

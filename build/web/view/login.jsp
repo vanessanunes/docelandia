@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-HEAD
+
 <html lang="pt-br">
 <head>
   <title>Docelandia - Central de doces</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Chamada Css-->
-  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
-  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <!-- Chamadas JS -->
-        <script src="../js/bootstrap.js" type="text/javascript"></script>
-        <script src="../js/bootstrap.min.js" type="text/javascript"></script>
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<!--Chamada CSS-->
-<link href="../css/sprtd.css" rel="stylesheet" type="text/css"/>
 
-<!-- Menu responsivo -->
-<nav role="navigation" class="navbar navbar-default navbar-inverse navbar-fixed-top">
+  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    
+    
+    
+    
+    <nav role="navigation" class="navbar navbar-default navbar-inverse navbar-fixed-top">
     
   
 <div class="navbar-header">
@@ -35,40 +36,65 @@ HEAD
     <!-- Menu normal responsivo  -->
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="nav navbar-nav navbar-right">
-          
-          <li><a href="../index.jsp">Inicio</a><li>
+          <li><a href="../index.jsp">Inicio </a></li>
+        
          <li><a href="view/login.jsp">Login</a><li>
-        <li><a href="#">Contato</a></li>
-       
-        <li><a href="../quemsomos.jsp">Quem somos</a><li>
+           <li><a href="#">Contato</a></li>
+        <li><a href="../quemsomos.jsp">Quem somos</a></li>
+        
       </ul>
 
   </div>
 </nav>
  
+    
+    
+    
+    
+    
+    
+<div id="wrapper">
+    	<div id="box">
+        	<div id="top_header">
+                    <h3>Docelândia</h3>
+                    .
+          		<h5>Faça seu login Docelândia.</h5>
+        	</div>
+        
+        <div id="inputs">
+        	<form id='login' action='' method='post' accept-charset='UTF-8' style="margin-left:6px;">
+				
+				<input type='hidden' name='submitted' id='submitted' value='1'/>
 
+				<div class='container'>
+					<input type='text' name='username' id='username' value='' maxlength="50" size="30" placeholder="Usuario"/><br/>
+				</div>
+				
+				<div class='container'>
+					<input type='password' name='password' id='password' maxlength="50" size="30" placeholder="Senha" /><br/>
+				</div>
+				
+				<div class='container'>
+					<input type='submit' name='Submit' value='Login' />
+				</div>
 
+			</form>
 
+	        <div id="bottom">
+	         
+                  <a href="../cadastro_cliente.jsp">Crie sua conta</a>
+	          <a class="right_a" href="#">Esqueçeu sua senha?</a>
+	        </div>
+        </div>
+    	</div>
+    </div>
 
 </body>
+</html>
 
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
-    </head>
-    <body>
-        <h1>Login</h1>
-        <form action="../ControleLogin" method="post">
-            Login:<br>
-            <input type="email" id="email" name="email">
-            <br> <br>
-            Senha:<br>
-            <input type="password" id="senha" name="senha">
-            <br><br>
-            <input type="hidden" name="flag" value="login"> 
-            <input type="submit" value="Entrar">
-        </form>
+
+
+
     </body>
 
 </html>

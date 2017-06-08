@@ -141,6 +141,15 @@ public class ClienteDAO {
         } catch (SQLException ex) {
             System.out.print(ex);
         }
+<<<<<<< HEAD
+       
+    
+
+    }
+=======
     }
 
+>>>>>>> dc4b467fb3c5983762e5466b8861c32e072ef513
 }
+    
+

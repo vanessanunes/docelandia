@@ -118,7 +118,6 @@ public class LoginDAO {
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException("Falha ao listar os logins.", ex);
         }
-    }
     
     public String getStatus(){
         return status;
@@ -129,4 +128,5 @@ public class LoginDAO {
     }
     
     
-}
+    
+
