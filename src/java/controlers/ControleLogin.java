@@ -29,12 +29,10 @@ public class ControleLogin extends HttpServlet {
         String flag = request.getParameter("flag");
         String status;
         
-        String user = request.getParameter("username");
-        String senha = request.getParameter("password");
-        List<Login> logins;
+        String user = request.getParameter("user");
+        String senha = request.getParameter("senha");
         
         Utilidades u = new Utilidades();
-        int id_gerada = u.getGeraNumero();
         
         try (PrintWriter out = response.getWriter()) {
             if (flag == null) {
@@ -47,19 +45,30 @@ public class ControleLogin extends HttpServlet {
                     try {
                         LoginDAO logDAO = new LoginDAO();
                         logDAO.getLogin(user, senha);
-                        Login log = new Login();
+                                               
                         
                         if(logDAO.getTotalRegistros() >= 1){
                             System.out.print("Login encontrado");
-                            logins = logDAO.listar();
+                            int tipo = 0;
                             
-                            request.setAttribute("logins", logins);
+                            List<Login> listaLogin = logDAO.getLogin(user, senha);
                             
-                            request.getRequestDispatcher("view/lista_logins.jsp").
-                                forward(request, response);
+                            for(Login login: listaLogin){
+                                tipo = login.getTipo_user();
+                                
+                            }
+                            
+                            if (tipo == 1){
+                                System.out.print("Identificou como cliente");
+                            }
+                            else if (tipo == 2){
+                                System.out.print("Identificou como funcionario");
+                            }
+                            
+                           System.out.print("Tipo: " + tipo);
                         }
                         else
-                            System.out.print("Login não cadastrado");
+                            System.out.print("Login não encontrado");
                         
                     } catch (Exception e){
                         System.out.print("Erro na instancia DAO");

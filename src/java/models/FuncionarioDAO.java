@@ -51,9 +51,9 @@ public class FuncionarioDAO {
         
     }
     
-<<<<<<< HEAD
+
     public void pesquisa(){}
-=======
+
     public void editarFuncionario(Funcionario funcionario) {
         String sql = "UPDATE funcionario"
                 + "SET nome = ?, funcao = ?, cpf = ?, dt_nasc = ?, email = ?, sexo = ?"
@@ -115,7 +115,7 @@ public class FuncionarioDAO {
     public String getStatus() {
         return status;
     }
->>>>>>> 09115f767f1d112218fb2036644ffd6d77107f61
+
     
     /***
      * Busca sql e retorna caso login for efetuado com sucesso

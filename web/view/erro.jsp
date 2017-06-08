@@ -12,9 +12,13 @@
         <title>Erro</title>
     </head>
     <body>
-        <h1>Tela inutil que mosta se tem erro ;p</h1>
-        <%
-            out.print(request.getAttribute("erro"));
-        %>
+        <form action="../ControleLogin" method="post">
+            <b>Username:</b><br>
+            <input type="text" name="user"/><br><br>
+            <b>Senha:</b><br>
+            <input type="password" name="senha"/><br><br>
+            <input type="submit" value="Entrar"/>
+            <input type="hidden" name="flag" value="login">
+        </form>
     </body>
 </html>

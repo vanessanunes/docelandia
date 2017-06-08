@@ -76,7 +76,7 @@ public class LoginDAO {
                     log.setNome_user(rs.getString("nome_user"));
                     log.setSenha(rs.getString("senha"));
                     log.setTipo_user(rs.getInt("tipo_user"));
-                    log.setTipo_user(rs.getInt("id_user"));
+                    log.setId_user(rs.getInt("id_user"));
 
                     logins.add(log);
    
@@ -118,6 +118,7 @@ public class LoginDAO {
             Logger.getLogger(LoginDAO.class.getName()).log(Level.SEVERE, null, ex);
             throw new RuntimeException("Falha ao listar os logins.", ex);
         }
+    }
     
     public String getStatus(){
         return status;
@@ -126,6 +127,7 @@ public class LoginDAO {
     public int getTotalRegistros() {
         return totalRegistros;
     }
+}
     
     
     

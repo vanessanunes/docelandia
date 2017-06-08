@@ -64,7 +64,6 @@ public class ControleFuncionario extends HttpServlet {
             String funcao = request.getParameter("funcao");
             
             // Valores para cadastro de endereço
-            //int tipo_end = Integer.parseInt(request.getParameter("tipo_end"));
             String cep = request.getParameter("cep");
             String lagradouro = request.getParameter("lagradouro");
             String numero = request.getParameter("numero");
@@ -75,7 +74,6 @@ public class ControleFuncionario extends HttpServlet {
             String ponto_ref = request.getParameter("ponto_ref");
             
             // Valores para cadastro de telefone
-            //int tipo_tel = Integer.parseInt(request.getParameter("tipo"));
             String numero_tel = request.getParameter("num_tel");
             String descricao = request.getParameter("descricao");
             
@@ -90,8 +88,8 @@ public class ControleFuncionario extends HttpServlet {
                         Utilidades u = new Utilidades();
                         int id_gerada = u.getGeraNumero();
                         FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-                        LoginDAO logDAO = new LoginDAO();
-//                        
+                        LoginDAO logDAO = new LoginDAO();                     
+                        
                         funcionario.setId_func(id_gerada);
                         funcionario.setNome(nome);
                         funcionario.setEmail(email);
@@ -127,8 +125,9 @@ public class ControleFuncionario extends HttpServlet {
                         EnderecoDAO endDAO = new EnderecoDAO();
                         Utilidades util = new Utilidades();
                         
+                        int tipo_end = Integer.parseInt(request.getParameter("tipo_end"));
                         end.setId_end(util.getGeraNumero());
-                        //end.setTipo(tipo_end);
+                        end.setTipo(tipo_end);
                         end.setCep(cep);
                         end.setLagradouro(lagradouro);
                         end.setNumero(numero);
@@ -154,9 +153,10 @@ public class ControleFuncionario extends HttpServlet {
                     TelefoneDAO telDAO = new TelefoneDAO();
                     Utilidades util = new Utilidades();
                     
+                    int tipo_tel = Integer.parseInt(request.getParameter("tipo"));
                     tel.setId_tel(util.getGeraNumero());
                     tel.setNumero(numero_tel);
-                    //tel.setTipo(tipo_tel);
+                    tel.setTipo(tipo_tel);
                     tel.setDescricao(descricao);
                     tel.setId_user(funcionario.getId_func());
                     tel.setTipo_user(2);

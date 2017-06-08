@@ -55,7 +55,7 @@ public class ClienteDAO {
                 + "SET nome = ?, email = ?, cpf = ?, dt_nasc = ?, sexo = ?"
                 + "WHERE id_clie = ?";
 
-        try {
+        
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
                 stmt.setString(1, cliente.getNome());
                 stmt.setString(2, cliente.getEmail());
@@ -67,7 +67,7 @@ public class ClienteDAO {
                 stmt.close();
                 status = ("Dados do cliente incluídos com sucesso!");
                 System.out.print(status);
-            }
+            
         } catch (SQLException e) {
             System.out.print(e);
         }
@@ -76,7 +76,7 @@ public class ClienteDAO {
     public void alteraSenha(Login usuario) {
         String sql = "update login set senha=? where id_user = ?";
 
-        try {
+       
             try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
 
                 stmt.setString(1, usuario.getSenha());
@@ -85,7 +85,7 @@ public class ClienteDAO {
                 stmt.close();
 
                 status = ("Senha alterada com sucesso!");
-            }
+            
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -93,14 +93,13 @@ public class ClienteDAO {
     
     public void excluirCliente(Login usuario) {
         String sqlLogin = "delete from login where id_user = ?";
-
-        try {
+        
             try (PreparedStatement stmt = conexao.prepareStatement(sqlLogin)) {
                 stmt.setInt(1, usuario.getId_user());
                 stmt.execute();
                 stmt.close();
                 status = ("Usuário excluído com sucesso!");
-            }
+            
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -119,6 +118,7 @@ public class ClienteDAO {
         try {
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
             List<Cliente> clientes = new ArrayList<>();
+            
             try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
                 while (rs.next()) {
@@ -141,15 +141,11 @@ public class ClienteDAO {
         } catch (SQLException ex) {
             System.out.print(ex);
         }
-<<<<<<< HEAD
-       
+        
+        return null;
+    }
+    
+
     
 
     }
-=======
-    }
-
->>>>>>> dc4b467fb3c5983762e5466b8861c32e072ef513
-}
-    
-
