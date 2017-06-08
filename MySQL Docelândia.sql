@@ -1,4 +1,4 @@
-
+﻿
 /*
 * @autor Bruno da Costa Silva
 * Projeto: Banco de Dados --> Docelândia
@@ -131,3 +131,14 @@ create table login (
 );
 
 alter table login add constraint pk_login primary key (id_log);
+
+07/06/2017
+
+INSERT INTO `categoria`(`id_cat`, `nome`, `descricao`) VALUES (1, 'Bolo', 'Bolos para morrer de amores')
+INSERT INTO `categoria`(`id_cat`, `nome`, `descricao`) VALUES (2, 'Docinho', 'Docinhos de carinho')
+
+alter table produto add imagem varchar(100);
+
+INSERT INTO `produto`(`id_prod`, `id_cat`, `nome`, `descricao`, `preco`, `quantidade`, `imagem`) VALUES (1, 1, 'Bolo Kit Kat', 'Bolo de chocolate, recheado com brigadeiro, coberto de brigadeiro, M&Ms e Kit Kat', 150.00, 500, 'imagem/doces/bolo_kitkat.png')
+
+INSERT INTO `produto`(`id_prod`, `id_cat`, `nome`, `descricao`, `preco`, `quantidade`, `imagem`) VALUES (2, 2, 'Brigadeiro Gourmet', 'Brigadeiros sortidos de: brigadeiro tradicional, leite ninho e Nutella', 30, 10, 'imagem/doces/brigadeiro_gourmet')
