@@ -4,6 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
             <file>file:/C:/Users/IBM_ADMIN/docelandia/web/quemsomos.jsp</file>
             <file>file:/C:/Users/IBM_ADMIN/docelandia/web/login.html</file>
             <file>file:/C:/Users/IBM_ADMIN/docelandia/web/cadastro_cliente.jsp</file>
@@ -11,28 +13,34 @@
             <file>file:/C:/Users/IBM_ADMIN/docelandia/web/contato.html</file>
 =======
 <<<<<<< HEAD
+>>>>>>> 97cb0bde1c7e82f099a5a0b28fdf3d602a7b3ba3
             <file>file:/C:/Users/Bruno/docelandia/MySQL%20Docelândia.sql</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleProduto.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/models/EnderecoDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleLogin.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/lista_logins.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleFuncionario.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Login.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Cliente.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/ClienteDAO.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleCliente.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_funcionario.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/web/view/erro.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/LoginDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/index.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Telefone.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_telefone.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Endereco.java</file>
             <file>file:/C:/Users/Bruno/docelandia/web/view/login.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/models/TelefoneDAO.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_cliente.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/login.html</file>
+            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleLogin.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/view/lista_logins.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/cadastro_cliente.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/src/java/models/ClienteDAO.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_funcionario.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/src/java/models/LoginDAO.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/index.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_telefone.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/utils/Utilidades.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/models/FuncionarioDAO.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Funcionario.java</file>
+<<<<<<< HEAD
+=======
             <file>file:/C:/Users/Bruno/docelandia/web/view/cadastro_cliente.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/web/login.html</file>
 =======
@@ -42,6 +50,7 @@
             <file>file:/C:/Users/Vanessa.Nunes/projetos/Docelandia/web/index.jsp</file>
 >>>>>>> 09115f767f1d112218fb2036644ffd6d77107f61
 >>>>>>> dc4b467fb3c5983762e5466b8861c32e072ef513
+>>>>>>> 97cb0bde1c7e82f099a5a0b28fdf3d602a7b3ba3
         </group>
     </open-files>
 </project-private>
