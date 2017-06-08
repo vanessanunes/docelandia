@@ -1,23 +1,5 @@
-<<!DOCTYPE html>
+<%@include file="topo.jsp" %>
 <html lang="pt-br">
-<head>
-  <title>Docelandia - Central de doces</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Chamada Css-->
-<!--    <a href="css/bootstrap.min.css.map"></a> href não é aqui-->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-            <!-- Chamadas JS -->
-            <script src="js/jquery.min.js"></script>
-              <script src="js/bootstrap.js"></script>
-              
-              
-              
-              
-              
-              
-                 <!-- Criação de uma função em JavaScript -->
-
         <script type="text/javascript">
 
             function buscaCep(varCep) {
@@ -64,7 +46,7 @@
                             document.getElementById("erro").innerHTML = "CEP não localizado!";
                             // Limpa os campos de exibição, caso haja algum valor neles
                             document.getElementById("tipo_logradouro").value = "";
-                            document.getElementById("logradouro").value = "";
+                            document.getElementById("lagradouro").value = "";
                             document.getElementById("bairro").value = "";
                             document.getElementById("cidade").value = "";
                             document.getElementById("estado").value = "";
@@ -82,46 +64,16 @@
         
               
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<!--Chamada CSS-->
 
-<link href="css/cadastro.css" rel="stylesheet" type="text/css"/>
-<!-- Menu responsivo -->
-<nav role="navigation" class="navbar navbar-default navbar-inverse navbar-fixed-top">
-    
-  
-<div class="navbar-header">
-      <a class="navbar-brand" href="index.jsp"></a>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" >
-        
-        <span class="sr-only"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <!-- Logo -->
-      
-    </div>
-    <!-- Menu normal responsivo  -->
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="nav navbar-nav navbar-right">
-           <li><a href="index.jsp">Inicio </a></li>
-         <li><a href="view/login.jsp">Login</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="quemsomos.jsp">Quem somos</a></li>
-        
-      </ul>
-
-  </div>
-</nav>
 <div class="cliente">
     <h2> Cadastro Cliente</h2>
     <form class="form-horizontal" name="cadastro" action="../ControleCliente" method="post">
 <fieldset>
 
     <link href="css/cadastro.css" rel="stylesheet" type="text/css"/>
-<!-- Nome-->
-<div class="form-group">
+
+ 
+        <div class="form-group">
   <label class="col-md-4 control-label" for="nome">Nome:</label>  
   <div class="col-md-4">
   <input id="nome" name="nome" type="text" placeholder="Nome Completo" class="form-control input-md">
@@ -207,7 +159,7 @@
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="bairro">bairro</label>  
+  <label class="col-md-4 control-label" for="bairro">Bairro</label>  
   <div class="col-md-4">
       <input id="bairro" name="bairro" type="text" placeholder="bairro" class="form-control input-md">
     
@@ -217,7 +169,17 @@
 </div>
 
 <div class="form-group">
-  <label class="col-md-4 control-label" for="estado">Logradouro</label>  
+  <label class="col-md-4 control-label" for="cidade">Cidade</label>  
+  <div class="col-md-4">
+      <input id="estado" name="cidade" type="text" placeholder="cidade" class="form-control input-md">
+    
+            
+ 
+  </div>
+</div>
+
+<div class="form-group">
+  <label class="col-md-4 control-label" for="estado">Estado</label>  
   <div class="col-md-4">
       <input id="estado" name="estado" type="text" placeholder="estado" class="form-control input-md">
     
@@ -225,7 +187,6 @@
  
   </div>
 </div>
-
 
 
 
@@ -248,11 +209,8 @@
 	</div>
   </div>
 </div>
-
-
-
-
-
+        
+        
 <!-- Button -->
 <div class="form-group">
   <label class="col-md-4 control-label" >Enviar</label>

@@ -1,64 +1,77 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <title>Docelandia - Central de doces</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Chamada Css-->
-<!--    <a href="css/bootstrap.min.css.map"></a> href não é aqui-->
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/ >
-            <!-- Chamadas JS -->
-            <script src="js/jquery.min.js"></script>
-              <script src="js/bootstrap.js"></script>
-</head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-<!--Chamada CSS-->
+<%@include file="topo.jsp" %>
+<div class="container marketing">
 
-<link href="css/sprtd.css" rel="stylesheet" type="text/css"/>
-<!-- Menu responsivo -->
-<nav role="navigation" class="navbar navbar-default navbar-inverse navbar-fixed-top">
-    
-  
-<div class="navbar-header">
-      <a class="navbar-brand" href="index.jsp"></a>
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" >
-        
-        <span class="sr-only"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <!-- Logo -->
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+        <div class="col-lg-4">
+          <img class="img-circle" src="image/doces/bolo_kitkat.png" alt="Bolo de Kit Kat" width="180" height="140">
+          <h2>Bolo Monstrinho</h2>
+          <p>
+              Bolo Monstrinhos são nossos bolos mais famosos!
+          </p>
+          <p><a class="btn btn-default" href="#" role="button">Ver mais</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="image/doces/cupcakes.jpg" alt="Cupcakes" width="180" height="140">
+          <h2>Cupcakes</h2>
+          <p>
+              Cupcakes lindos, feitos com muito amor e carinho!
+          </p>
+          <p><a class="btn btn-default" href="#" role="button">Ver mais</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+          <img class="img-circle" src="image/doces/torta_suica.png" alt="Torta Suiça" width="210" height="140">
+          <h2>Torta Suiça</h2>
+          <p>
+              Quem não quer uma delicia dessas pra chamar de sua?
+          </p>
+          <p><a class="btn btn-default" href="#" role="button">Ver mais</a></p>
+        </div><!-- /.col-lg-4 -->
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7 col-md-push-5">
+          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5 col-md-pull-7">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+        </div>
+      </div>
+
       
-    </div>
-    <!-- Menu normal responsivo  -->
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="nav navbar-nav navbar-right">
 
-          <li><a href="index.jsp">Inicio </a></li>
-         <li><a href="view/login.jsp">Login</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="quemsomos.jsp">Quem somos</a></li>
-        
-      </ul>
-
-  </div>
-</nav>
-<!-- Telão resposivo -->
-<div id="fieto">
-
-    <div id="fieto-overlay">
-       
-    </div>
-    
-    <div class="controle-doc">
-       <span style="position: absolute; top: 210px; left:45%;">Docelandia</span>
-    </div>
-
-</div>
+      <!-- /END THE FEATURETTES -->
 
 
-</body>
-</html>
-
+<%@include file="footer.jsp" %>
 
