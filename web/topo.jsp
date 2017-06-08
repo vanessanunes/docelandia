@@ -41,6 +41,7 @@
               <ul class="nav navbar-nav">
                 <li class="active"><a href="index.jsp">Home</a></li>
                 <li><a href="lista_produtos.jsp">Produtos</a></li>
+                <li><a href="login.jsp">Login</a></li>
                 <li><a href="quemsomos.jsp">Quem somos</a></li>
                 <li><a href="contato.jsp">Contate-nos</a></li>
                 
