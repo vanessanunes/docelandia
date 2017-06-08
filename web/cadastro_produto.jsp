@@ -1,11 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Produto</title>
-    </head>
-    <body>
+<%@include file="topo.jsp" %>
         <h1>Cadastro de Produto</h1>
         <form action="../ControleProduto" method="post">
             <label for="nome_pro">Nome do Produto:</label>
@@ -13,7 +6,7 @@
             <input type="text" id="nome_pro" name="nome_pro" />
             <br>
             <br>
-            <label for="descricao">DescriÃ§Ã£o do Produto:</label>
+            <label for="descricao">Descrição do Produto:</label>
             <br>
             <input type="text" id="descricao" name="descricao" />
             <br>
@@ -31,7 +24,7 @@
             <label for="cat_pro">Categoria:</label>
             <select>
                 <option value="1">Bolo</option>
-                <option value="2">PÃ£es</option>
+                <option value="2">Pães</option>
                 <option value="3">Drinks?</option>
                 <option value="4">Cus?</option>
             </select>
@@ -40,6 +33,4 @@
             <input type="hidden" name="flag" value="cad_prod" /> 
             <input type="submit" value="Enviar" />
         </form>
-        
-    </body>
-</html>
+<%@include file="footer.jsp" %>

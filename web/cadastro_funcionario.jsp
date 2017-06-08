@@ -1,13 +1,6 @@
+<%--<%@include file="../topo.jsp" %>--%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro de Funcionario</title>
-    </head>
-    <body>
-        <h1>Cadastro de Funcion√°rio</h1>
+        <h1>Cadastro de Funcion·rio</h1>
         <form name="cadastro" action="../ControleFuncionario" method="post">
             <b>Nome de usuario:</b><br>
             <input type="text" name="user"/><br><br>           
@@ -18,7 +11,7 @@
             <input name="nome" id="nome" />
             <br>
             <br>
-            <label for="funcao">Fun√ß√£o: </label>
+            <label for="funcao">FunÁ„o: </label>
             <br>
             <input name="funcao" id="funcao" />
             <br>
