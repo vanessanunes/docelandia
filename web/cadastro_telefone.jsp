@@ -14,7 +14,7 @@
     <body>
         <h1>Cadastro de telefone - teste</h1>
         <form name="cadastro" action="../ControleCliente" method="post">
-             <label for="tipo_tel">Tipo de telefone:</label>
+            <label for="tipo_tel">Tipo de telefone:</label>
             <select>
                 <option value="1">Pessoal</option>
                 <option value="2">Residencial</option>

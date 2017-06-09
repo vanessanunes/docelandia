@@ -83,7 +83,7 @@ ALTER TABLE Telefone ADD CONSTRAINT PK_Telefone PRIMARY KEY (id_tel);
 
 CREATE TABLE Endereco (
     id_end INT NOT NULL,
-    tipo varchar(10), /*Tipo de telefone(1=Casa, 2=Celular, 3=Recado...)*/
+    tipo varchar(10), /*Tipo de telefone(1=Casa, 2=Parente, 3=Vizinho...)*/
     cep varchar(10),
     lagradouro VARCHAR(100),
     numero varchar(15),

@@ -12,6 +12,15 @@ public class Funcionario extends Endereco implements Serializable {
     private Date data_nasc;
     private String email;
     private String sexo;
+    private String data_nasc_n;
+
+    public String getData_nasc_n() {
+        return data_nasc_n;
+    }
+
+    public void setData_nasc_n(String dt_nasc_n) {
+        this.data_nasc_n = dt_nasc_n;
+    }
 
     public String getSexo() {
         return sexo;

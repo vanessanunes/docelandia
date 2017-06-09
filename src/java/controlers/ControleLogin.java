@@ -1,13 +1,17 @@
 package controlers;
 
+import beans.Cliente;
+import beans.Funcionario;
 import beans.Login;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.ClienteDAO;
 import models.FuncionarioDAO;
 import models.LoginDAO;
 import utils.Utilidades;
@@ -50,22 +54,45 @@ public class ControleLogin extends HttpServlet {
                         if(logDAO.getTotalRegistros() >= 1){
                             System.out.print("Login encontrado");
                             int tipo = 0;
+                            int primaria = 0;
                             
                             List<Login> listaLogin = logDAO.getLogin(user, senha);
                             
                             for(Login login: listaLogin){
                                 tipo = login.getTipo_user();
-                                
+                                primaria = login.getId_user();                             
                             }
                             
                             if (tipo == 1){
-                                System.out.print("Identificou como cliente");
-                            }
-                            else if (tipo == 2){
-                                System.out.print("Identificou como funcionario");
+                                ClienteDAO clieDAO = new ClienteDAO();
+                                String nome="";
+                                                             
+                                List<Cliente> listaCliente = clieDAO.Pesquisar(primaria);
+                                
+                                for(Cliente clie: listaCliente){
+                                    nome = clie.getNome();
+                                }
+                                
+                                System.out.print("Bem-Vindo: " + nome);
+                                
                             }
                             
-                           System.out.print("Tipo: " + tipo);
+                            else if (tipo == 2){                             
+                                FuncionarioDAO funcDAO = new FuncionarioDAO();
+                                
+                                String dataNova = "";
+                                String nome="";
+                                List<Funcionario> listaFuncionario = funcDAO.Pesquisar(primaria);
+                                
+                                for(Funcionario func: listaFuncionario){
+                                    nome = func.getNome();
+                                    dataNova = func.getData_nasc_n();
+                                }
+                                
+                                System.out.print("Bem-Vindo: " + nome);
+                                System.out.print("Nascido em: " + dataNova);
+                            }
+                            
                         }
                         else
                             System.out.print("Login não encontrado");

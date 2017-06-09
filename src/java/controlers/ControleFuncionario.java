@@ -12,8 +12,6 @@ import beans.Telefone;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -46,7 +44,8 @@ public class ControleFuncionario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         try (PrintWriter out = response.getWriter()) {
-            // Variável que receberá o valor da flag enviado pelo formulário
+            
+// Variável que receberá o valor da flag enviado pelo formulário
             String flag = request.getParameter("flag");
             
             // Variavel que recebe o status da conexão
@@ -64,6 +63,7 @@ public class ControleFuncionario extends HttpServlet {
             String funcao = request.getParameter("funcao");
             
             // Valores para cadastro de endereço
+            String tipo_end = request.getParameter("tipo_end");
             String cep = request.getParameter("cep");
             String lagradouro = request.getParameter("lagradouro");
             String numero = request.getParameter("numero");
@@ -74,7 +74,8 @@ public class ControleFuncionario extends HttpServlet {
             String ponto_ref = request.getParameter("ponto_ref");
             
             // Valores para cadastro de telefone
-            String numero_tel = request.getParameter("num_tel");
+            String numero_tel = request.getParameter("numero_tel");
+            String tipo_tel = request.getParameter("tipo_tel");
             String descricao = request.getParameter("descricao");
             
             
@@ -117,17 +118,14 @@ public class ControleFuncionario extends HttpServlet {
                     }catch(Exception ex){
                         response.sendRedirect("view/erro.jsp");
                     }
-                    break;
-                        
-                case "cad_endereco":
+                    
                     try{
                         Endereco end = new Endereco();
                         EnderecoDAO endDAO = new EnderecoDAO();
                         Utilidades util = new Utilidades();
                         
-                        int tipo_end = Integer.parseInt(request.getParameter("tipo_end"));
                         end.setId_end(util.getGeraNumero());
-                        end.setTipo(tipo_end);
+                        end.setTipo(Integer.parseInt(tipo_end));
                         end.setCep(cep);
                         end.setLagradouro(lagradouro);
                         end.setNumero(numero);
@@ -146,17 +144,17 @@ public class ControleFuncionario extends HttpServlet {
                         System.out.print("Erro no cad_endereco " + e);
                         response.sendRedirect("view/erro.jsp");
                     }
-                    break;
-                case "cad_tel":
+                   
+                
                     try{
                     Telefone tel = new Telefone();
                     TelefoneDAO telDAO = new TelefoneDAO();
                     Utilidades util = new Utilidades();
                     
-                    int tipo_tel = Integer.parseInt(request.getParameter("tipo"));
+                    
                     tel.setId_tel(util.getGeraNumero());
                     tel.setNumero(numero_tel);
-                    tel.setTipo(tipo_tel);
+                    tel.setTipo(Integer.parseInt(tipo_tel));
                     tel.setDescricao(descricao);
                     tel.setId_user(funcionario.getId_func());
                     tel.setTipo_user(2);
@@ -167,6 +165,7 @@ public class ControleFuncionario extends HttpServlet {
                     } catch(Exception e){
                         System.out.print("Erro " + e);                      
                     }
+                    
                     break;
                     
             }

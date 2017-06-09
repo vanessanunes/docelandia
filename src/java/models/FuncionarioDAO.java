@@ -119,32 +119,42 @@ public class FuncionarioDAO {
     
     /***
      * Busca sql e retorna caso login for efetuado com sucesso
-     * @param email
-     * @param senha
-     * @return registro
+     * @param primary_key
+     * @return funcionarios
      */
-    public List<Login> getLogin(String email, String senha){
+    public List<Funcionario> Pesquisar(int primary_key) {
+
         @SuppressWarnings("UnusedAssignment")
-        String sql = "select * from login where nome_user ='"+email+"' and senha='"+senha+"'";
-        
+        String sql = "select * from funcionario where "
+                + " id_func='" + primary_key + "'";
+
         try {
-            /* entramos na tabela login e verificamos se está correto,
-            Se estiver ele retorna o registo (deve ser APENAS um)            
-            */
             @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
-            List<Login> funcionarios;
+            List<Funcionario> funcionarios;
             funcionarios = new ArrayList<>();
-            try (PreparedStatement stmt = this.conexao.prepareStatement(sql);
+
+            try (PreparedStatement stmt = this.conexao.
+                    prepareStatement(sql);
                     ResultSet rs = stmt.executeQuery()) {
+
                 while (rs.next()) {
-                    Login funcionario = new Login();
-                    funcionario.getNome_user();
-                    funcionario.getSenha();
-                    funcionarios.add(funcionario);
+
+                    Funcionario func = new Funcionario();
+                    func.setId_func(rs.getInt("id_func"));
+                    func.setNome(rs.getString("nome"));
+                    func.setFuncao(rs.getString("funcao"));
+                    func.setData_nasc(rs.getDate("dt_nasc"));
+                    func.setEmail(rs.getString("email"));
+                    func.setSexo(rs.getString("sexo"));
+
+                    funcionarios.add(func);
+   
                     totalRegistros++;
                 }
+
                 rs.close();
                 stmt.close();
+
                 return funcionarios;
             }
 

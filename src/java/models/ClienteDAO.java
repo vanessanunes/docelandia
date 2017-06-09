@@ -145,7 +145,49 @@ public class ClienteDAO {
         return null;
     }
     
+    /***
+     * Busca sql e retorna o cliente pesquisado
+     * @param primary_key
+     * @return clientes
+     */
+    public List<Cliente> Pesquisar(int primary_key) {
 
-    
+        @SuppressWarnings("UnusedAssignment")
+        String sql = "select * from cliente where "
+                + " id_clie='" + primary_key + "'";
 
+        try {
+            @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+            List<Cliente> clientes;
+            clientes = new ArrayList<>();
+
+            try (PreparedStatement stmt = this.conexao.
+                    prepareStatement(sql);
+                    ResultSet rs = stmt.executeQuery()) {
+
+                while (rs.next()) {
+
+                    Cliente clie = new Cliente();
+                    clie.setId_clie(rs.getInt("id_clie"));
+                    clie.setNome(rs.getString("nome"));
+                    clie.setEmail(rs.getString("email"));
+                    clie.setCpf(rs.getString("cpf"));
+                    clie.setData_nasc(rs.getDate("dt_nasc"));
+                    clie.setSexo(rs.getString("sexo"));
+
+                    clientes.add(clie);
+   
+                    totalRegistros++;
+                }
+
+                rs.close();
+                stmt.close();
+
+                return clientes;
+            }
+
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
     }
+}

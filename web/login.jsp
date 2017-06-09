@@ -7,22 +7,22 @@
         	</div>
         
         <div id="inputs">
-        	<form id='login' action='' method='post' accept-charset='UTF-8' style="margin-left:6px;">
+        	<form id='login' action='ControleLogin' method='post' accept-charset='UTF-8' style="margin-left:6px;">
 				
 				<input type='hidden' name='submitted' id='submitted' value='1'/>
 
 				<div class='container'>
-					<input type='text' name='username' id='username' value='' maxlength="50" size="30" placeholder="Usuario"/><br/>
+					<input type='text' name='user' id='username' value='' maxlength="50" size="30" placeholder="Usuario"/><br/>
 				</div>
 				
 				<div class='container'>
-					<input type='password' name='password' id='password' maxlength="50" size="30" placeholder="Senha" /><br/>
+					<input type='password' name='senha' id='password' maxlength="50" size="30" placeholder="Senha" /><br/>
 				</div>
 				
 				<div class='container'>
 					<input type='submit' name='Submit' value='Login' />
 				</div>
-
+                                <input type="hidden" name="flag" value="login">
 			</form>
 
 	        <div id="bottom">
