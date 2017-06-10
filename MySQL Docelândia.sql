@@ -139,6 +139,6 @@ INSERT INTO `categoria`(`id_cat`, `nome`, `descricao`) VALUES (2, 'Docinho', 'Do
 
 alter table produto add imagem varchar(100);
 
-INSERT INTO `produto`(`id_prod`, `id_cat`, `nome`, `descricao`, `preco`, `quantidade`, `imagem`) VALUES (1, 1, 'Bolo Kit Kat', 'Bolo de chocolate, recheado com brigadeiro, coberto de brigadeiro, M&Ms e Kit Kat', 150.00, 500, 'image/doces/bolo_kitkat.png')
+INSERT INTO `produto`(`id_prod`, `id_cat`, `nome`, `descricao`, `preco`, `quantidade`, `imagem`) VALUES (1, 1, 'Bolo Kit Kat', 'Bolo de chocolate, recheado com brigadeiro, coberto de brigadeiro, M&Ms e Kit Kat', 150.00, 500, 'image/doces/bolo_kitkat.png');
 
-INSERT INTO `produto`(`id_prod`, `id_cat`, `nome`, `descricao`, `preco`, `quantidade`, `imagem`) VALUES (2, 2, 'Brigadeiro Gourmet', 'Brigadeiros sortidos de: brigadeiro tradicional, leite ninho e Nutella', 30, 10, 'image/doces/brigadeiro_gourmet.gif')
+INSERT INTO `produto`(`id_prod`, `id_cat`, `nome`, `descricao`, `preco`, `quantidade`, `imagem`) VALUES (2, 2, 'Brigadeiro Gourmet', 'Brigadeiros sortidos de: brigadeiro tradicional, leite ninho e Nutella', 30, 10, 'image/doces/brigadeiro_gourmet.gif');

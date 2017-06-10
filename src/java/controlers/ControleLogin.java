@@ -72,25 +72,14 @@ public class ControleLogin extends HttpServlet {
                                 for(Cliente clie: listaCliente){
                                     nome = clie.getNome();
                                 }
-                                
-                                System.out.print("Bem-Vindo: " + nome);
+                         
                                 
                             }
                             
                             else if (tipo == 2){                             
-                                FuncionarioDAO funcDAO = new FuncionarioDAO();
-                                
-                                String dataNova = "";
-                                String nome="";
-                                List<Funcionario> listaFuncionario = funcDAO.Pesquisar(primaria);
-                                
-                                for(Funcionario func: listaFuncionario){
-                                    nome = func.getNome();
-                                    dataNova = func.getData_nasc_n();
-                                }
-                                
-                                System.out.print("Bem-Vindo: " + nome);
-                                System.out.print("Nascido em: " + dataNova);
+                                request.setAttribute("chave", primaria);
+                                request.getRequestDispatcher("view/erro.jsp").
+                                forward(request, response);
                             }
                             
                         }

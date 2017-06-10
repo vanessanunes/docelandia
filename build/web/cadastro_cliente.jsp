@@ -5,33 +5,33 @@
             function buscaCep(varCep) {
                 // Verifica se o campo CEP foi preenchido
                 if (varCep.length == 0) {
-                    // N„o realiza a busca
-                    console.log('Busca n„o realizada');
+                    // N√£o realiza a busca
+                    console.log('Busca n√£o realizada');
                     return;
                 }
-                // Verifica se o recurso est· disponÌvel
+                // Verifica se o recurso est√° dispon√≠vel
                 if (window.XMLHttpRequest) {
-                    // CÛdigo para IE7+, Firefox, Chrome, Opera, Safari, etc
+                    // C√≥digo para IE7+, Firefox, Chrome, Opera, Safari, etc
                     // Se estiver, cria um novo objeto XMLHttpRequest
                     xmlhttp = new XMLHttpRequest();
                 } else {
-                    // CÛdigo para IE6, IE5
-                    // CriaÁ„o do objeto baseado em ActiveX
+                    // C√≥digo para IE6, IE5
+                    // Cria√ß√£o do objeto baseado em ActiveX
                     xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
                 }
-                // Coloca o mÈtodo em estado de "atenÁ„o", ou seja, 
-                // fica aguardando uma aÁ„o
+                // Coloca o m√©todo em estado de "aten√ß√£o", ou seja, 
+                // fica aguardando uma a√ß√£o
                 xmlhttp.onreadystatechange = function ()
                 {
-                    // Verifica se o status da requisiÁ„o est· funcionando
+                    // Verifica se o status da requisi√ß√£o est√° funcionando
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
                     {
-                        // Declara uma vari·vel para receber a resposta da requisiÁ„o
+                        // Declara uma vari√°vel para receber a resposta da requisi√ß√£o
                         var resposta = JSON.parse(xmlhttp.responseText);
-                        // Verifica se o endereÁo existe para o CEP informado
+                        // Verifica se o endere√ßo existe para o CEP informado
                         if (resposta.resultado != 0){
-                            // Abaixo s„o configurados os elementos <span> 
-                            // para receber os dados originados da requisiÁ„o
+                            // Abaixo s√£o configurados os elementos <span> 
+                            // para receber os dados originados da requisi√ß√£o
                             var lagradouro = resposta.tipo_logradouro + " " + resposta.logradouro;
 //                            document.getElementById("tipo_logradouro").innerHTML = resposta.tipo_logradouro;
                             document.getElementById("lagradouro").value = lagradouro;
@@ -42,9 +42,9 @@
                             document.getElementById("erro").innerHTML = "";
 
                         } else {
-                            // Emite uma mensagem de erro caso o endereÁo relacionado ao CEP n„o existir
-                            document.getElementById("erro").innerHTML = "CEP n„o localizado!";
-                            // Limpa os campos de exibiÁ„o, caso haja algum valor neles
+                            // Emite uma mensagem de erro caso o endere√ßo relacionado ao CEP n√£o existir
+                            document.getElementById("erro").innerHTML = "CEP n√£o localizado!";
+                            // Limpa os campos de exibi√ß√£o, caso haja algum valor neles
                             document.getElementById("tipo_logradouro").value = "";
                             document.getElementById("lagradouro").value = "";
                             document.getElementById("bairro").value = "";
@@ -53,9 +53,9 @@
                         }
                     }
                 }
-                // Realiza a montagem da URL requisitada, concatenando o valor a ser procurado, passado como par‚metro
+                // Realiza a montagem da URL requisitada, concatenando o valor a ser procurado, passado como par√¢metro
                 xmlhttp.open("GET", "http://cep.republicavirtual.com.br/web_cep.php?formato=json&cep=" + varCep, true);
-                // Executa a requisiÁ„o AJAX
+                // Executa a requisi√ß√£o AJAX
                 xmlhttp.send();
             }
 
@@ -67,7 +67,7 @@
 
 <div class="cliente">
     <h2> Cadastro Cliente</h2>
-    <form class="form-horizontal" name="cadastro" action="../ControleCliente" method="post">
+    <form class="form-horizontal" name="cadastro" action="ControleCliente" method="post">
 <fieldset>
 
     <link href="css/cadastro.css" rel="stylesheet" type="text/css"/>
