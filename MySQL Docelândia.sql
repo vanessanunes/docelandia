@@ -134,8 +134,8 @@ alter table login add constraint pk_login primary key (id_log);
 
 07/06/2017
 
-INSERT INTO `categoria`(`id_cat`, `nome`, `descricao`) VALUES (1, 'Bolo', 'Bolos para morrer de amores')
-INSERT INTO `categoria`(`id_cat`, `nome`, `descricao`) VALUES (2, 'Docinho', 'Docinhos de carinho')
+INSERT INTO `categoria`(`id_cat`, `nome`, `descricao`) VALUES (1, 'Bolo', 'Bolos para morrer de amores');
+INSERT INTO `categoria`(`id_cat`, `nome`, `descricao`) VALUES (2, 'Docinho', 'Docinhos de carinho');
 
 alter table produto add imagem varchar(100);
 
