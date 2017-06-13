@@ -2,7 +2,7 @@
  
       <footer>
         <p class="pull-right"><a href="#">Back to top</a></p>
-        <p>&copy; Desenvolvido por Vanessa Nunes , Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        <p style="text-align: center; color: #000;">&copy; Desenvolvido por estudantes do curso de ADS , Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
       </footer>
 
     </div><!-- /.container -->

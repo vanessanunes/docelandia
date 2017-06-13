@@ -1,17 +1,4 @@
-  body {
-      font: 400 15px Lato, sans-serif;
-      line-height: 7.0;
-      color: #818181;
-  }
-  
-  hr{
-color: #f00;
-      background-color: #f00;
-      height: 2px;
-      width: 26%;
-      float: left;
 
-  }
   
   .navbar {
       margin-bottom: 0;
@@ -36,63 +23,5 @@ color: #f00;
       color: #fff !important;
   }
 
+ 
   
-  #fieto{
-      background-image: url("../image/Home.jpg");
-      background-size: cover;
-      background-position: center center;
-      position: relative;
-      top:0;
-      bottom:0;
-      height: 100vh;
-      z-index: -10;
-  }
-  
-  #fieto-overlay{
-      position: absolute;
-      background-image: url("../image/logoteste.png");
-      background-color: rgba(0,0,0,0.5);
-      top: 0;
-      bottom: 0;
-      height: 100%;
-      width: 100%;
-      z-index: -5;
-  }
-  .controle-doc{
-    
-    text-align: center;
-    font-size: 1.9em;
-   color: #fff;
-font-family: "Georgia", "Palatino", "serif";
-  }
-  /*Teste*/
-  span{
-    
-     text-align: center;
-     font-size: 1.5em;
-     animation-duration: 3s;
-     animation-name: slidein;
-     animation-iteration-count: infinite;
-     font-family: "Courier New", "Monaco", "monospace";
-     border-radius: 5px;
-     -webkit-border-radius: 5px;
-     -moz-border-radius: 5px;
-     animation-name: mover;
-     animation-delay: 1s;
-     animation-duration: 5s;
-     animation-iteration-count: 2s;
-  }
-  
-  .LoginCol{
-      height: 100px;
-      width: 100px;
-      background-color: #000;
-      margin-top: 25%;
-       }
-  
-       
-       input{
-           width: 10px;
-           height: 10px;
-       }
-       

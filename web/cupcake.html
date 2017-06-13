@@ -1,0 +1,287 @@
+
+<!DOCTYPE HTML>
+<head>
+<title>Docelândia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta charset="utf-8">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script> 
+<script type="text/javascript" src="js/move-top.js"></script>
+<link href="css/sprtd.css" rel="stylesheet" type="text/css"/ >
+<link rel="stylesheet" href="css/global.css">
+<script src="js/easyResponsiveTabs.js" type="text/javascript"></script>
+<link href="css/easy-responsive-tabs.css" rel="stylesheet" type="text/css" media="all"/>
+<script src="js/slides.min.jquery.js"></script>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/ >
+            <!-- Chamadas JS -->
+            <script src="js/jquery.min.js"></script>
+              <script src="js/bootstrap.js"></script>
+<script>
+		$(function(){
+			$('#products').slides({
+				preload: true,
+				preloadImage: 'img/loading.gif',
+				effect: 'slide, fade',
+				crossfade: true,
+				slideSpeed: 350,
+				fadeSpeed: 500,
+				generateNextPrev: true,
+				generatePagination: false
+			});
+		});
+	</script>
+</head>
+<body>
+<!-- Menu responsivo -->
+<nav role="navigation" class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    
+  
+<div class="navbar-header">
+      <a class="navbar-brand" href="index.jsp"></a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse" >
+        
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- Logo -->
+      
+    </div>
+    <!-- Menu normal responsivo  -->
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.jsp">Inicio </a></li>
+        
+         <li><a href="view/login.jsp">Login</a><li>
+           <li><a href="#">Contato</a></li>
+        <li><a href="quemsomos.jsp">Quem somos</a></li>
+        
+      </ul>
+
+  </div>
+</nav>
+<div class="wrap">
+<div class="header">
+<div class="headertop_desc">
+
+
+<div class="header_top">
+
+<div class="cart">
+			  	   <p>Verifique seus Itens <span>Carrinho:</span><div id="dd" class="wrapper-dropdown-2"> 0 item(s) - R$0.00
+			  	   	<ul class="dropdown">
+							<li>Você não possui nenhum item no seu carrinho</li>
+					</ul></div></p>
+<script type="text/javascript">
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents : function() {
+					var obj = this;
+
+					obj.dd.on('click', function(event){
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});	
+				}
+			}
+
+			$(function() {
+
+				var dd = new DropDown( $('#dd') );
+
+				$(document).click(function() {
+					// all dropdowns
+					$('.wrapper-dropdown-2').removeClass('active');
+				});
+
+			});
+
+		</script>
+</div>
+
+
+</div>
+
+
+<div class="main">
+<div class="content">
+<div class="content_top">
+
+
+<div class="section group">
+<div class="cont-desc span_1_of_2">
+<div class="product-details">
+<div class="grid images_3_of_2">
+<div id="container">
+<div id="products_example">
+<div id="products">
+<div class="slides_container"><img alt=" " height="250" src="images/produtoss/CUPCAKESSSSSS.jpg" width="300" /> </div> <!--Trocar IMG PRINCIPAL-->
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="desc span_3_of_2">
+<h2>Cupcake!</h2><!--Trocar NOME DO PRODUTO-->
+<div class="price">
+<p>Preço: <span>R$15,00</span></p><!--Trocar preço do produto-->
+</div>
+<div class="available">
+<p>Escolha sua opcao:</p>
+
+<ul>
+	<li>Sabor: <select><option selected="selected">Morango</option><option selected="selected">Chocolate</option><option selected="selected">Baunilha</option><select></select></li> <!--Trocar os sabores-->
+
+	<li>Quantidade:<select><option selected="selected">1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></li><!--Trocar a qnt-->
+</ul>
+</div>
+
+
+
+<div class="available">
+</div>
+
+<div class="share-desc">
+
+<div class="button"><span><a href="#">Adicionar ao Carrinho</a></span></div>
+
+
+
+</div>
+
+<div class="clear">&nbsp;</div>
+</div>
+
+<div class="product_desc">
+<div id="horizontalTab">
+<div class="clear">&nbsp;</div>
+
+<ul class="resp-tabs-list">
+	<li>Detalhes do Produtos</li>
+	<li>Receita</li>
+	<li>Avaliacao do produto</li>
+</ul>
+
+<div class="resp-tabs-container">
+<div class="product-desc">
+<tr style="position: relative;"><td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="font-size: 20px; color: rgb(255, 22, 84);">Descrição do Produto</span><br><br><span style="font-family: Georgia, serif;">Bolo branco, recheio a base de leite condensado, Chocolate e Morango</span>
+
+</td></tr> <!--Trocar os detalhes do produto-->
+</div>
+
+<div class="product-tags">
+<tr style="position: relative;"><td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="font-size: 20px; color: rgb(255, 22, 84);">Ingredientes</span> <br>
+7 colheres de sopa de farinha de trigo<br>
+7 colheres de sopa de açúcar refinado<br>
+2 colheres de nescau OU de chocolate<br>
+3 ovos<br>
+1 colher de chá de essência de baunilha<br>
+2 colheres de sobremesa de margarina sem sal<br>
+1/2 colher de sopa de fermento royal<br>
+PARA ASSAR:<br>
+
+12 forminhas para cupcake de papel ou de silicone<br>
+12 forminhas de metal (aquela de empadinha)<br>
+1 forma grande</p> <!--Trocar A receita do produto-->
+
+</div>
+
+<div class="review">
+
+<tr style="position: relative;"><td align="left" style="font-size: 12px ;color: #000000;" valign="middle">
+<span style="background-color: rgb(255, 255, 255); font-size: 20px; color: rgb(255, 22, 84);">Avaliações</span><br><br>
+<span style="font-size: 12px; font-family: Georgia, serif;">Não há avaliações ainda.</span><br><br>
+<span style="color: rgb(255, 22, 84); font-size: 20px;">Seja o primeiro a avaliar Bolo Churros<br></span><br>
+<span style="font-family: Georgia, serif;">Você deve estar&nbsp;logado&nbsp;para publicar uma avaliação.</span></td></tr> <!--Trocar a avaliação do produto-->
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#horizontalTab').easyResponsiveTabs({
+            type: 'default', //Types: default, vertical, accordion           
+            width: 'auto', //auto or any width like 600px
+            fit: true   // 100% fit in a container
+        });
+    });
+   </script>
+
+	<div class="outros"> 
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="font-size: 21px; font-family: Georgia, serif; color: rgb(255, 22, 84);">Outros Produtos</span><br></td>
+</div>
+
+
+
+
+<div class="section group">
+<div class="grid_1_of_4 images_1_of_4"><a href="tortababademoca.html"><img alt="" src="images/produtoss/TORTABABADEMOÇA.png" /></a><!--Trocar a img-->
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="font-size: 18px; color: rgb(255, 22, 84); font-family: Georgia, serif;">Torta Baba de Moça&nbsp;</span><br></td>
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="color: rgb(153, 51, 0); font-family: Georgia, serif;">R$:46,50</span><br></td>
+<div class="price" style="border-top: medium none; border-right: medium none; border-bottom: medium none; border-left: medium none">
+<div class="add-cart" style="float: none">
+<h4><a href="tortababademoca.html">Adicionar ao carrinho</a></h4>
+</div>
+
+<div class="clear">&nbsp;</div>
+</div>
+</div>
+
+<div class="grid_1_of_4 images_1_of_4"><a href="tortasuica.html"><img alt="" src="images/produtoss/TORTASUIÇA.png" /></a><!--Trocar a img-->
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="font-size: 18px; color: rgb(255, 22, 84); font-family: Georgia, serif;">Torta Suiça&nbsp;</span><br></td>
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="color: rgb(153, 51, 0); font-family: Georgia, serif;">R$:57,00</span><br></td>
+<div class="price" style="border-top: medium none; border-right: medium none; border-bottom: medium none; border-left: medium none">
+<div class="add-cart" style="float: none">
+<h4><a href="tortasuica.html">Adicionar ao carrinho</a></h4>
+</div>
+
+<div class="clear">&nbsp;</div>
+</div>
+</div>
+
+<div class="grid_1_of_4 images_1_of_4"><a href="coxinhademorango.html"><img alt="" src="images/produtoss/COXINHAMORANGO.jpg" width="220" height="148" /></a><!--Trocar a img-->
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="font-size: 18px; color: rgb(255, 22, 84); font-family: Georgia, serif;">Coxinha de Morango&nbsp;</span><br></td>
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="color: rgb(153, 51, 0); font-family: Georgia, serif;">R$:15,00</span><br></td>
+<div class="price" style="border-top: medium none; border-right: medium none; border-bottom: medium none; border-left: medium none">
+<div class="add-cart" style="float: none">
+<h4><a href="coxinhademorango.html">Adicionar ao carrinho</a></h4>
+</div>
+
+<div class="clear">&nbsp;</div>
+</div>
+</div>
+
+<div class="grid_1_of_4 images_1_of_4"><a href="tortadefruta.html"><img alt="" src="images/produtoss/TORTA DE FRUTAS.png" /></a><!--Trocar a img-->
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="font-size: 18px; color: rgb(255, 22, 84); font-family: Georgia, serif;">Torta de Frutas&nbsp;</span><br></td>
+<td align="left" style="font-size: 12px; color: #000000;" valign="middle"><span style="color: rgb(153, 51, 0); font-family: Georgia, serif;">R$:55,00</span><br></td>
+<div class="price" style="border-top: medium none; border-right: medium none; border-bottom: medium none; border-left: medium none">
+<div class="add-cart" style="float: none">
+<h4><a href="tortadefruta.html">Adicionar ao carrinho</a></h4>
+</div>
+
+<div class="clear">&nbsp;</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

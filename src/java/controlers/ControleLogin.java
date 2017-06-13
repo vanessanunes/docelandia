@@ -47,10 +47,18 @@ public class ControleLogin extends HttpServlet {
             switch (flag) {
                 case "login":
                     try {
+                        //Verifica se os campos estão em branco
+                        if(user.equals("") || senha.equals("")){
+                            request.setAttribute("erro", "Algum campo esta em branco!");
+                            
+                            request.getRequestDispatcher("login.jsp").
+                            forward(request, response);
+                        }
+                        
                         LoginDAO logDAO = new LoginDAO();
                         logDAO.getLogin(user, senha);
                                                
-                        
+                        //Se houver cadastro correspondente
                         if(logDAO.getTotalRegistros() >= 1){
                             System.out.print("Login encontrado");
                             int tipo = 0;
@@ -64,27 +72,23 @@ public class ControleLogin extends HttpServlet {
                             }
                             
                             if (tipo == 1){
-                                ClienteDAO clieDAO = new ClienteDAO();
-                                String nome="";
-                                                             
-                                List<Cliente> listaCliente = clieDAO.Pesquisar(primaria);
+                                request.setAttribute("chave", primaria);
                                 
-                                for(Cliente clie: listaCliente){
-                                    nome = clie.getNome();
-                                }
-                         
-                                
+                                request.getRequestDispatcher("menu.jsp").
+                                forward(request, response);
                             }
                             
                             else if (tipo == 2){                             
                                 request.setAttribute("chave", primaria);
-                                request.getRequestDispatcher("view/erro.jsp").
+                                
+                                request.getRequestDispatcher("painelF.jsp").
                                 forward(request, response);
                             }
                             
                         }
-                        else
-                            System.out.print("Login não encontrado");
+                        else{
+                            
+                        }
                         
                     } catch (Exception e){
                         System.out.print("Erro na instancia DAO");

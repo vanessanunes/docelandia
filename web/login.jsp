@@ -7,7 +7,7 @@
         	</div>
         
         <div id="inputs">
-        	<form id='login' action='ControleLogin' method='post' accept-charset='UTF-8' style="margin-left:6px;">
+        	<form id='login' action='ControleLogin' method='post' accept-charset='UTF-8' >
 				
 				<input type='hidden' name='submitted' id='submitted' value='1'/>
 
@@ -28,7 +28,8 @@
 	        <div id="bottom">
 	         
                   <a href="cadastro_cliente.jsp">Crie sua conta</a>
-	          <a class="right_a" href="#">Esqueçeu sua senha?</a>
+	          <a class="right_a" href="#">Esqueçeu sua senha?</a><br>
+                  <a href="cadastro_funcionario.jsp">Crie funcionario</a>
 	        </div>
         </div>
     

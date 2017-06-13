@@ -6,20 +6,26 @@
             <file>file:/C:/Users/Bruno/docelandia/MySQL%20Docelândia.sql</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleProduto.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/models/EnderecoDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleLogin.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/cadastro_telefone.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/cadastro_cliente.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/logout.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleFuncionario.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/menu.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Cliente.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/ClienteDAO.java</file>
             <file>file:/C:/Users/Bruno/docelandia/web/cadastro_funcionario.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleCliente.java</file>
             <file>file:/C:/Users/Bruno/docelandia/web/view/erro.jsp</file>
-            <file>file:/C:/Users/Bruno/docelandia/src/java/models/LoginDAO.java</file>
-            <file>file:/C:/Users/Bruno/docelandia/web/index.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/mensagem.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Telefone.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/beans/Endereco.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/models/TelefoneDAO.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/listar_produtos.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/erro.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/src/java/controlers/ControleLogin.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/painelF.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/cadastro_telefone.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/cadastro_cliente.jsp</file>
+            <file>file:/C:/Users/Bruno/docelandia/src/java/models/ClienteDAO.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/src/java/models/LoginDAO.java</file>
+            <file>file:/C:/Users/Bruno/docelandia/web/index.jsp</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/utils/Utilidades.java</file>
             <file>file:/C:/Users/Bruno/docelandia/src/java/models/FuncionarioDAO.java</file>
             <file>file:/C:/Users/Bruno/docelandia/web/login.jsp</file>

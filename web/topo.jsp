@@ -13,7 +13,7 @@
     <title>Docelânida</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/ >
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <!--<link href="css/sprtd.css" rel="stylesheet" type="text/css"/>-->
@@ -39,7 +39,7 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="index.jsp">Home</a></li>
+                <li><a href="index.jsp">Home</a></li>
                 <li><a href="listar_produtos.jsp">Produtos</a></li>
                 <li><a href="login.jsp">Login</a></li>
                 <li><a href="quemsomos.jsp">Quem somos</a></li>
