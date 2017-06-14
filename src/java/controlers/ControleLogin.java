@@ -47,14 +47,7 @@ public class ControleLogin extends HttpServlet {
             switch (flag) {
                 case "login":
                     try {
-                        //Verifica se os campos estão em branco
-                        if(user.equals("") || senha.equals("")){
-                            request.setAttribute("erro", "Algum campo esta em branco!");
-                            
-                            request.getRequestDispatcher("login.jsp").
-                            forward(request, response);
-                        }
-                        
+                                                
                         LoginDAO logDAO = new LoginDAO();
                         logDAO.getLogin(user, senha);
                                                
@@ -68,7 +61,7 @@ public class ControleLogin extends HttpServlet {
                             
                             for(Login login: listaLogin){
                                 tipo = login.getTipo_user();
-                                primaria = login.getId_user();                             
+                                primaria = login.getId_user();
                             }
                             
                             if (tipo == 1){
@@ -79,9 +72,19 @@ public class ControleLogin extends HttpServlet {
                             }
                             
                             else if (tipo == 2){                             
-                                request.setAttribute("chave", primaria);
+                                String nome = null;
                                 
-                                request.getRequestDispatcher("painelF.jsp").
+                                FuncionarioDAO funcDAO = new FuncionarioDAO();
+                                
+                                List<Funcionario> listaFunc = funcDAO.Pesquisar(primaria);
+                                
+                                for(Funcionario func: listaFunc){
+                                    nome = func.getNome();
+                                }
+                                
+                                request.setAttribute("nome", nome);
+                                
+                                request.getRequestDispatcher("menu.jsp").
                                 forward(request, response);
                             }
                             

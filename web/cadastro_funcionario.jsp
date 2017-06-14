@@ -209,22 +209,11 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="estado">Estado</label>  
   <div class="col-md-4">
-      <input id="estado" name="estado" type="text" placeholder="estado" class="form-control input-md">
+      <input id="estado" name="uf" type="text" placeholder="estado" class="form-control input-md">
           
  
   </div>
 </div>
-
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for="numero_tel">Numero</label>  
-  <div class="col-md-4">
-      <input id="numero_tel" name="numero_tel" type="text" placeholder="numero" class="form-control input-md">
-          
- 
-  </div>
-</div>
-
 
 <div class="form-group">
 
@@ -235,10 +224,18 @@
         <option value="1"> Casa </option> 
         <option value="2"> Amigo </option> 
         <option value="3"> Vizinho </option>
-        <option value="4"> Ricardão </option> 
+        <option value="4"> Recado </option> 
     </select> </div>
 </div>
 
+<div class="form-group">
+  <label class="col-md-4 control-label" for="numero_tel">Numero tel:</label>  
+  <div class="col-md-4">
+      <input id="numero_tel" name="numero_tel" type="text" placeholder="numero" class="form-control input-md">
+          
+ 
+  </div>
+</div>
       
 
 <div class="form-group">
@@ -247,10 +244,10 @@
     <div class="col-md-4">
     <select class="form-control" id="tipo_tel" name="tipo_tel" required=""> 
         <option value="0"> --- </option> 
-        <option value="1"> pessoal</option> 
-        <option value="2"> residencia </option> 
-        <option value="3"> comercial </option>
-        <option value="4"> recado </option> 
+        <option value="1"> Pessoal</option> 
+        <option value="2"> Residencia </option> 
+        <option value="3"> Comercial </option>
+        <option value="4"> Recado </option> 
     </select> </div>
 </div>
 
@@ -269,7 +266,7 @@
 
 <!-- Button -->
 <div class="form-group">
-  <label class="col-md-4 control-label" >Enviar</label>
+  <label class="col-md-4 control-label" >---</label>
   <div class="col-md-4">
       <input type="hidden" name="flag" value="cadastro">
     <button type="submit" name="flag" class="btn btn-primary">Enviar</button>

@@ -6,15 +6,12 @@
 
 <%
     try {
-        String user = request.getParameter("user");
-        String senha = request.getParameter("senha");
+        String nome = request.getAttribute("nome").toString();
         
-        if(user.equals("") || senha.equals("")){
-            response.sendRedirect("login.jsp");
-        }
-        else{
+        
+            session.setAttribute("user", nome);
             
-        }
+        
         
 %>
 
@@ -51,13 +48,14 @@
 <div class="container col-md-4 col-md-offset-4">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h2 class="panel-title h1"><%= titulo%></h2>
+            <h2 class="panel-title h1"></h2>
         </div>
         <div class="panel-body">
-            <h3>Aqui vai algo</h3>
+            <h3></h3>
         </div>                        
     </div>
-</div>            
+</div>    
+
 <%
 } catch (Exception e) {
 %>
@@ -65,7 +63,7 @@
 <div class="container col-md-4 col-md-offset-4">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h2 class="panel-title h1">Olá, seja bem vindo a Docêlandia!</h2>
+            <h2 class="panel-title h1">Olá, seja bem vindo a Docêlandia! </h2>
         </div>
         <div class="panel-body">
             <p>Bem vindo a central do usuario de Docelandia.

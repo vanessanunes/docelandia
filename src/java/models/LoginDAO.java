@@ -77,7 +77,7 @@ public class LoginDAO {
                     log.setId_user(rs.getInt("id_user"));
 
                     logins.add(log);
-   
+                    System.out.print("Login: " +log.getNome_user());
                     totalRegistros++;
                 }
 
@@ -89,6 +89,7 @@ public class LoginDAO {
 
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
+//            System.out.printf("Deu exception aqui no login");
         }
     }
     

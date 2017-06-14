@@ -328,7 +328,7 @@ border-bottom: 1px solid rgb(255, 22, 84);
 	background: rgb(255, 0, 64);
 	text-decoration: none;
 }
-}
+
 /**** Responsive Layout ****/
 @media only screen and (max-width: 1024px) {
 	.wrap {

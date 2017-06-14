@@ -52,7 +52,6 @@ public class ControleFuncionario extends HttpServlet {
             String status;
             
             // Valores para cadastro de funcionario
-            String user = request.getParameter("user");
             String senha = request.getParameter("senha");
             
             String nome = request.getParameter("nome");
@@ -78,7 +77,20 @@ public class ControleFuncionario extends HttpServlet {
             String tipo_tel = request.getParameter("tipo_tel");
             String descricao = request.getParameter("descricao");
             
+            /*
+            String nome = null;
+                                
+                                FuncionarioDAO funcDAO = new FuncionarioDAO();
+                                
+                                List<Funcionario> listaFunc = funcDAO.Pesquisar(primaria);
+                                
+                                for(Funcionario func: listaFunc){
+                                    nome = func.getNome();
+                                }
+                                
+                                request.setAttribute("nome", nome);
             
+            */
             Funcionario funcionario = new Funcionario();
             Login log = new Login();
            
@@ -102,7 +114,7 @@ public class ControleFuncionario extends HttpServlet {
                         funcionario.setSexo(sexo);
                         
                         log.setId_log(id_gerada);
-                        log.setNome_user(user);
+                        log.setNome_user(email);
                         log.setSenha(senha);
                         log.setId_user(funcionario.getId_func());
                         log.setTipo_user(2);
